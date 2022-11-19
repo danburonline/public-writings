@@ -4,6 +4,7 @@
 \usepackage{natbib}
 \renewcommand{\bibsection}{\section*{Bibliography}}
 \usepackage{hyperref}
+\usepackage[font=small,skip=7pt]{caption}
 \hypersetup{
   colorlinks = true,
   urlcolor = blue,
@@ -59,6 +60,17 @@ Marc Andreessen, who was the founder of Netscape Communications, proposed that H
 \end{figure}
 
 That was the reason they hired the experienced programming language and network code developer Brendan Eich. Brendan’s first task was the nearly unachievable goal of creating such a scripting language for the web — due in 10 days. They (later) called it: JavaScript (Severance, 2012).
+
+\section{JavaScript’s Destiny}
+\label{sec:javascript-destiny}
+
+I don’t need to dig too deep into the history of the web to show you one crucial pain point of today’s web technology standards: JavaScript is a scripting language for the browser to interpret. I repeat it: JavaScript is a scripting language for the browser to interpret — not some fancy multi-paradigm system programming language that focuses on speed, security or code maintainability. It was supposed and designed to be an easy-to-understand dynamically-typed scripting language to give your website some cool DOM manipulations and decorative animations.
+
+Nevertheless, see what happened:
+
+\begin{quote}
+  \emph{Any application that can be written in JavaScript, will eventually be written in JavaScript. – Jeff Atwood}
+\end{quote}
 
 \pagebreak
 \bibliographystyle{references/custom-apa}
