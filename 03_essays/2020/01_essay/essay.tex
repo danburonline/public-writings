@@ -1,6 +1,14 @@
 \documentclass[11pt]{article}
 
 \usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = blue,
+  linkcolor = black,
+  citecolor = blue
+}
 
 \title{WebAssembly and the Wizards of Hogwarts}
 \author{Daniel Burger}
@@ -10,15 +18,48 @@
 \maketitle
 \pagebreak
 
+\begin{abstract}
+  There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a front-end developer — everyone will be able to profit from WebAssembly’s existence.
+
+  In this article, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
+
+\end{abstract}
+\pagebreak
+
 \tableofcontents
 \pagebreak
 
-% \section{Section 1}
+\section{Introduction}
+\label{sec:introduction}
 
-% Lorem Ipsum
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/001.jpg}
+  \caption{Harry Potter dress form with a black jacket \citep{unsplash_beautiful_2018}}
+  \label{fig:cover}
+\end{figure}
 
-% \pagebreak
-% \section{Section 2}
-% Lorem Ipsum
+On the 17th of June 2015, Brendan Eich — the inventor of JavaScript — and the teams behind Mozilla, Chromium, Edge and WebKit presented a new browser standard: WebAssembly, a portable and highly efficient byte-code compilation target for high-level languages such as C++ and Rust (Eich, 2015).
 
+However, what does this mean? What is the reason that WebAssembly should exist in the first place? Should JavaScript developers be worried now? And what do the wizards of Hogwarts have to do with it?
+
+\section{Web Development Back Then}
+\label{sec:back-then}
+
+Back in the day when you could call yourself web developer because you only understood HTML, web development itself was a rather interactionless and static field of business. Netscape Communications, one of the establishing companies who built the world wide web as we know it today, soon realised that websites lacked to be interactive and dynamic (Cassel, 2018). They wanted the web to be a new form of a distributed operating system rather than just a simple HTML document-accessing application on your computer.
+
+Marc Andreessen, who was the founder of Netscape Communications, proposed that HTML needed some kind of “scripting language” that was approachable — something you could glue directly into the markup. A language that is easy to use by newbie programmers who didn’t want to handle compiler errors or strictly-typed syntax.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/002.jpg}
+  \caption{Screenshot of the Netscape start-page \citep{npr_home_nodate}}
+  \label{fig:netscape}
+\end{figure}
+
+That was the reason they hired the experienced programming language and network code developer Brendan Eich. Brendan’s first task was the nearly unachievable goal of creating such a scripting language for the web — due in 10 days. They (later) called it: JavaScript (Severance, 2012).
+
+\pagebreak
+\bibliographystyle{references/custom-apa}
+\bibliography{references/refs}
 \end{document}
