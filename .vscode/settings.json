@@ -1,9 +1,25 @@
 {
   "cSpell.words": [
     "Andreessen",
+    "basicstyle",
+    "breakatwhitespace",
+    "breaklines",
+    "captionpos",
+    "codegray",
+    "codegreen",
+    "codepurple",
     "Eich",
     "interactionless",
+    "keepspaces",
+    "keywordstyle",
+    "numbersep",
+    "numberstyle",
     "pdfpagemode",
-    "runtimes"
+    "runtimes",
+    "showspaces",
+    "showstringspaces",
+    "showtabs",
+    "stringstyle",
+    "tabsize"
   ]
 }
