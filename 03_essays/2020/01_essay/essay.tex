@@ -1,22 +1,26 @@
 \documentclass[10pt]{article}
-\usepackage[T1]{fontenc}
+
+% Packages
 \usepackage{tgtermes}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{tocloft}
-\usepackage[nottoc]{tocbibind}
+\usepackage{xcolor}
 \usepackage{siunitx}
 \usepackage{listings}
-\usepackage[breaklinks]{hyperref}
 \usepackage{tocloft}
+\usepackage[T1]{fontenc}
+\usepackage[nottoc]{tocbibind}
+\usepackage[breaklinks]{hyperref}
 \usepackage[font=small,skip=7pt]{caption}
-\usepackage{xcolor}
 
+% Custom colours
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+% Listing styles
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
@@ -35,16 +39,17 @@
     showtabs=false,
     tabsize=2
 }
-
 \lstset{style=mystyle}
 
+% Custom commands
+\renewcommand\cftsecafterpnum{\vskip8pt}
 \renewcommand{\lstlistlistingname}{List of \lstlistingname s}
 \renewcommand{\bibsection}{\section*{Bibliography}}
 \renewcommand{\contentsname}{Table of Contents}
-\renewcommand\cftsecafterpnum{\vskip10pt}
 \renewcommand{\bibsection}{\section{\bibname}}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
+% Custom settings
 \PassOptionsToPackage{hyphens}{url}
 \urlstyle{same}
 \def\Urlmuskip{0mu}
@@ -73,9 +78,9 @@
 
 \maketitle
 \thispagestyle{empty}
-\begin{sloppypar} % For better line breaks
+\pagebreak
 
-  \pagebreak
+\begin{sloppypar} % For better line breaks
   \begin{abstract}
     There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a front-end developer — everyone will be able to profit from WebAssembly’s existence.
 
@@ -91,8 +96,10 @@
 
   \listoffigures
   \pagebreak
+
   \listoftables
   \pagebreak
+
   \addcontentsline{toc}{section}{\lstlistlistingname}
   \lstlistoflistings
   \pagebreak
@@ -112,7 +119,7 @@
 
   However, what does this mean? What is the reason that WebAssembly should exist in the first place? Should JavaScript developers be worried now? And what do the wizards of Hogwarts have to do with it?
 
-  \section{Web Development Back Then}
+  \subsection{Web Development Back Then}
   \label{sec:back-then}
 
   Back in the day when you could call yourself web developer because you only understood HTML, web development itself was a rather interactionless and static field of business. Netscape Communications, one of the establishing companies who built the world wide web as we know it today, soon realised that websites lacked to be interactive and dynamic \citep{cassel_brendan_2018}. They wanted the web to be a new form of a distributed operating system rather than just a simple HTML document-accessing application on your computer.
@@ -128,7 +135,7 @@
 
   That was the reason they hired the experienced programming language and network code developer Brendan Eich. Brendan’s first task was the nearly unachievable goal of creating such a scripting language for the web — due in 10 days. They (later) called it: JavaScript \citep{severance_javascript_2012}.
 
-  \section{JavaScript’s Destiny}
+  \subsection{JavaScript’s Destiny}
   \label{sec:javascript-destiny}
 
   I don’t need to dig too deep into the history of the web to show you one crucial pain point of today’s web technology standards: JavaScript is a scripting language for the browser to interpret. I repeat it: JavaScript is a scripting language for the browser to interpret — not some fancy multi-paradigm system programming language that focuses on speed, security or code maintainability. It was supposed and designed to be an easy-to-understand dynamically-typed scripting language to give your website some cool DOM manipulations and decorative animations.
@@ -150,14 +157,14 @@
     \label{fig:atwood-law}
   \end{figure}
 
-  \section{Treacherous Atwood’s Law}
+  \subsection{Treacherous Atwood’s Law}
   \label{sec:atwood-law}
 
   There are thousands of courses, books and tutorials on how to learn JavaScript. Every computer-related school now or then teaches JavaScript. Nearly everyone could be able to learn it anywhere with a minimum amount of effort. If you search for “Learn JavaScript” on Google, you’ll get \num{2220000000} search results. In comparison: When you search “Learn Java” you’ll get \num{305000000} results.
 
   Though, is that a good thing? Is an originally lightweight scripting language capable of ruling the world of computational web development? My opinion: No, it’s not, and I believe there won’t be such a bright future for JavaScript as nearly everybody claims. Let me explain it with a Harry Potter analogy:
 
-  \section{Muggles Entering Hogwarts}
+  \subsection{Muggles Entering Hogwarts}
   \label{sec:muggles}
 
   Do you know how it feels to watch front-end developers call themselves “full-stack software developer” after they’ve simply learned NodeJS? It feels like Muggles entering Hogwarts—a school full of wizards. Only that in our case these wizards are trained software engineers and computer scientists. These are the people who learn all the hardcore-implemented algorithms and compilers, programming languages and operating systems. They know precisely how to build software \citep{might_what_2011}.
@@ -180,7 +187,7 @@
 
   WebAssembly is the new player in the web development industry. It’s fast, small, non-readable and not even a real programming language. Yes, you heard that right. You literally can’t code in WebAssembly \citep{rourke_learn_2018}. So I may hear you asking: Why should we all be excited about it? Well, as mentioned earlier, it’s a compilation byte-format target for high-level languages. You write your code in such a high-level language like C or C++ and compile it down to WebAssembly. The magic trick: It works in the browser, and it’s super fast — sometimes about 5 to 20 times faster than JavaScript \citep{aboukhalil_how_2019}.
 
-  \section{WebAssembly in a Nutshell}
+  \subsection{WebAssembly in a Nutshell}
   \label{sec:in-a-nutshell}
 
   Enough with the marketing fuzz. The real face behind the term “WebAssembly” isn’t that uniform as it’s being marketed. WebAssembly itself is only a piece of a bigger technology chain of workflows and concepts. There are several other key components that are important for delivering super-fast web applications. It’s also good to know what its current limitations are and for which use cases it’s the best. But first, let me introduce you to the five key components:
