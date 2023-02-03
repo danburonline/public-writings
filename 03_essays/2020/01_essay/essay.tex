@@ -51,7 +51,7 @@
   colorlinks = true,
   urlcolor = blue,
   linkcolor = black,
-  citecolor = blue,
+  citecolor = black,
   breaklinks=true,
   pdfpagemode=UseOutlines,
   bookmarksopen=true,
@@ -64,22 +64,26 @@
   \date{7. November 2020}
 
 \begin{document}
+\pagenumbering{roman}
 \counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
 \maketitle
+\thispagestyle{empty}
 \begin{sloppypar} % For better line breaks
-  \pagebreak
 
+  \pagebreak
   \begin{abstract}
     There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a front-end developer — everyone will be able to profit from WebAssembly’s existence.
 
     In this article, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
 
   \end{abstract}
+  \thispagestyle{empty}
   \pagebreak
 
+  \pagenumbering{Roman}
   \tableofcontents
   \pagebreak
 
@@ -91,6 +95,7 @@
   \lstlistoflistings
   \pagebreak
 
+  \pagenumbering{arabic}
   \section{Introduction}
   \label{sec:introduction}
 
