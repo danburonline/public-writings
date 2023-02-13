@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{authblk}
+\usepackage{array}
+\usepackage{colortbl}
 \usepackage{tocloft}
 \usepackage{xcolor}
 \usepackage{siunitx}
@@ -75,7 +77,7 @@
   \author[1]{Daniel Burger}
   \affil[1]{\textbf{King's College London}}
   \affil[ ]{\href{mailto:daniel.burger@kcl.ac.uk}{daniel.burger@kcl.ac.uk}}
-  \date{\textit{13. February 2023}}
+  \date{\textit{14. February 2023}}
 
 \begin{document}
 \pagenumbering{roman}
@@ -105,9 +107,9 @@
   \listoftables
   \pagebreak
 
-  \addcontentsline{toc}{section}{\lstlistlistingname}
-  \lstlistoflistings
-  \pagebreak
+  % \addcontentsline{toc}{section}{\lstlistlistingname}
+  % \lstlistoflistings
+  % \pagebreak
 
   % Double spacing for feedback
   \doublespacing
@@ -116,7 +118,30 @@
   \section{Introduction}
   \label{sec:introduction}
 
-  Animal models have been invaluable tools in biomedical research, particularly in the field of neuroscience. Through the use of animal models, it is possible to delve into the complexity of our brains and uncover ways that diseases manifest themselves. In vitro, in vivo, and in silico research are some of the methods utilised in neuroscience research. However, in vivo animal models provide a unique advantage in allowing researchers to study the entire organism in a controlled environment, where many variables can be controlled.
+  Animal models have been invaluable tools in biomedical research, particularly in the field of neuroscience. Through the use of animal models, it is possible to delve into the complexity of our brains and uncover ways that diseases manifest themselves. In vitro, in vivo, and in silico research are some of the methods utilised in neuroscience research, as shown in \autoref{tab:overview-research-methods}. However, in vivo animal models provide a unique advantage in allowing researchers to study the entire organism in a controlled environment, where many variables can be controlled.
+
+  \vspace{5pt} % Increase vertical spacing before table
+  \begin{table}[ht]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increase vertical spacing
+    \setlength{\tabcolsep}{12pt} % Increase horizontal spacing
+    \resizebox{\linewidth}{!}{%
+      \begin{tabular}{|>{\hspace{0pt}}m{0.18\linewidth}|>{\hspace{0pt}}m{0.78\linewidth}|} % adjust column widths
+        \hline
+        \rowcolor[rgb]{0.961,0.961,0.961} \textbf{Method} & \textbf{Definition}                                                                                                         \\
+        \hline
+        In vitro                                          & Research conducted using isolated biological components in a controlled environment, such as cell cultures or organoids.    \\
+        \hline
+        In vivo                                           & Research conducted using living organisms, often using animal models, to study the effects of a treatment or intervention.  \\
+        \hline
+        In silico                                         & Research conducted using computational models or simulations to predict the effects of interventions on biological systems. \\
+        \hline
+      \end{tabular}
+    }
+    \caption{Comparison of In Vitro, In Vivo, and In Silico Research Methods.}
+    \label{tab:overview-research-methods}
+  \end{table}
+
 
   The use of animal models is crucial in the study of diseases affecting the human brain. While we cannot use humans in every case due to ethical concerns, animal models allow us to study the progression of diseases in a way that is impossible with human subjects. In addition, researchers can use animal models to investigate disease mechanisms at the molecular, cellular, and systemic levels, which is difficult or impossible to do in humans since, for example, the lifespan of animal models such as zebrafish and mice is much shorter than that of humans making it more efficient to study the progression of diseases in these models.
 
