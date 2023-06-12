@@ -1,0 +1,134 @@
+% Global document settings
+\documentclass[10pt]{article}
+
+% Packages
+\usepackage{tgtermes}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tocloft}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[T1]{fontenc}
+\usepackage[nottoc]{tocbibind}
+\usepackage[breaklinks]{hyperref}
+\usepackage[font=small,skip=7pt]{caption}
+
+% Custom colours
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Listing styles
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{purple},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=true,
+  showtabs=false,
+  tabsize=2
+  }
+  \lstset{style=mystyle}
+
+  % Custom commands
+  \renewcommand\cftsecafterpnum{\vskip8pt}
+  \renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+  \renewcommand{\bibsection}{\section*{Bibliography}}
+  \renewcommand{\contentsname}{Table of Contents}
+  \renewcommand{\bibsection}{\section{\bibname}}
+  \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+  % Custom settings
+  \captionsetup{justification=centering}
+  \PassOptionsToPackage{hyphens}{url}
+  \urlstyle{same}
+  \def\Urlmuskip{0mu}
+  \def\UrlBreaks{\do\/\do-}
+  \hypersetup{
+    colorlinks = true,
+    urlcolor = blue,
+    linkcolor = black,
+    citecolor = black,
+  breaklinks=true,
+  pdfpagemode=UseOutlines,
+  bookmarksopen=true,
+  bookmarksopenlevel=2,
+  bookmarksnumbered=true
+  }
+
+  \title{\textbf{Evaluating the Quality of Life Concept:} \\ A Critical Examination of its Application and Value in Understanding Mental Health Burdens}
+  \author[ ]{King’s College London}
+  % \affil[ ]{\textbf{King’s College London}}
+  % \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+  \date{\textit{13. June 2023}}
+
+\begin{document}
+\pagenumbering{roman}
+\counterwithin{lstlisting}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{sloppypar} % For better line breaks
+  \begin{abstract}
+    Exploring the link between attention and conscious awareness in cognitive neuroscience has sparked numerous debates. This essay seeks to weigh the evidence supporting the idea that attention is a necessary component of conscious awareness. Drawing on empirical studies and additional philosophical perspectives, it delves into the entwined nature of these cognitive processes and considers opposing viewpoints. Additionally, the essay incorporates related concepts, such as Libet’s delay and the Global Workspace Theory, to provide a more comprehensive understanding of this complex relationship.
+
+    By scrutinising these subjects, this essay aspires to enrich the reader’s comprehension of the interplay between attention and conscious awareness. It synthesises key insights in research, delivering a cohesive and up-to-date overview of prevailing findings.
+  \end{abstract}
+  \pagebreak
+
+  \pagenumbering{Roman}
+  \tableofcontents
+  \pagebreak
+
+  \listoffigures
+  \pagebreak
+
+  \listoftables
+  \pagebreak
+
+
+  % Double spacing for feedback
+  \doublespacing
+
+  \pagenumbering{arabic}
+  \section{Introduction}
+  \label{sec:introduction}
+
+  The understanding of mental health burdens is profoundly nuanced, demanding a multidimensional lens of analysis that extends beyond mere clinical symptoms. Central to this expansive view is the concept of Quality of Life (QoL), a construct that has become pivotal in health research and clinical practice.
+
+  While broadly used, the concept of Quality of Life is complex due to its inherently subjective nature. According to the World Health Organization, QoL is one's understanding of their place in society, shaped by the cultural and moral beliefs of their environment, as well as their personal aspirations, anticipations, principles, and worries \citep{harper_development_1998}. It is a broad-ranging concept, incorporating in a complex way the individual's physical health, psychological state, level of independence, social relationships, personal beliefs and their relationship to salient features of the environment. The domains of QoL, thus, encapsulate not just health but also personal, social, and environmental aspects.
+
+  Applying QoL as a construct extends to various disciplines, including public health, medical practice, psychology, social work, and psychiatry. For instance, in public health, QoL measures can assist in evaluating the health of a population, prioritising health needs, or assessing the effectiveness of health promotion interventions. The QoL concept has been gaining momentum in psychiatry and mental health as an essential outcome measure. Instead of focusing solely on symptomatic relief, mental health professionals increasingly recognise the importance of a more holistic understanding of patients' well-being, including subjective perceptions of satisfaction and functioning.
+
+  The application of QoL in psychiatry can be seen in several areas. In clinical trials, for instance, QoL metrics offer a patient-centred measure that complements traditional outcome markers such as symptom severity or remission rates \citep{malla_first-episode_2005}. Furthermore, QoL assessments can help tailor treatment plans to the individual patient's needs and goals in clinical practice, contributing to shared decision-making processes. Beyond the individual level, QoL measures provide valuable insights into population-based mental health research and policy-making, identifying unmet needs, evaluating intervention effectiveness, and guiding resource allocation.
+
+  In the field of applied neuroscience, QoL is a critical construct to bridge our understanding of the biological underpinnings of mental disorders and the subjective experiences of those affected. While ongoing research investigates how specific neural mechanisms may directly impact QoL, studies have demonstrated that neurological changes associated with mental disorders can significantly affect an individual's perceived life satisfaction. For instance, research has found grey matter reductions in several brain regions in patients experiencing their first episode of depression, highlighting the potential neurological implications on the patient's overall well-being and life satisfaction \citep{zhang_brain_2016}.
+
+  While it is evident that the QoL concept has vast applicability in understanding mental health burdens, it is not without criticisms and limitations. The following chapters will delve into the advantages and drawbacks of the QoL concept, critically examining its role in shaping our understanding of mental health.
+
+  \pagebreak
+  \singlespacing % No need for double spacing in the references
+  \bibliographystyle{references/custom-apa}
+  \bibliography{references/bibliography}
+
+\end{sloppypar}
+\end{document}
