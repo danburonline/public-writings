@@ -54,7 +54,7 @@
 \renewcommand{\bibsection}{\section*{Bibliography}}  % Changes the bibliography section name
 \renewcommand{\contentsname}{Table of Contents}  % Changes the title of the table of contents
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % Changes the leader between section names and page numbers in ToC
-\newcommand{\customcaption}[2]{\caption[#1.]{#1~\citep{#2}.}}
+\newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
 
 
 
@@ -142,7 +142,7 @@
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/netscape.jpg}
-    \caption{Screenshot of the Netscape start-page \citep{npr_home_nodate}}
+    \floatcaption{Screenshot of the Netscape start-page}{\citep{npr_home_nodate}}
     \label{fig:netscape}
   \end{figure}
 
@@ -161,14 +161,14 @@
     \emph{``Any application that can be written in JavaScript, will eventually be written in JavaScript.'' \citep{atwood_principle_2007}}
   \end{quote}
 
-  A quote by Jeff Atwood (co-founder of Stack Exchange) that is popularly referred to as Atwood’s Law. Ever since frameworks like NodeJS or React Native became widely used, JavaScript’s possibilities already crossed the border of just living on the client-side inside of a browser. It’s nearly everywhere.
+  A quote by Jeff Atwood (co-founder of Stack Exchange) that is popularly referred to as Atwood’s Law. Ever since frameworks like Node.js or React Native became widely used, JavaScript’s possibilities already crossed the border of just living on the client-side inside of a browser. It’s nearly everywhere.
 
-  Also, NodeJS’ NPM package manager is currently the most prominent and most active package registry platform ever created. As an example: From May 10th to May 17th of 2018, JavaScript developers downloaded 5.2 billion NodeJS packages from the NPM registry, setting a new record \citep{inc_how_2018}
+  Also, Node.js’ NPM package manager is currently the most prominent and most active package registry platform ever created. As an example: From May 10th to May 17th of 2018, JavaScript developers downloaded 5.2 billion Node.js packages from the NPM registry, setting a new record \citep{inc_how_2018}
 
   \begin{figure}[ht]
     \centering
     \frame{\includegraphics[width=\textwidth]{figures/google-trends.jpg}}
-    \caption{Google Trends curve about NodeJS and React Native \citep{google_google_nodate}}
+    \floatcaption{Google Trends curve about Node.js and React Native}{\citep{google_google_nodate}}
     \label{fig:atwood-law}
   \end{figure}
 
@@ -182,7 +182,7 @@
   \subsection{Muggles Entering Hogwarts}
   \label{sec:muggles}
 
-  Do you know how it feels to watch front-end developers call themselves “full-stack software developer” after they’ve simply learned NodeJS? It feels like Muggles entering Hogwarts—a school full of wizards. Only that in our case these wizards are trained software engineers and computer scientists. These are the people who learn all the hardcore-implemented algorithms and compilers, programming languages and operating systems. They know precisely how to build software \citep{might_what_2011}.
+  Do you know how it feels to watch front-end developers call themselves “full-stack software developer” after they’ve simply learned Node.js? It feels like Muggles entering Hogwarts—a school full of wizards. Only that in our case these wizards are trained software engineers and computer scientists. These are the people who learn all the hardcore-implemented algorithms and compilers, programming languages and operating systems. They know precisely how to build software \citep{might_what_2011}.
 
   \begin{quote}
     \emph{Do front-end developers know how to write actual software? I’d say we better don’t talk about it.}
@@ -193,14 +193,16 @@
   \section{WebAssembly Says Hello World}
   \label{sec:hello-world}
 
+  WebAssembly is the new player in the web development industry. It’s fast, small, non-readable and not even a real programming language. Yes, you heard that right. You literally can’t code in WebAssembly \citep{rourke_learn_2018}. So I may hear you asking: Why should we all be excited about it? Well, as mentioned earlier, it’s a compilation byte-format target for high-level languages.
+
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{figures/wasm.jpg}
-    \caption{Illustration of how WebAssembly modules are being delivered to the browser \citep{logrocket_logrocket_nodate}}
+    \frame{\includegraphics[width=\textwidth]{figures/wasm.jpg}}
+    \floatcaption{Illustration of how WebAssembly modules are being delivered to the browser}{\citep{logrocket_logrocket_nodate}}
     \label{fig:wasm}
   \end{figure}
 
-  WebAssembly is the new player in the web development industry. It’s fast, small, non-readable and not even a real programming language. Yes, you heard that right. You literally can’t code in WebAssembly \citep{rourke_learn_2018}. So I may hear you asking: Why should we all be excited about it? Well, as mentioned earlier, it’s a compilation byte-format target for high-level languages. You write your code in such a high-level language like C or C++ and compile it down to WebAssembly. The magic trick: It works in the browser, and it’s super fast—sometimes about 5 to 20 times faster than JavaScript \citep{aboukhalil_how_2019}.
+  You write your code in such a high-level language like C or C++ and compile it down to WebAssembly. The magic trick: It works in the browser, and it’s super fast—sometimes about 5 to 20 times faster than JavaScript \citep{aboukhalil_how_2019}.
 
   \subsection{WebAssembly in a Nutshell}
   \label{sec:in-a-nutshell}
