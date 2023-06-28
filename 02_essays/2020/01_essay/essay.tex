@@ -4,6 +4,7 @@
 % Packages
 \usepackage{tgtermes}  % Loads the TeX Gyre Termes font
 \usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
+% \usepackage{background} % Creates background images on pages
 \usepackage{natbib}  % A package for bibliographies and citations
 \usepackage{authblk}  % For author and affiliation management
 \usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures and list of tables
@@ -56,8 +57,10 @@
 \newcommand{\mycaption}[2]{\caption[#1.]{#1~\citep{#2}.}}
 
 
+
 % Custom settings
 \captionsetup{justification=centering}  % All captions will be centered
+% \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
 \PassOptionsToPackage{hyphens}{url}  % Allow hyphenated URLs
 \urlstyle{same}  % The same font that is being used in the text will be used for URLs
 \def\Urlmuskip{0mu}  % No additional space between characters in a URL
