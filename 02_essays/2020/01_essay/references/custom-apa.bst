@@ -1236,7 +1236,7 @@ FUNCTION {calc.label}
   *
   year duplicate$ empty$
   short.list key field.or.null = or
-     { pop$ "" }
+     { pop$ "n.d." } % Use "n.d." if year is empty
      'skip$
   if$
   *
