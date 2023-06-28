@@ -286,6 +286,13 @@
 
   To write efficient software and compile it to WebAssembly, you need to be proficient in C, C++ or the rather new Rust programming language. The WebAssembly Working Group has its plans to add more languages in the near future. But, right now they have other priorities and next steps on their roadmap. They especially focus on the biggest pain points of WebAssembly.
 
+  \section{Pain Points And Limitations}
+  \label{sec:pain-points-and-limitations}
+
+  The WebAssembly workflow sounds too good to be true, doesn’t it? Just write your code in a high-level language, compile it via Emscripten and then instantiate it inside of JavaScript—easy as that. Well no, it isn’t. There are still some huge pain points for easily porting your desktop-like application to the web, despite not having a garbage collector or exception handlers (WebAssembly Working Group, 2019). The biggest pain point right now is for sure the lack of web APIs. Let me give you a simple use case: Let’s say you want C++ code that can listen if a user clicks on a button and then render some data from your database into the client-side DOM view.
+
+  Well, I need to disappoint you, this isn’t going to work because WebAssembly can’t access the DOM API. The only way to access it is via JavaScript. If you would want to develop actual WebAssembly-ready client-side software, you would need to write some kind of JavaScript glue code (Mihaylov, 2018), that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+
   \pagebreak
   \bibliographystyle{references/custom-apa}
   \bibliography{references/bibliography}
