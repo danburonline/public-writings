@@ -22,7 +22,7 @@
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
 
 % Listing styles
 % This defines a custom style for code listings
@@ -37,6 +37,9 @@
   breakatwhitespace=false,
   breaklines=true,
   captionpos=b,
+  framextopmargin=6pt,
+  framexbottommargin=6pt,
+  frame=tb, framerule=0pt,
   keepspaces=true,
   numbers=left,
   numbersep=5pt,
@@ -99,7 +102,7 @@
   \begin{abstract}  % Start of the abstract
     There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a frontend developer—everyone will be able to profit from WebAssembly’s existence.
 
-    In this article, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
+    In this essay, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
   \end{abstract}  % End of the abstract
 
   \pagebreak  % This command inserts a page break
@@ -214,11 +217,13 @@
 
   This is a human-readable file format you’ll get when you compile your C, C++ or Rust code. It represents the abstract syntax tree (AST) from the source code of a programming language. An AST—or in the WebAssembly case: a .wat file—may be verbose, but it does an excellent job at describing the components of source code. Representing source code in an AST makes verification and compilation simple and efficient. Here is a simple return function called \lstinline{getDoubleNumber} written in C:
 
+  \vspace{7pt}
   \begin{lstlisting}[language=C, caption=Python example, label=lst:python-example]
   int getDoubleNumber(int number) {
     return number * 2;
-  }
-  \end{lstlisting}
+  }\end{lstlisting}
+
+  This is some more text. Lorem ipsum.
 
   \pagebreak
   \bibliographystyle{references/custom-apa}
