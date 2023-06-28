@@ -24,6 +24,15 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.95}
 
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+
 % Listing styles
 % This defines a custom style for code listings
 \lstdefinestyle{mystyle}{
@@ -145,7 +154,7 @@
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/netscape.jpg}
-    \floatcaption{Screenshot of the Netscape start-page}{\citep{npr_home_nodate}}
+    \floatcaption{Screenshot of the Netscape browser and start-page}{\citep{npr_home_nodate}}
     \label{fig:netscape}
   \end{figure}
 
@@ -185,11 +194,7 @@
   \subsection{Muggles Entering Hogwarts}
   \label{sec:muggles}
 
-  Do you know how it feels to watch frontend developers call themselves “full-stack software developer” after they’ve simply learned Node.js? It feels like Muggles entering Hogwarts—a school full of wizards. Only that in our case these wizards are trained software engineers and computer scientists. These are the people who learn all the hardcore-implemented algorithms and compilers, programming languages and operating systems. They know precisely how to build software \citep{might_what_2011}.
-
-  \begin{quote}
-    \emph{Do frontend developers know how to write actual software? I’d say we better don’t talk about it.}
-  \end{quote}
+  Do you know how it feels to watch frontend developers call themselves “full-stack software developer” after they’ve simply learned Node.js? It feels like Muggles entering Hogwarts—a school full of wizards. Only that in our case these wizards are trained software engineers and computer scientists. These are the people who learn all the hardcore-implemented algorithms and compilers, programming languages and operating systems. They know precisely how to build software \citep{might_what_2011}. Do frontend developers know how to write actual software? I’d say we better don’t talk about it.
 
   Muggles aren’t invited to Hogwarts because they have no magical ability. Frontend developers weren’t “invited” for software engineering too because they couldn’t even do something with the languages they knew. Nevertheless, now—thanks to all the cross-platform JavaScript runtimes—they’re suddenly here to do some magic. But imagine, what if the wizards of Hogwarts, our beloved software engineers and computer scientists, would be able to perform magic in the real world—or our case: the frontend? What would happen? What could go wrong?
 
@@ -207,23 +212,78 @@
 
   You write your code in such a high-level language like C or C++ and compile it down to WebAssembly. The magic trick: It works in the browser, and it’s super fast—sometimes about 5 to 20 times faster than JavaScript \citep{aboukhalil_how_2019}.
 
-  \subsection{WebAssembly in a Nutshell}
-  \label{sec:in-a-nutshell}
+  \section{WebAssembly in a Nutshell}
+  \label{sec:wasm-in-a-nutshell}
 
   Enough with the marketing fuzz. The real face behind the term “WebAssembly” isn’t that uniform as it’s being marketed. WebAssembly itself is only a piece of a bigger technology chain of workflows and concepts. There are several other key components that are important for delivering super-fast web applications. It’s also good to know what its current limitations are and for which use cases it’s the best. But first, let me introduce you to the five key components:
 
-  \subsection{WebAssembly in a Nutshell}
+  \subsection{WAT~—~WebAssembly Text Format}
   \label{sec:webassembly-text-format}
 
   This is a human-readable file format you’ll get when you compile your C, C++ or Rust code. It represents the abstract syntax tree (AST) from the source code of a programming language. An AST—or in the WebAssembly case: a .wat file—may be verbose, but it does an excellent job at describing the components of source code. Representing source code in an AST makes verification and compilation simple and efficient. Here is a simple return function called \lstinline{getDoubleNumber} written in C:
 
   \vspace{7pt}
-  \begin{lstlisting}[language=C, caption=Python example, label=lst:python-example]
-  int getDoubleNumber(int number) {
-    return number * 2;
+  \begin{lstlisting}[language=C, caption=Code example in C., label=lst:c-example]
+  int getDoubleNumber(int x) {
+    return x * 2;
   }\end{lstlisting}
 
-  This is some more text. Lorem ipsum.
+  If you compile this C code, it will return a .wat file which contains the abstract syntax tree of our \lstinline{getDoubleNumber} function. It looks like this:
+
+  \vspace{7pt}
+  \begin{lstlisting}[language=C, caption=Code example from above compiled into the WebAssembly Text Format., label=lst:wat-example]
+  (module
+    (table 0 anyfunc)
+    (memory $0 1)
+    (export "memory" (memory $0))
+    (export "getDoubleNumber" (func $getDoubleNumber))
+    (func $getDoubleNumber (; 0 ;)
+      (param $0 i32) (result i32)
+    (i32 .shl
+      (get_local $0)
+      (i32.const 1)
+      )
+    )
+  )\end{lstlisting}
+
+  \subsection{WASM~—~WebAssembly Binary Instruction Format}
+  \label{sec:webassembly-binary-instruction-format}
+
+  While being in production, you probably won’t send the text instruction format file to the client-side. You’ll only send the binary instruction format (.wasm). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they’re referenced as WebAssembly modules \citep{mozilla_foundation_webassemblymodule_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
+
+  \vspace{7pt}
+  \begin{lstlisting}[language=C, caption=Code example from above compiled into the WebAssembly \\ Binary Instruction Format., label=lst:binary-example]
+  0061 736d 0100 0000 0186 8080 8000 0160 017f 017f 0382
+  8080 8000 0100 0484 8080 8000 0170 0000 0583 8080 8000
+  0100 0106 8180 8080 0000 079c 8080 8000 0206 6d65 6d6f
+  7279 0200 0f67 6574 446f 7562 6c65 475 6d62 6572 0000
+  0a8d 8080 8000 0187 8080 8000 0020 0041 0174 0b\end{lstlisting}
+
+  \subsection{WASM Module Instantiating}
+  \label{sec:webassembly-module-instantiating}
+
+  If you want to access the C code within your website, you need to instantiate the WebAssembly .wat module inside of JavaScript. This would look like this:
+
+  \vspace{7pt}
+  \begin{lstlisting}[language=JavaScript, caption=Instantiate the .wasm module in JavaScript., label=lst:javascript-example]
+  // Access the WebAssembly object
+  WebAssembly.instantiateStreaming(
+    fetch("program.wasm"), imports)
+    // Resolve the promise
+    .then(_wasm => {
+      // Log something if it worked
+      console.info("WASM is ready")
+    })\end{lstlisting}
+
+  \subsection{WebAssembly Compilation}
+  \label{sec:webassembly-compilation}
+
+  In order to get a .wasm or .wat file, you first need to compile your source code. There are already different compilers for the various languages out there. The most common one—and also the most famous one—is called: Emscripten. Emscripten is described as a so-called LLVM source-to-source compiler with the main focus of compiling C code straight to a subset of JavaScript known as asm.js. However, the recent rise of WebAssembly has pushed the team behind Emscripten to shift its focus to help making WebAssembly more accessible and easier to get started with. You can then access the Emscripten compiler inside of your command-line interface to easily compile selected source code.
+
+  \subsection{Original Source Code}
+  \label{sec:original-source-code}
+
+  To write efficient software and compile it to WebAssembly, you need to be proficient in C, C++ or the rather new Rust programming language. The WebAssembly Working Group has its plans to add more languages in the near future. But, right now they have other priorities and next steps on their roadmap. They especially focus on the biggest pain points of WebAssembly.
 
   \pagebreak
   \bibliographystyle{references/custom-apa}
