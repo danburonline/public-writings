@@ -13,7 +13,7 @@
 \usepackage{listings}  % Typeset programming code within the document
 \usepackage[T1]{fontenc}  % Choice of font encodings
 \usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
-\usepackage[breaklinks]{hyperref}  % Creates hyperlinks in your document
+\usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
 \usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating environments
 
 % Custom colours
@@ -65,8 +65,8 @@
 \hypersetup{  % Setup for the hyperref package
     colorlinks = true,
     urlcolor = blue,
-    linkcolor = black,
-    citecolor = black,
+    linkcolor = blue,
+    citecolor = blue,
   breaklinks=true,
   pdfpagemode=UseOutlines,
   bookmarksopen=true,
@@ -86,6 +86,7 @@
 \counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
+\setlength{\footskip}{65pt} % This command sets the distance between the bottom of the text body and the footer
 
 \maketitle  % This command prints the title, author, and date as defined earlier
 
@@ -119,7 +120,7 @@
 
   \pagebreak  % Page break
 
-  \doublespacing  % This command changes the line spacing to double
+  % \doublespacing  % This command changes the line spacing to double
 
   \pagenumbering{arabic}  % This command changes the page numbering back to Arabic numerals
 
