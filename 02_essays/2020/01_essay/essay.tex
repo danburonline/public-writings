@@ -1,31 +1,32 @@
 % Global document settings
-\documentclass[10pt]{article}
+\documentclass[10pt]{article}  % This specifies the type of document to be created and the default font size
 
 % Packages
-\usepackage{tgtermes}
-\usepackage{graphicx}
-\usepackage{natbib}
-\usepackage{authblk}
-\usepackage{tocloft}
-\usepackage{xcolor}
-\usepackage{siunitx}
-\usepackage{tocloft}
-\usepackage{setspace}
-\usepackage{listings}
-\usepackage{caption}
-\usepackage[T1]{fontenc}
-\usepackage[nottoc]{tocbibind}
-\usepackage[breaklinks]{hyperref}
-\usepackage[font=small,skip=7pt]{caption}
+\usepackage{tgtermes}  % Loads the TeX Gyre Termes font
+\usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
+\usepackage{natbib}  % A package for bibliographies and citations
+\usepackage{authblk}  % For author and affiliation management
+\usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures and list of tables
+\usepackage{xcolor}  % Provides easy driver-independent access to colors
+\usepackage{siunitx}  % A comprehensive (SI) units package
+\usepackage{setspace}  % Controls line spacing
+\usepackage{listings}  % Typeset programming code within the document
+\usepackage[T1]{fontenc}  % Choice of font encodings
+\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
+\usepackage[breaklinks]{hyperref}  % Creates hyperlinks in your document
+\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating environments
 
 % Custom colours
+% Here we define custom colors to use within code listings
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 % Listing styles
+% This defines a custom style for code listings
 \lstdefinestyle{mystyle}{
+  % ... various style settings ...
   backgroundcolor=\color{backcolour},
   commentstyle=\color{codegreen},
   keywordstyle=\color{purple},
@@ -43,23 +44,25 @@
   showtabs=false,
   tabsize=2
   }
-  \lstset{style=mystyle}
+  \lstset{style=mystyle}  % Apply the custom style to future listings
 
   % Custom commands
-  \renewcommand\cftsecafterpnum{\vskip8pt}
-  \renewcommand{\lstlistlistingname}{List of \lstlistingname s}
-  \renewcommand{\bibsection}{\section*{Bibliography}}
-  \renewcommand{\contentsname}{Table of Contents}
-  \renewcommand{\bibsection}{\section{\bibname}}
-  \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+% Here we modify some LaTeX default commands
+\renewcommand\cftsecafterpnum{\vskip8pt}  % Add a vertical space after section numbers in ToC
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}  % Changes the title of the list of listings
+\renewcommand{\bibsection}{\section*{Bibliography}}  % Changes the bibliography section name
+\renewcommand{\contentsname}{Table of Contents}  % Changes the title of the table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % Changes the leader between section names and page numbers in ToC
+\newcommand{\mycaption}[2]{\caption[#1.]{#1~\citep{#2}.}}
 
-  % Custom settings
-  \captionsetup{justification=centering}
-  \PassOptionsToPackage{hyphens}{url}
-  \urlstyle{same}
-  \def\Urlmuskip{0mu}
-  \def\UrlBreaks{\do\/\do-}
-  \hypersetup{
+
+% Custom settings
+\captionsetup{justification=centering}  % All captions will be centered
+\PassOptionsToPackage{hyphens}{url}  % Allow hyphenated URLs
+\urlstyle{same}  % The same font that is being used in the text will be used for URLs
+\def\Urlmuskip{0mu}  % No additional space between characters in a URL
+\def\UrlBreaks{\do\/\do-}  % URL line breaks at / and -
+\hypersetup{  % Setup for the hyperref package
     colorlinks = true,
     urlcolor = blue,
     linkcolor = black,
@@ -71,55 +74,62 @@
   bookmarksnumbered=true
   }
 
-  \title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}
-  \author[1]{Daniel Burger}
-  \affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich}}}
-  \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
-  \date{\textit{7. November 2020}}
+  \title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}  % Document title
+  \author[1]{Daniel Burger}  % Author name
+  \affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich.}}}  % Author affiliation
+  \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}  % Author email
+  \date{\textit{7. November 2020}}  % Document date
 
+% Start of the document content
 \begin{document}
 \pagenumbering{roman}
 \counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-\maketitle
-\thispagestyle{empty}
+\maketitle  % This command prints the title, author, and date as defined earlier
 
-\begin{sloppypar} % For better line breaks
-  \begin{abstract}
+\thispagestyle{empty}  % This command sets the style of the current page to empty, removing headers and footers
+
+\begin{sloppypar}  % The sloppypar environment adjusts the spaces between words such that each line fits into the text width
+  \begin{abstract}  % Start of the abstract
     There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a front-end developer — everyone will be able to profit from WebAssembly’s existence.
 
     In this article, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
+  \end{abstract}  % End of the abstract
 
-  \end{abstract}
-  \pagebreak
+  \pagebreak  % This command inserts a page break
 
-  \pagenumbering{Roman}
-  \tableofcontents
-  \pagebreak
+  \pagenumbering{Roman}  % This command changes the page numbering to uppercase Roman numerals
 
-  \listoffigures
-  \pagebreak
+  \tableofcontents  % This command prints the table of contents
 
-  \listoftables
-  \pagebreak
+  \pagebreak  % Page break
 
-  \addcontentsline{toc}{section}{\lstlistlistingname}
-  \lstlistoflistings
-  \pagebreak
+  \listoffigures  % This command prints the list of figures
 
-  % Double spacing for feedback
-  \doublespacing
+  \pagebreak  % Page break
 
-  \pagenumbering{arabic}
+  \listoftables  % This command prints the list of tables
+
+  \pagebreak  % Page break
+
+  \addcontentsline{toc}{section}{\lstlistlistingname}  % This command adds the list of listings to the table of contents
+  \lstlistoflistings  % This command prints the list of code listings
+
+  \pagebreak  % Page break
+
+  \doublespacing  % This command changes the line spacing to double
+
+  \pagenumbering{arabic}  % This command changes the page numbering back to Arabic numerals
+
   \section{Introduction}
   \label{sec:introduction}
 
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/001.jpg}
-    \caption{Harry Potter dress form with a black jacket \citep{unsplash_beautiful_2018}}
+    \mycaption{Harry Potter dress form with a black jacket}{unsplash_beautiful_2018}
     \label{fig:cover}
   \end{figure}
 
