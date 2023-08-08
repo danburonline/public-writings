@@ -87,13 +87,18 @@
 \counterwithin{table}{section}
 
 \maketitle
-% \thispagestyle{empty}
+\thispagestyle{empty}
+
+% Double spacing for feedback
+\doublespacing
 
 \begin{sloppypar} % For better line breaks
-  % \begin{abstract}
-  %   Abstract coming soon.
-  % \end{abstract}
-  % \pagebreak
+  \begin{abstract}
+    This essay synthesises the current understanding of the basal ganglia pathways. It focuses on the direct and indirect neural circuits and their roles in motor control, decision-making, reward processing, and motor learning. The traditional dichotomous model is critically discussed, and recent evidence suggesting a nuanced, dynamic interaction between the two pathways is examined. The author utilises key studies employing optogenetic techniques, contributing to a deeper understanding of these pathways’ concurrent activation and divergence during action initiation and execution. The implications of alterations in these pathways in diagnosing Parkinson’s disease symptoms are also explored.
+
+    Furthermore, the essay outlines potential therapeutic strategies for mitigating the motor symptoms of Parkinson’s disease and proposes avenues for future research. Despite the significant strides made in understanding the basal ganglia circuit dynamics, the author highlights the need for further research to unravel the intricate mechanisms coordinating the interactions between the pathways during action selection and learning.
+  \end{abstract}
+  \pagebreak
 
   % \pagenumbering{Roman}
   % \tableofcontents
@@ -105,18 +110,17 @@
   % \listoftables
   % \pagebreak
 
-
-  % Double spacing for feedback
-  \doublespacing
-
   % Back to normal numbering
   \pagenumbering{arabic}
 
-  Parkinson’s disease, a prevalent neurodegenerative disorder, prominently manifests through motor symptoms such as rigidity, tremors, and bradykinesia. These symptoms are primarily attributed to the degeneration of dopaminergic neurons in the basal ganglia, a subcortical nucleus pivotal for motor control and decision-making \citep{kravitz_regulation_2010}. The conventional model of basal ganglia function posits two antagonistic pathways: the direct pathway, promoting movement, and the indirect pathway, inhibiting movement. Alterations in the balance and function of these pathways are thought to contribute to the motor deficits seen in Parkinson’s disease. However, this binary model has been challenged by recent evidence, suggesting a more nuanced interaction between these pathways with potential concurrent activation and divergence \citep{dunovan_believer-skeptic_2016}.
+  \section{Introduction}
+  \label{sec:introduction}
 
-  The advent of optogenetic techniques, which allow for the precise manipulation of specific neurons using light, has significantly advanced our understanding of these intricate basal ganglia pathways \citep{kravitz_regulation_2010, cui_concurrent_2013}. Studies by \cite{kravitz_regulation_2010} provided evidence for certain aspects of the traditional model through optogenetic activation of direct and indirect pathway medium spiny neurons (MSNs). This pioneering work paved the way for other optogenetic investigations that have further expanded our comprehension of the complexity of these pathways, suggesting they may function bidirectionally \citep{yttri_opponent_2016} to regulate motor behaviour through selective stimulation.
+  Parkinson’s disease, a prevalent neurodegenerative disorder, prominently manifests through motor symptoms. These include rigidity, which refers to stiffness and resistance to limb movement; tremors, involuntary, rhythmic and oscillating movements of a part of the body; and bradykinesia, which describes the slowness of movement and difficulty initiating movement seen in Parkinson’s patients. These symptoms are primarily attributed to the degeneration of dopaminergic neurons in the basal ganglia, a subcortical nucleus pivotal for motor control and decision-making \citep{kravitz_regulation_2010}. The conventional model of basal ganglia function posits two antagonistic pathways: the direct pathway, promoting movement, and the indirect pathway, inhibiting movement. Alterations in the balance and function of these pathways are thought to contribute to the motor deficits seen in Parkinson’s disease. However, this binary model has been challenged by recent evidence, suggesting a more nuanced interaction between these pathways with potential concurrent activation and divergence \citep{dunovan_believer-skeptic_2016}.
 
-  More recently, studies such as those by \cite{hilt_evidence_2016} and \cite{wang_direct_2015} have further expanded our understanding of the role of these pathways in reward-based learning, motor learning, and the regulation of movement speed/velocity. These investigations, employing optogenetic methods, have underscored the dynamic interplay between the direct and indirect pathways in the basal ganglia and their impact on motor control, decision-making, reward processing, and motor learning.
+  The advent of optogenetic techniques, which allow for the precise manipulation of specific neurons using light, has significantly advanced our understanding of basal ganglia pathways \citep{kravitz_regulation_2010, cui_concurrent_2013}. Studies by \cite{kravitz_regulation_2010} provided evidence for certain aspects of the traditional model through optogenetic activation of direct and indirect pathway medium spiny neurons (MSNs). This pioneering work paved the way for other optogenetic investigations that have further expanded our comprehension of the complexity of these pathways, suggesting they may function bidirectionally \citep{yttri_opponent_2016} to regulate motor behaviour through selective stimulation.
+
+  More recently, studies such as those by \cite{hilt_evidence_2016} and \cite{wang_direct_2015} have further expanded our understanding of the role of these pathways in reward-based learning, motor learning, and the regulation of movement velocity. These investigations, employing optogenetic methods, have underscored the dynamic interplay between the direct and indirect pathways in the basal ganglia and their impact on motor control, decision-making, reward processing, and motor learning.
 
   Armed with this context, this essay aims to synthesise the current knowledge and debates surrounding the role of basal ganglia pathways in motor control and decision-making, focusing on the insights provided by optogenetic studies. Furthermore, this essay will explore the implications of alterations in these pathways in the manifestation of motor symptoms in Parkinson’s disease. This exploration will provide a comprehensive understanding of the basal ganglia’s role in motor control, offering insights into potential therapeutic strategies for mitigating the motor symptoms of Parkinson’s disease and proposing areas for future research.
 
@@ -129,9 +133,11 @@
 
   The most significant revelation from \citeauthor{cui_concurrent_2013} ’s study was the concurrent activation of the direct and indirect pathways during action initiation. They found that both direct-pathway MSNs (dMSNs) and indirect-pathway MSNs (iMSNs) increased their firing rates before initiating a movement, which counters the classical model’s assertion of opposing activation of these pathways.
 
+  IMAGE
+
   Interestingly, they observed a decrease in the activity of iMSNs during movement, a change not seen in dMSNs. This finding indicates that while both pathways are involved in action initiation, their roles may diverge during action execution. Additionally, \cite{cui_concurrent_2013} found that both dMSNs and iMSNs were quiet during inactive states when the mice were not moving, further challenging the traditional model.
 
-  These findings were further supported by a study by \cite{guillaumin_optogenetic_2020}, which delved into the role of the direct and indirect pathways in reward-based learning. The researchers found that activating the direct pathway enhanced reward-seeking behaviour while activating the indirect pathway suppressed it. This lends further credence to the complex, dynamic interaction between the direct and indirect pathways in the basal ganglia.
+  These findings were further supported by a study by \cite{guillaumin_optogenetic_2020}, which explored the role of the direct and indirect pathways in reward-based learning. The researchers found that activating the direct pathway enhanced reward-seeking behaviour while activating the indirect pathway suppressed it. This lends further credence to the complex, dynamic interaction between the direct and indirect pathways in the basal ganglia.
 
   \section{Optogenetics in Decoding Neural Pathways}
   \label{sec:the-role-of-optogenetics-in-neural-pathways}
@@ -140,34 +146,37 @@
 
   It was \cite{kravitz_regulation_2010} who first employed optogenetics to selectively activate striatal medium spiny neurons (MSNs) in mice, the cell types that form the direct and indirect pathways. Their pioneering work paved the way for other optogenetic investigations into basal ganglia pathways.
 
+  IMAGE
+
   Later, \cite{cui_concurrent_2013} utilised optogenetic techniques to measure the activity of direct and indirect pathway MSNs in mice during movement initiation. Their findings challenge the traditional model by showing increased activity in both pathways prior to movement initiation.
 
   More recently, researchers have continued to harness the power of optogenetics to further our understanding of the basal ganglia’s direct and indirect pathways. For example, \cite{yttri_opponent_2016} used cell-type-specific optogenetic stimulation to investigate the bidirectional control of movement velocity.
 
   However, it is crucial to acknowledge the limitations of optogenetics. The need for genetic modifications can pose challenges in certain settings, and delivering light to deep brain structures can be technically challenging. Despite these limitations, optogenetics has greatly enhanced our understanding of neural circuits and holds promise for future studies and potential therapeutic applications.
 
-  In conclusion, optogenetics has emerged as a powerful tool in neuroscience, providing novel insights into the functioning of neural pathways, including the direct and indirect pathways of the basal ganglia. As our understanding and application of optogenetics continue to evolve, we expect it to shed more light on the intricate workings of the brain.
+  In conclusion, optogenetics has emerged as a powerful tool in neuroscience, providing novel insights into the functioning of neural pathways, including the direct and indirect pathways of the basal ganglia. As our understanding and application of optogenetics continue to evolve, we expect it to shed more light on the brain’s complex workings.
 
   \section{Complementary and Contrasting Studies}
   \label{sec:complementary-and-contrasting-studies}
 
   Beyond the work of \cite{cui_concurrent_2013} and \cite{kravitz_regulation_2010}, several other studies have significantly contributed to our understanding of the direct and indirect pathways in the basal ganglia.
 
-  \cite{yttri_opponent_2016} further explored these pathways’ roles in the bidirectional control of movement velocity using optogenetic stimulation. Their findings provided evidence that both pathways can bidirectionally regulate velocity, complementing \cite{cui_concurrent_2013}’s finding of concurrent activation during action initiation.
+  \cite{yttri_opponent_2016} further explored these pathways’ roles in the bidirectional control of movement velocity using optogenetic stimulation. Their findings provided evidence that both pathways can bidirectionally regulate velocity, complementing \cite{cui_concurrent_2013} ’s finding of concurrent activation during action initiation.
 
-  In a different vein, \cite{guillaumin_optogenetic_2020} investigated the role of these pathways in reward-based learning. They found that activating the direct pathway enhanced reward-seeking behaviour while activating the indirect pathway suppressed it. These findings demonstrate the involvement of both pathways in reward processing, which differs from \cite{cui_concurrent_2013}’s observations about movement initiation.
+  In a different vein, \cite{guillaumin_optogenetic_2020} investigated the role of these pathways in reward-based learning. They found that activating the direct pathway enhanced reward-seeking behaviour while activating the indirect pathway suppressed it. These findings demonstrate the involvement of both pathways in reward processing, which differs from \cite{cui_concurrent_2013} ’s observations about movement initiation.
 
   \cite{hilt_evidence_2016} turned their focus to motor learning. They found that activating the direct pathway facilitated motor learning, while activating the indirect pathway impaired it. This highlights the dynamic interplay between these pathways in motor skill acquisition.
 
   Lastly, \cite{wang_direct_2015} explored how these pathways regulate movement speed control. They found that the direct pathway increased speed while the indirect pathway decreased it. These findings provide evidence for the opposing roles of these pathways in velocity/speed regulation.
 
+  \section{Conclusion}
+  \label{sec:conclusion}
+
   Collectively, these studies emphasise the multifaceted involvement of the direct and indirect pathways in various functions like reward processing, motor learning, and precise motor control. They demonstrate the utility of optogenetics in elucidating the nuanced interactions between these pathways.
 
   Our understanding of the basal ganglia’s direct and indirect pathways, including their diverse roles in motor control, decision-making, reward processing, and motor learning, has advanced significantly in recent years. While earlier models viewed these pathways in strict dichotomous terms, recent research highlights a more dynamic, nuanced interaction between them.
 
-  Studies employing optogenetic techniques, such as \cite{cui_concurrent_2013}, \cite{kravitz_regulation_2010}, \cite{yttri_opponent_2016}, \cite{guillaumin_optogenetic_2020}, \cite{hilt_evidence_2016}, and \cite{wang_direct_2015}, have provided critical insights. Collectively, they suggest that the direct and indirect pathways work in tandem during movement initiation but may have distinct, and sometimes opposing, roles during other processes like reward-based learning and velocity control.
-
-  However, open questions remain regarding the precise mechanisms coordinating pathway interactions during action selection and learning. As optogenetic techniques continue to be refined, future research can build on these discoveries to further elucidate the intricacies of basal ganglia circuit dynamics and functions. Such advancements will have profound implications for understanding diseases involving basal ganglia dysfunction.
+  However, open questions remain regarding the precise mechanisms coordinating pathway interactions during action selection and learning. As optogenetic techniques continue to be refined, future research can build on these discoveries to further elucidate the complexities of basal ganglia circuit dynamics and functions. Such advancements will have profound implications for understanding diseases involving basal ganglia dysfunction.
 
   In conclusion, while early models painted a binary picture of direct and indirect pathway opposition, contemporary evidence points to a more collaborative, context-dependent interaction between these pathways in functions like motor control and learning. Continued research into these complex neural circuits promises exciting breakthroughs in comprehending the basal ganglia’s multifaceted roles and neurologic disease.
 
