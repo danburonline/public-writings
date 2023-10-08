@@ -1,0 +1,123 @@
+% Global document settings
+\documentclass[10pt]{article}
+
+% Packages
+\usepackage{tgtermes}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tocloft}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[T1]{fontenc}
+\usepackage[nottoc]{tocbibind}
+\usepackage[breaklinks]{hyperref}
+\usepackage[font=small,skip=7pt]{caption}
+
+% Custom colours
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Listing styles
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{purple},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=true,
+  showtabs=false,
+  tabsize=2
+  }
+  \lstset{style=mystyle}
+
+  % Custom commands
+  \renewcommand{\bibname}{References} % Change bibliography title
+  \renewcommand\cftsecafterpnum{\vskip8pt}
+  \renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+  \renewcommand{\bibsection}{\section*{Bibliography}}
+  \renewcommand{\contentsname}{Table of Contents}
+  \renewcommand{\bibsection}{\section{\bibname}}
+  \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+  % Custom settings
+  \captionsetup{justification=centering}
+  \PassOptionsToPackage{hyphens}{url}
+  \urlstyle{same}
+  \def\Urlmuskip{0mu}
+  \def\UrlBreaks{\do\/\do-}
+  \hypersetup{
+    colorlinks = true,
+    urlcolor = blue,
+    linkcolor = black,
+    citecolor = black,
+  breaklinks=true,
+  pdfpagemode=UseOutlines,
+  bookmarksopen=true,
+  bookmarksopenlevel=2,
+  bookmarksnumbered=true
+  }
+
+  \title{Drawing on neuroscientific findings, explain how you would develop and market a laboratory-grown meat.}
+  \author[ ]{K23003985}
+  % \affil[ ]{\textbf{King’s College London}}
+  % \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+  \date{\textit{10. October 2023}}
+
+\begin{document}
+% \pagenumbering{roman}
+% \counterwithin{lstlisting}{section}
+% \counterwithin{figure}{section}
+% \counterwithin{table}{section}
+
+\maketitle
+% \thispagestyle{empty}
+
+% Double spacing for feedback
+% \doublespacing
+
+\begin{sloppypar} % For better line breaks
+  % \begin{abstract}
+  %   This is the abstract.
+  % \end{abstract}
+  % \pagebreak
+
+  % \pagenumbering{Roman}
+  % \tableofcontents
+  % \pagebreak
+
+  % \listoffigures
+  % \pagebreak
+
+  % \listoftables
+  % \pagebreak
+
+  % Back to normal numbering
+  \pagenumbering{arabic}
+
+  \section{Introduction}
+  \label{sec:introduction}
+
+
+  \pagebreak
+  \singlespacing % No need for double spacing in the references
+  \bibliographystyle{references/custom-apa}
+  \bibliography{references/bibliography}
+
+\end{sloppypar}
+\end{document}
