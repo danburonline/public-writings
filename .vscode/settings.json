@@ -5,6 +5,8 @@
     "Argonaute",
     "astrocytes",
     "astrocytic",
+    "backcolour",
+    "backgroundcolor",
     "basicstyle",
     "blindsight",
     "bradykinesia",
@@ -72,6 +74,7 @@
     "synaptopathy",
     "synaptotoxicity",
     "tabsize",
+    "Termes",
     "WHOQOL",
     "zebrafish"
   ]

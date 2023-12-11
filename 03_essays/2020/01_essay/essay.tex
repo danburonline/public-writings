@@ -2,20 +2,33 @@
 \documentclass[10pt]{article}  % This specifies the type of document to be created and the default font size
 
 % Packages
-\usepackage{tgtermes}  % Loads the TeX Gyre Termes font
-\usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
-% \usepackage{background} % Creates background images on pages
-\usepackage{natbib}  % A package for bibliographies and citations
-\usepackage{authblk}  % For author and affiliation management
-\usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures and list of tables
-\usepackage{xcolor}  % Provides easy driver-independent access to colors
-\usepackage{siunitx}  % A comprehensive (SI) units package
 \usepackage{setspace}  % Controls line spacing
-\usepackage{listings}  % Typeset programming code within the document
 \usepackage[T1]{fontenc}  % Choice of font encodings
-\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
+\usepackage{tgtermes}  % Loads the TeX Gyre Termes font
+\usepackage{siunitx}  % A comprehensive (SI) units package
+\usepackage{authblk}  % For author and affiliation management
+\usepackage{natbib}  % A package for bibliographies and citations
+\usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
+\usepackage{listings}  % Typeset programming code within the document
+\usepackage{xcolor}  % Provides easy driver-independent access to colors
 \usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
+\usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures etc.
+\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
 \usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating environments
+\usepackage{microtype}
+% \usepackage{background} % Creates a DRAFT background image on all pages
+
+\let\oldthebibliography=\thebibliography
+\let\endoldthebibliography=\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+    \raggedright%
+}{%
+  \end{oldthebibliography}%
+}
+
+\setlength\bibindent{0pt}
+
 
 % Custom colours
 % Here we define custom colors to use within code listings
@@ -37,26 +50,26 @@
 % This defines a custom style for code listings
 \lstdefinestyle{mystyle}{
   % ... various style settings ...
-  backgroundcolor=\color{backcolour},
-  commentstyle=\color{codegreen},
-  keywordstyle=\color{purple},
-  numberstyle=\tiny\color{codegray},
-  stringstyle=\color{codepurple},
-  basicstyle=\ttfamily\footnotesize,
-  breakatwhitespace=false,
-  breaklines=true,
+  frame=tb,
+  tabsize=2,
   captionpos=b,
+  numbers=left,
+  framerule=0pt,
+  numbersep=5pt,
+  showtabs=false,
+  breaklines=true,
+  keepspaces=true,
+  showspaces=false,
   framextopmargin=6pt,
   framexbottommargin=6pt,
-  frame=tb,
-  framerule=0pt,
-  keepspaces=true,
-  numbers=left,
-  numbersep=5pt,
-  showspaces=false,
   showstringspaces=false,
-  showtabs=false,
-  tabsize=2
+  breakatwhitespace=false,
+  keywordstyle=\color{purple},
+  commentstyle=\color{codegreen},
+  stringstyle=\color{codepurple},
+  numberstyle=\tiny\color{codegray},
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{backcolour}
   }
   \lstset{style=mystyle}  % Apply the custom style to future listings
 
@@ -69,26 +82,28 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % Changes the leader between section names and page numbers in ToC
 \newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
 
-
-
 % Custom settings
 \captionsetup{justification=centering}  % All captions will be centered
 % \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
-\PassOptionsToPackage{hyphens}{url}  % Allow hyphenated URLs
-\urlstyle{same}  % The same font that is being used in the text will be used for URLs
-\def\Urlmuskip{0mu}  % No additional space between characters in a URL
-\def\UrlBreaks{\do\/\do-}  % URL line breaks at / and -
-\hypersetup{  % Setup for the hyperref package
-    colorlinks = true,
-    urlcolor = blue,
-    linkcolor = blue,
-    citecolor = blue,
-  breaklinks=true,
-  pdfpagemode=UseOutlines,
-  bookmarksopen=true,
-  bookmarksopenlevel=2,
-  bookmarksnumbered=true
-  }
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = blue,
+  linkcolor = blue,
+  citecolor = blue,
+  breaklinks = true
+}
+\PassOptionsToPackage{hyphens}{url}
+\urlstyle{same}
+\def\Urlmuskip{0mu plus 1mu}  % Adjust the spacing here
+\def\UrlBreaks{\do\/\do-}
+\def\UrlBigBreaks{\do\/\do-\do:\do.}
+
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
+
 
   \title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}  % Document title
   \author[1]{Daniel Burger}  % Author name
@@ -102,11 +117,10 @@
 \counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
-\setlength{\footskip}{65pt} % This command sets the distance between the bottom of the text body and the footer
+\setlength{\footskip}{65pt} % This command sets the distance between the bottom and the footer
 
 \maketitle  % This command prints the title, author, and date as defined earlier
-
-\thispagestyle{empty}  % This command sets the style of the current page to empty, removing headers and footers
+\thispagestyle{empty}  % This command sets the style of the current page to empty
 
 \begin{sloppypar}  % The sloppypar environment adjusts the spaces between words such that each line fits into the text width
   \begin{abstract}  % Start of the abstract
@@ -136,7 +150,9 @@
 
   \pagebreak  % Page break
 
-  % \doublespacing  % This command changes the line spacing to double
+  % This command changes the line spacing to double.
+  % ? Needed for reviews/drafts
+  % \doublespacing
 
   \pagenumbering{arabic}  % This command changes the page numbering back to Arabic numerals
 
