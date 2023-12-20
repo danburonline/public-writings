@@ -1415,7 +1415,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "  \def\url#1{{\tt #1}}\fi"
   write$ newline$
-  "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
+  "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL: }\fi"
   write$ newline$
 }
 EXECUTE {begin.bib}
