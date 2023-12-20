@@ -192,7 +192,7 @@
 
   A quote by Jeff Atwood (co-founder of Stack Exchange) that is popularly referred to as Atwood’s Law. Ever since frameworks like Node.js or React Native became widely used, JavaScript’s possibilities already crossed the border of just living on the client-side inside of a browser. It’s nearly everywhere.
 
-  Also, Node.js’ NPM package manager is currently the most prominent and most active package registry platform ever created. As an example: From May 10th to May 17th of 2018, JavaScript developers downloaded 5.2 billion Node.js packages from the NPM registry, setting a new record \citep{inc_how_2018}
+  Also, Node.js’ NPM package manager is currently the most prominent and most active package registry platform ever created. As an example: From May 10th to May 17th of 2018, JavaScript developers downloaded 5.2 billion Node.js packages from the NPM registry, setting a new record \citep{npm_how_2018}
 
   \begin{figure}[ht]
     \centering
@@ -266,7 +266,7 @@
   \subsection{WASM~—~WebAssembly Binary Instruction Format}
   \label{sec:webassembly-binary-instruction-format}
 
-  While being in production, you probably won’t send the text instruction format file to the client-side. You’ll only send the binary instruction format (.wasm). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they’re referenced as WebAssembly modules \citep{mozilla_foundation_webassemblymodule_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
+  While being in production, you probably won’t send the text instruction format file to the client-side. You’ll only send the binary instruction format (.wasm). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they’re referenced as WebAssembly modules \citep{mozilla_webassembly_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
 
   \vspace{7pt}
   \begin{lstlisting}[language=C, caption=Code example from above compiled into the WebAssembly \\ Binary Instruction Format., label=lst:binary-example]
@@ -305,9 +305,60 @@
   \section{Pain Points And Limitations}
   \label{sec:pain-points-and-limitations}
 
-  The WebAssembly workflow sounds too good to be true, doesn’t it? Just write your code in a high-level language, compile it via Emscripten and then instantiate it inside of JavaScript—easy as that. Well no, it isn’t. There are still some huge pain points for easily porting your desktop-like application to the web, despite not having a garbage collector or exception handlers (WebAssembly Working Group, 2019). The biggest pain point right now is for sure the lack of web APIs. Let me give you a simple use case: Let’s say you want C++ code that can listen if a user clicks on a button and then render some data from your database into the client-side DOM view.
+  The WebAssembly workflow sounds too good to be true, doesn’t it? Just write your code in a high-level language, compile it via Emscripten and then instantiate it inside of JavaScript—easy as that. Well no, it isn’t. There are still some huge pain points for easily porting your desktop-like application to the web, despite not having a garbage collector or exception handlers \citep{w3c_roadmap_2019}. The biggest pain point right now is for sure the lack of web APIs. Let me give you a simple use case: Let’s say you want C++ code that can listen if a user clicks on a button and then render some data from your database into the client-side DOM view.
 
-  Well, I need to disappoint you, this isn’t going to work because WebAssembly can’t access the DOM API. The only way to access it is via JavaScript. If you would want to develop actual WebAssembly-ready client-side software, you would need to write some kind of JavaScript glue code (Mihaylov, 2018), that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+  Well, I need to disappoint you, this isn’t going to work because WebAssembly can’t access the DOM API. The only way to access it is via JavaScript. If you would want to develop actual WebAssembly-ready client-side software, you would need to write some kind of JavaScript glue code \citep{mihaylov_how_2018}, that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+
+  \begin{figure}[ht]
+    \centering
+    \frame{\includegraphics[width=\textwidth]{figures/glue-code.jpg}}
+    \floatcaption{Illustration of how WebAssembly works together with JavaScript}{\citep{mihaylov_how_2018}}
+    \label{fig:glue-code}
+  \end{figure}
+
+  \section{Current Best Use Case}
+  \label{sec:use-cases}
+
+  Currently, the best use case for WebAssembly under these circumstances would only be math-heavy calculations for graphics rendering inside of an HTML5 canvas element. This is because the canvas element is the only place where you can create a graphical user interface without accessing the DOM. This doesn’t sound very interesting for lots of people, but at least it’s super promising for the gaming industry. Since games rely on heavy shader calculations and simulations, the compilation to WebAssembly into a canvas makes perfect sense. That’s why Epic Games showcased a compiled Unreal Engine C++ high-resolution game inside the browser. Everything related to high-fidelity graphics or simulations is the easiest fit for WebAssembly right now — but for everything else that still needs to access or manipulate the DOM: use a glue code mixture between WebAssembly and JavaScript.
+
+  \section{Glue Code}
+  \label{sec:glue-code}
+
+  But Wait, this sounds familiar? Glue code? Wasn’t this the original purpose of JavaScript? Well, yes, it was. However, since the WebAssembly Working Group is actively working on an official DOM API \citep{mozilla_webassemblymodule_2023}, what’s the main purpose of JavaScript in the first place, though? If we soon can create very efficient full-stack web applications with just one high-level language, do we really need JavaScript in the near future?
+
+  Well, we don’t know, you can’t kill a whole ecosystem with millions of developers overnight. This didn’t work for PHP and also won’t work for JavaScript. However, different people have different predictions. Moreover, following chapter describes my predictions for the future.
+
+  \section{WebAssembly's Future}
+  \label{sec:webassembly-future}
+
+  Since people with in-depth knowledge of software development and computer science—aka our Wizards from Hogwarts — soon have the ability to port their power to the client-side, we will most likely see a completely new age of the world wide web as we know it today. Netscape Communications’ original vision of the web as a distributed operating system could finally become a reality. Native apps, as well as their app stores, are going extinct and whole software packages like the suites from Adobe and Autodesk will entirely run inside the browser. The web will push its current borders far beyond what we now define as the epicentre for the information and entertainment industry.
+
+  In the near future, JavaScript will still be an essential role, but not as important as it is today. It will act as a simple scripting language to provide your website with some dynamic content and to create some cool animations. The positioning of JavaScript will most likely be like the one it originally was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting.
+
+  But, despite all of these predictions, there are some pioneers who created some real-world use cases for WebAssembly. \autoref{tab:use-cases} will show you some of them.
+
+  % simple 2 wide and 3 height table
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Company}                              & \textbf{Use Case}     & \textbf{Link}                                                                                               \\
+      \hline
+      \hline
+      \href{https://www.autodesk.com/}{Autodesk}    & 3D CAD Software       & \href{https://www.autodesk.com/products/fusion-360/blog/fusion-360-now-runs-entirely-in-the-browser/}{Link} \\
+      \hline
+      \href{https://www.epicgames.com/}{Epic Games} & Unreal Engine 4       & \href{https://www.unrealengine.com/en-US/blog/epic-games-unreal-engine-4-1-release}{Link}                   \\
+      \hline
+      \href{https://www.adobe.com/}{Adobe}          & Photoshop             & \href{https://www.adobe.com/products/photoshop.html}{Link}                                                  \\
+      \hline
+      \href{https://www.blender.org/}{Blender}      & 3D Modelling Software & \href{https://www.blender.org/2-8/}{Link}                                                                   \\
+      \hline
+      \href{https://www.unity.com/}{Unity}          & Game Engine           & \href{https://blogs.unity3d.com/2018/08/15/webassembly-is-here/}{Link}                                      \\
+      \hline
+    \end{tabular}
+    \caption{Real-world use cases for WebAssembly}
+  \end{table}
+  \label{tab:use-cases}
 
   \pagebreak
   \bibliographystyle{references/custom-apa}
