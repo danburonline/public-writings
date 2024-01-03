@@ -15,7 +15,9 @@
 \usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures etc.
 \usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
 \usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating environments
-\usepackage{microtype}
+\usepackage{microtype}  % Improves the spacing between words and letters
+\usepackage{tabularx}  % Allows for tables that span the width of the page
+\usepackage{booktabs}  % Enhances the quality of tables in LaTeX
 % \usepackage{background} % Creates a DRAFT background image on all pages
 
 \let\oldthebibliography=\thebibliography
@@ -337,29 +339,22 @@
 
   But, despite all of these predictions, there are some pioneers who created some real-world use cases for WebAssembly. \autoref{tab:use-cases} will show you some of them.
 
-  % simple 2 wide and 3 height table
   \begin{table}[ht]
     \centering
-    \begin{tabular}{|c|c|c|}
-      \hline
-      \textbf{Company}                              & \textbf{Use Case}     & \textbf{Link}                                                                                               \\
-      \hline
-      \hline
-      \href{https://www.autodesk.com/}{Autodesk}    & 3D CAD Software       & \href{https://www.autodesk.com/products/fusion-360/blog/fusion-360-now-runs-entirely-in-the-browser/}{Link} \\
-      \hline
-      \href{https://www.epicgames.com/}{Epic Games} & Unreal Engine 4       & \href{https://www.unrealengine.com/en-US/blog/epic-games-unreal-engine-4-1-release}{Link}                   \\
-      \hline
-      \href{https://www.adobe.com/}{Adobe}          & Photoshop             & \href{https://www.adobe.com/products/photoshop.html}{Link}                                                  \\
-      \hline
-      \href{https://www.blender.org/}{Blender}      & 3D Modelling Software & \href{https://www.blender.org/2-8/}{Link}                                                                   \\
-      \hline
-      \href{https://www.unity.com/}{Unity}          & Game Engine           & \href{https://blogs.unity3d.com/2018/08/15/webassembly-is-here/}{Link}                                      \\
-      \hline
-    \end{tabular}
-    \caption{Real-world use cases for WebAssembly}
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
+      \toprule
+      \textbf{Company} & \textbf{Use Case}                                                                                                                                                            \\
+      \midrule
+      Figma            & Browser-Based Interface Design Tool. Initially written in C++ and compiled from C++ to asm.js. Switching to WebAssembly improved document loading times by over three times. \\
+      \addlinespace
+      Autodesk AutoCAD & CAD Drawing Software. AutoCAD's original code, older than the WWW, was compiled to WebAssembly for use as a web app.                                                         \\
+      \addlinespace
+      eBay             & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++, compiling it to WebAssembly to enhance its success rate significantly.              \\
+      \bottomrule
+    \end{tabularx}
+    \caption{Real-life use cases for WebAssembly}
+    \label{tab:use-cases}
   \end{table}
-  \label{tab:use-cases}
-
   \pagebreak
   \bibliographystyle{references/custom-apa}
   \bibliography{references/bibliography}
