@@ -340,9 +340,13 @@
 
   In the near future, JavaScript will still be an essential role, but not as important as it is today. It will act as a simple scripting language to provide your website with some dynamic content and to create some cool animations. The positioning of JavaScript will most likely be like the one it originally was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting. But, despite all of these predictions, there are some pioneers who created some real-world use cases for WebAssembly. \autoref{tab:use-cases} will show you some of them.
 
+  % TODO Increase distance between last row and bottom line
+  % TODO Remove the padding on the left and right side of the table
+
   \begin{table}[ht]
     \centering
     \renewcommand{\arraystretch}{1.5} % Increasing space between rows
+    \renewcommand{\tabcolsep}{7pt} % Increasing space between columns
     \begin{tabularx}{\textwidth}{lX}
       \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
       \textbf{Company}  & \textbf{Use Case}                                                                                                                                                            \\
@@ -353,7 +357,7 @@
       \textbf{Autodesk} & CAD Drawing Software. Autodesk AutoCAD's original code, older than the WWW, was compiled to WebAssembly for use as a web app.                                                \\
       \midrule
       \textbf{eBay}     & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++ and compiling it to WebAssembly to enhance its success rate significantly.           \\
-      \arrayrulecolor{black} % Revert the rule color back to black (or whatever your default is)
+      \arrayrulecolor{black} % Revert the rule color back to black
       \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
     \end{tabularx}
     \caption{Real-life use cases for WebAssembly}
