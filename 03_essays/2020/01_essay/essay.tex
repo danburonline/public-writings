@@ -12,6 +12,7 @@
 \usepackage{listings}  % Typeset programming code within the document
 \usepackage{hhline}   % For double horizontal lines
 \usepackage{xcolor}  % Provides easy driver-independent access to colors
+\usepackage{colortbl}  % Add colour to LaTeX tables
 \usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
 \usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures etc.
 \usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
@@ -39,6 +40,7 @@
 \definecolor{codegray}{rgb}{0.4,0.4,0.4}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
+\definecolor{lightgray}{gray}{0.8} % 90% white and 10% black
 
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
@@ -336,21 +338,23 @@
 
   Since people with in-depth knowledge of software development and computer science—aka our Wizards from Hogwarts — soon have the ability to port their power to the client-side, we will most likely see a completely new age of the world wide web as we know it today. Netscape Communications’ original vision of the web as a distributed operating system could finally become a reality. Native apps, as well as their app stores, are going extinct and whole software packages like the suites from Adobe and Autodesk will entirely run inside the browser. The web will push its current borders far beyond what we now define as the epicentre for the information and entertainment industry.
 
-  In the near future, JavaScript will still be an essential role, but not as important as it is today. It will act as a simple scripting language to provide your website with some dynamic content and to create some cool animations. The positioning of JavaScript will most likely be like the one it originally was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting.
-
-  But, despite all of these predictions, there are some pioneers who created some real-world use cases for WebAssembly. \autoref{tab:use-cases} will show you some of them.
+  In the near future, JavaScript will still be an essential role, but not as important as it is today. It will act as a simple scripting language to provide your website with some dynamic content and to create some cool animations. The positioning of JavaScript will most likely be like the one it originally was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting. But, despite all of these predictions, there are some pioneers who created some real-world use cases for WebAssembly. \autoref{tab:use-cases} will show you some of them.
 
   \begin{table}[ht]
     \centering
-    \renewcommand{\arraystretch}{1.2} % Increasing space between rows
+    \renewcommand{\arraystretch}{1.5} % Increasing space between rows
     \begin{tabularx}{\textwidth}{lX}
-      \Xhline{2\arrayrulewidth} % Makes the top line thicker
-      \textbf{Company} & \textbf{Use Case}                                                                                                                                                            \\
+      \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
+      \textbf{Company}  & \textbf{Use Case}                                                                                                                                                            \\
       \midrule
-      Figma            & Browser-Based Interface Design Tool. Initially written in C++ and compiled from C++ to asm.js. Switching to WebAssembly improved document loading times by over three times. \\
-      Autodesk AutoCAD & CAD Drawing Software. AutoCAD's original code, older than the WWW, was compiled to WebAssembly for use as a web app.                                                         \\
-      eBay             & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++ and compiling it to WebAssembly to enhance its success rate significantly.           \\
-      \bottomrule
+      \textbf{Figma}    & Browser-Based Interface Design Tool. Initially written in C++ and compiled from C++ to asm.js. Switching to WebAssembly improved document loading times by over three times. \\
+      \arrayrulecolor{lightgray} % Start coloring the lines light gray
+      \midrule
+      \textbf{Autodesk} & CAD Drawing Software. Autodesk AutoCAD's original code, older than the WWW, was compiled to WebAssembly for use as a web app.                                                \\
+      \midrule
+      \textbf{eBay}     & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++ and compiling it to WebAssembly to enhance its success rate significantly.           \\
+      \arrayrulecolor{black} % Revert the rule color back to black (or whatever your default is)
+      \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
     \end{tabularx}
     \caption{Real-life use cases for WebAssembly}
     \label{tab:use-cases}
