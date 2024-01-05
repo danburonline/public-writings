@@ -1,46 +1,47 @@
 % Global document settings
-\documentclass[10pt]{article}  % This specifies the type of document to be created and the default font size
+\documentclass[10pt]{article}  % Sets the document class and font size
 
 % Packages
+\usepackage{makecell} % For thicker lines
 \usepackage{setspace}  % Controls line spacing
+\usepackage{hhline}   % For double horizontal lines
+\usepackage{colortbl}  % Add colour to LaTeX tables
 \usepackage[T1]{fontenc}  % Choice of font encodings
 \usepackage{tgtermes}  % Loads the TeX Gyre Termes font
 \usepackage{siunitx}  % A comprehensive (SI) units package
+\usepackage{tabularx, booktabs} % For advanced table layout
 \usepackage{authblk}  % For author and affiliation management
 \usepackage{natbib}  % A package for bibliographies and citations
 \usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
 \usepackage{listings}  % Typeset programming code within the document
-\usepackage{hhline}   % For double horizontal lines
 \usepackage{xcolor}  % Provides easy driver-independent access to colors
-\usepackage{colortbl}  % Add colour to LaTeX tables
-\usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
-\usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures etc.
-\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
-\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating environments
 \usepackage{microtype}  % Improves the spacing between words and letters
-\usepackage{tabularx, booktabs} % For advanced table layout
-% \usepackage{background} % Creates a DRAFT background image on all pages
-\usepackage{makecell} % For thicker lines
+\usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
+\usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
+\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, etc. to the table of contents
+\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating envs
 
 \let\oldthebibliography=\thebibliography
 \let\endoldthebibliography=\endthebibliography
 \renewenvironment{thebibliography}[1]{%
-  \begin{oldthebibliography}{#1}%
-    \raggedright%
-}{%
-  \end{oldthebibliography}%
+\begin{oldthebibliography}{#1}%
+  \raggedright%
+  }{%
+\end{oldthebibliography}%
 }
 
 \setlength\bibindent{0pt}
 
+% Options
+% \usepackage{background} % Creates a DRAFT background image on all pages
+
 
 % Custom colours
-% Here we define custom colors to use within code listings
 \definecolor{codegreen}{rgb}{0,0.5,0}
 \definecolor{codegray}{rgb}{0.4,0.4,0.4}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
-\definecolor{lightgray}{gray}{0.8} % 90% white and 10% black
+\definecolor{lightgray}{gray}{0.8}
 
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
@@ -140,20 +141,20 @@
 
   \tableofcontents  % This command prints the table of contents
 
-  \pagebreak  % Page break
+  \pagebreak
 
   \listoffigures  % This command prints the list of figures
 
-  \pagebreak  % Page break
+  \pagebreak
 
   \listoftables  % This command prints the list of tables
 
-  \pagebreak  % Page break
+  \pagebreak
 
   \addcontentsline{toc}{section}{\lstlistlistingname}  % This command adds the list of listings to the table of contents
   \lstlistoflistings  % This command prints the list of code listings
 
-  \pagebreak  % Page break
+  \pagebreak
 
   % This command changes the line spacing to double.
   % ? Needed for reviews/drafts
