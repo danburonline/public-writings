@@ -10,16 +10,18 @@
 \usepackage{tgtermes}  % Loads the TeX Gyre Termes font
 \usepackage{siunitx}  % A comprehensive (SI) units package
 \usepackage{tabularx, booktabs} % For advanced table layout
+\usepackage{url}  % Verbatim with URL-sensitive line breaks
 \usepackage{authblk}  % For author and affiliation management
 \usepackage{natbib}  % A package for bibliographies and citations
 \usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
 \usepackage{listings}  % Typeset programming code within the document
+\usepackage[nottoc]{tocbibind}  % Adds entries to the table of contents
 \usepackage{xcolor}  % Provides easy driver-independent access to colors
 \usepackage{microtype}  % Improves the spacing between words and letters
+\usepackage{enumitem}  % Control layout of itemize, enumerate, description
 \usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
 \usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
-\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, etc. to the table of contents
-\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating envs
+\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customising captions in floating envs
 
 \let\oldthebibliography=\thebibliography
 \let\endoldthebibliography=\endthebibliography
@@ -32,9 +34,12 @@
 
 \setlength\bibindent{0pt}
 
-% Options
-% \usepackage{background} % Creates a DRAFT background image on all pages
-
+% Optional options
+% \usepackage{background}  % Creates a DRAFT background image on all pages
+% \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
+% This command changes the line spacing to double.
+% ? Needed for reviews/drafts
+% \doublespacing
 
 % Custom colours
 \definecolor{codegreen}{rgb}{0,0.5,0}
@@ -53,9 +58,7 @@
 }
 
 % Listing styles
-% This defines a custom style for code listings
 \lstdefinestyle{mystyle}{
-  % ... various style settings ...
   frame=tb,
   tabsize=2,
   captionpos=b,
@@ -75,24 +78,24 @@
   stringstyle=\color{codepurple},
   numberstyle=\tiny\color{codegray},
   basicstyle=\ttfamily\footnotesize,
-  backgroundcolor=\color{backcolour}
-  }
-  \lstset{style=mystyle}  % Apply the custom style to future listings
+  backgroundcolor=\color{backcolour}}
+  \lstset{style=mystyle}
 
-  % Custom commands
-% Here we modify some LaTeX default commands
-\renewcommand\cftsecafterpnum{\vskip8pt}  % Add a vertical space after section numbers in ToC
-\renewcommand{\lstlistlistingname}{List of \lstlistingname s}  % Changes the title of the list of listings
+% ! Custom template commands
+% Add a vertical space after section numbers in ToC
+\renewcommand\cftsecafterpnum{\vskip8pt}
+% Changes the title of the list of listings
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+% Changes the title of the bibliography
 \renewcommand{\bibname}{References}
-\renewcommand{\contentsname}{Table of Contents}  % Changes the title of the table of contents
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % Changes the leader between section names and page numbers in ToC
+% Changes the title of the table of contents
+\renewcommand{\contentsname}{Table of Contents}
+% Changes the leader between section and page numbers in ToC
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
 
-% Custom settings
+% Custom template settings
 \captionsetup{justification=centering}  % All captions will be centered
-% \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
-\usepackage{url}
-\usepackage{hyperref}
 \hypersetup{
   colorlinks = true,
   urlcolor = blue,
@@ -102,22 +105,19 @@
 }
 \PassOptionsToPackage{hyphens}{url}
 \urlstyle{same}
-\def\Urlmuskip{0mu plus 1mu}  % Adjust the spacing here
+\def\Urlmuskip{0mu plus 1mu}
 \def\UrlBreaks{\do\/\do-}
 \def\UrlBigBreaks{\do\/\do-\do:\do.}
-
-
-\usepackage{enumitem}
 \setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
 
 
-  \title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}  % Document title
-  \author[1]{Daniel Burger}  % Author name
-  \affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich.}}}  % Author affiliation
-  \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}  % Author email
-  \date{\textit{7. November 2020}} % Document date
+\title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}
+\author[1]{Daniel Burger}  % Author name
+\affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich.}}}
+\affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+\date{\textit{7. November 2020}}
 
-% Start of the document content
+% ! Start of the document content and settings
 \begin{document}
 \pagenumbering{roman}
 \counterwithin{lstlisting}{section}
@@ -128,39 +128,40 @@
 \maketitle  % This command prints the title, author, and date as defined earlier
 \thispagestyle{empty}  % This command sets the style of the current page to empty
 
-\begin{sloppypar}  % The sloppypar environment adjusts the spaces between words such that each line fits into the text width
-  \begin{abstract}  % Start of the abstract
+% The sloppypar environment adjusts the spaces between words such that each line fits into the text width
+\begin{sloppypar}
+  \begin{abstract}
     There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a frontend developer—everyone will be able to profit from WebAssembly’s existence.
 
     In this essay, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
-  \end{abstract}  % End of the abstract
-
-  \pagebreak  % This command inserts a page break
-
-  \pagenumbering{Roman}  % This command changes the page numbering to uppercase Roman numerals
-
-  \tableofcontents  % This command prints the table of contents
+  \end{abstract}
 
   \pagebreak
 
-  \listoffigures  % This command prints the list of figures
+  \pagenumbering{Roman}  % Changing the page numbering to uppercase Roman numerals
+
+  \tableofcontents
 
   \pagebreak
 
-  \listoftables  % This command prints the list of tables
+  \listoffigures
 
   \pagebreak
 
-  \addcontentsline{toc}{section}{\lstlistlistingname}  % This command adds the list of listings to the table of contents
-  \lstlistoflistings  % This command prints the list of code listings
+  \listoftables
 
   \pagebreak
 
-  % This command changes the line spacing to double.
-  % ? Needed for reviews/drafts
-  % \doublespacing
+  % This command adds the list of listings to the table of contents
+  \addcontentsline{toc}{section}{\lstlistlistingname}
+  % This command prints the list of code listings
+  \lstlistoflistings
 
-  \pagenumbering{arabic}  % This command changes the page numbering back to Arabic numerals
+  \pagebreak
+
+  \pagenumbering{arabic}  % Changing the page numbering back to Arabic numerals
+
+  % ! Start of the actual document content
 
   \section{Introduction}
   \label{sec:introduction}
