@@ -1,15 +1,19 @@
 \documentclass[10pt]{article}
 \input{../../templates/preamble.tex}
 
-% ! Start of the document meta information and settings
 \begin{document}
-% Changing the initial page numbering to uppercase Roman numerals
+% Changing the initial page numbering to uppercase Roman
 \pagenumbering{roman}
+% Resetting the page counter to 1
 \counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 % Sets the distance between the bottom and the footer
 \setlength{\footskip}{65pt}
+
+% ! ===============================
+% ! Start of the title page content
+% ! ===============================
 
 \title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}
 \author[1]{Daniel Burger}
@@ -30,7 +34,7 @@
 
   \pagebreak
 
-  % Changing the page numbering back to uppercase Roman numerals
+  % Changing the page numbering back to uppercase Roman
   \pagenumbering{Roman}
 
   \tableofcontents
@@ -50,10 +54,12 @@
 
   \pagebreak
 
-  % Changing the page numbering back to Arabic numerals
+  % Changing the page numbering back to Arabic
   \pagenumbering{arabic}
 
+  % ! ====================================
   % ! Start of the actual document content
+  % ! ====================================
 
   \section{Introduction}
   \label{sec:introduction}
@@ -234,29 +240,36 @@
 
   In the future, JavaScript will probably still have an essential role, but not as important as today. It will act as a simple scripting language to provide websites with dynamic content and to create animations. The positioning of JavaScript will most likely be like the one it originally was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting as e.g. the real-life uses cases in \autoref{tab:use-cases} present.
 
-  % TODO Increase distance between last row and bottom line
-
   \begin{table}[ht]
     \centering
-    \renewcommand{\arraystretch}{1.5} % Increasing space between rows
-    \renewcommand{\tabcolsep}{7pt} % Increasing space between columns
+    % Increasing space between rows
+    \renewcommand{\arraystretch}{1.5}
+    % Increasing space between columns
+    \renewcommand{\tabcolsep}{7pt}
     \begin{tabularx}{\textwidth}{{@{}lX@{}}}
       \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
       \textbf{Company}  & \textbf{Use Case}                                                                                                                                                            \\
       \midrule
       \textbf{Figma}    & Browser-Based Interface Design Tool. Initially written in C++ and compiled from C++ to asm.js. Switching to WebAssembly improved document loading times by over three times. \\
-      \arrayrulecolor{lightgray} % Start coloring the lines light gray
+      % Start coloring the lines light gray
+      \arrayrulecolor{lightgray}
       \midrule
       \textbf{Autodesk} & CAD Drawing Software. Autodesk AutoCAD's original code, older than the WWW, was compiled to WebAssembly for use as a web app.                                                \\
       \midrule
       \textbf{eBay}     & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++ and compiling it to WebAssembly to enhance its success rate significantly.           \\
-      \arrayrulecolor{black} % Revert the rule color back to black
+      % Revert the rule color back to black
+      \arrayrulecolor{black}
       \addlinespace
-      \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
+      % Makes the top line thicker
+      \Xhline{2.75\arrayrulewidth}
     \end{tabularx}
     \caption{Real-life use cases for WebAssembly}
     \label{tab:use-cases}
   \end{table}
+
+  % ! ==============================================
+  % ! Start of the references and appendices content
+  % ! ==============================================
 
   \pagebreak
   \bibliographystyle{../../templates/custom-apa}
