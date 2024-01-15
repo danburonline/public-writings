@@ -1,0 +1,65 @@
+\documentclass[10pt]{article}
+\input{../../templates/preamble.tex}
+
+\begin{document}
+% Changing the initial page numbering to uppercase Roman
+\pagenumbering{roman}
+% Resetting the page counter to 1
+\counterwithin{lstlisting}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+% Sets the distance between the bottom and the footer
+\setlength{\footskip}{65pt}
+
+% ! ===============================
+% ! Start of the title page content
+% ! ===============================
+
+\title{\textbf{Title to be written}}
+\author[ ]{K23003985}
+% \affil[ ]{\textbf{King’s College London}}
+% \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+\date{\textit{13. February 2024}}
+\maketitle
+% Resetting the page style for the first page
+\thispagestyle{empty}
+
+% The sloppypar environment adjusts the spaces between words such that each line fits into the text width
+\begin{sloppypar}
+  \begin{abstract}
+    To be written.
+  \end{abstract}
+
+  \pagebreak
+  % Changing the page numbering back to uppercase Roman
+  \pagenumbering{Roman}
+  \tableofcontents
+  \pagebreak
+  \listoffigures
+  \pagebreak
+  \listoftables
+  \pagebreak
+  \addcontentsline{toc}{section}{\lstlistlistingname} % Add to the TOC
+  \lstlistoflistings
+  \pagebreak
+  % Changing the page numbering back to Arabic
+  \pagenumbering{arabic}
+
+  % ! ====================================
+  % ! Start of the actual document content
+  % ! ====================================
+
+  \section{Introduction}
+  \label{sec:introduction}
+
+  % ! ==============================================
+  % ! Start of the references and appendices content
+  % ! ==============================================
+
+  \pagebreak
+  \bibliographystyle{../../templates/custom-apa}
+  % TODO Uncomment this as soon as you have some references
+  % \bibliography{references/bibliography}
+
+\end{sloppypar}
+\end{document}
