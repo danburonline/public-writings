@@ -1,144 +1,55 @@
-% Global document settings
-\documentclass[10pt]{article}  % This specifies the type of document to be created and the default font size
+\documentclass[10pt]{article}
+\input{../../templates/preamble.tex}
 
-% Packages
-\usepackage{tgtermes}  % Loads the TeX Gyre Termes font
-\usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
-% \usepackage{background} % Creates background images on pages
-\usepackage{natbib}  % A package for bibliographies and citations
-\usepackage{authblk}  % For author and affiliation management
-\usepackage{tocloft}  % Controls the typographic design of table of contents, list of figures and list of tables
-\usepackage{xcolor}  % Provides easy driver-independent access to colors
-\usepackage{siunitx}  % A comprehensive (SI) units package
-\usepackage{setspace}  % Controls line spacing
-\usepackage{listings}  % Typeset programming code within the document
-\usepackage[T1]{fontenc}  % Choice of font encodings
-\usepackage[nottoc]{tocbibind}  % Adds entries for lof, lot, bibliography etc. to the table of contents
-\usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
-\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customizing captions in floating environments
-
-% Custom colours
-% Here we define custom colors to use within code listings
-\definecolor{codegreen}{rgb}{0,0.5,0}
-\definecolor{codegray}{rgb}{0.4,0.4,0.4}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.96,0.96,0.96}
-
-\lstdefinelanguage{JavaScript}{
-  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
-  morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  sensitive=true
-}
-
-% Listing styles
-% This defines a custom style for code listings
-\lstdefinestyle{mystyle}{
-  % ... various style settings ...
-  backgroundcolor=\color{backcolour},
-  commentstyle=\color{codegreen},
-  keywordstyle=\color{purple},
-  numberstyle=\tiny\color{codegray},
-  stringstyle=\color{codepurple},
-  basicstyle=\ttfamily\footnotesize,
-  breakatwhitespace=false,
-  breaklines=true,
-  captionpos=b,
-  framextopmargin=6pt,
-  framexbottommargin=6pt,
-  frame=tb,
-  framerule=0pt,
-  keepspaces=true,
-  numbers=left,
-  numbersep=5pt,
-  showspaces=false,
-  showstringspaces=true,
-  showtabs=false,
-  tabsize=2
-  }
-  \lstset{style=mystyle}  % Apply the custom style to future listings
-
-  % Custom commands
-% Here we modify some LaTeX default commands
-\renewcommand\cftsecafterpnum{\vskip8pt}  % Add a vertical space after section numbers in ToC
-\renewcommand{\lstlistlistingname}{List of \lstlistingname s}  % Changes the title of the list of listings
-\renewcommand{\bibsection}{\section*{Bibliography}}  % Changes the bibliography section name
-\renewcommand{\contentsname}{Table of Contents}  % Changes the title of the table of contents
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % Changes the leader between section names and page numbers in ToC
-\newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
-
-
-
-% Custom settings
-\captionsetup{justification=centering}  % All captions will be centered
-% \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
-\PassOptionsToPackage{hyphens}{url}  % Allow hyphenated URLs
-\urlstyle{same}  % The same font that is being used in the text will be used for URLs
-\def\Urlmuskip{0mu}  % No additional space between characters in a URL
-\def\UrlBreaks{\do\/\do-}  % URL line breaks at / and -
-\hypersetup{  % Setup for the hyperref package
-    colorlinks = true,
-    urlcolor = blue,
-    linkcolor = blue,
-    citecolor = blue,
-  breaklinks=true,
-  pdfpagemode=UseOutlines,
-  bookmarksopen=true,
-  bookmarksopenlevel=2,
-  bookmarksnumbered=true
-  }
-
-  \title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}  % Document title
-  \author[1]{Daniel Burger}  % Author name
-  \affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich.}}}  % Author affiliation
-  \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}  % Author email
-  \date{\textit{7. November 2020}} % Document date
-
-% Start of the document content
 \begin{document}
+% Changing the initial page numbering to uppercase Roman
 \pagenumbering{roman}
+% Resetting the page counter to 1
 \counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
-\setlength{\footskip}{65pt} % This command sets the distance between the bottom of the text body and the footer
+% Sets the distance between the bottom and the footer
+\setlength{\footskip}{65pt}
 
-\maketitle  % This command prints the title, author, and date as defined earlier
+% ! ===============================
+% ! Start of the title page content
+% ! ===============================
 
-\thispagestyle{empty}  % This command sets the style of the current page to empty, removing headers and footers
+\title{\textbf{WebAssembly and the \linebreak  Wizards of Hogwarts}}
+\author[1]{Daniel Burger}
+\affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich.}}}
+\affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+\date{\textit{7. November 2020}}
+\maketitle
+% Resetting the page style for the first page
+\thispagestyle{empty}
 
-\begin{sloppypar}  % The sloppypar environment adjusts the spaces between words such that each line fits into the text width
-  \begin{abstract}  % Start of the abstract
+% The sloppypar environment adjusts the spaces between words such that each line fits into the text width
+\begin{sloppypar}
+  \begin{abstract}
     There is a new kind in the web development hood: WebAssembly. It is fast, portable, supported by the big players and should allow making the world wide web the biggest software platform in existence. It doesn’t matter if you are an experienced software architect or a frontend developer—everyone will be able to profit from WebAssembly’s existence.
 
     In this essay, we will look at what WebAssembly is, how it works and how it works alongside its sibling JavaScript.
-  \end{abstract}  % End of the abstract
+  \end{abstract}
 
-  \pagebreak  % This command inserts a page break
+  \pagebreak
+  % Changing the page numbering back to uppercase Roman
+  \pagenumbering{Roman}
+  \tableofcontents
+  \pagebreak
+  \listoffigures
+  \pagebreak
+  \listoftables
+  \pagebreak
+  \addcontentsline{toc}{section}{\lstlistlistingname} % Add to the TOC
+  \lstlistoflistings
+  \pagebreak
+  % Changing the page numbering back to Arabic
+  \pagenumbering{arabic}
 
-  \pagenumbering{Roman}  % This command changes the page numbering to uppercase Roman numerals
-
-  \tableofcontents  % This command prints the table of contents
-
-  \pagebreak  % Page break
-
-  \listoffigures  % This command prints the list of figures
-
-  \pagebreak  % Page break
-
-  \listoftables  % This command prints the list of tables
-
-  \pagebreak  % Page break
-
-  \addcontentsline{toc}{section}{\lstlistlistingname}  % This command adds the list of listings to the table of contents
-  \lstlistoflistings  % This command prints the list of code listings
-
-  \pagebreak  % Page break
-
-  % \doublespacing  % This command changes the line spacing to double
-
-  \pagenumbering{arabic}  % This command changes the page numbering back to Arabic numerals
+  % ! ====================================
+  % ! Start of the actual document content
+  % ! ====================================
 
   \section{Introduction}
   \label{sec:introduction}
@@ -176,7 +87,7 @@
 
   A quote by Jeff Atwood (co-founder of Stack Exchange) that is popularly referred to as Atwood’s Law. Ever since frameworks like Node.js or React Native became widely used, JavaScript’s possibilities already crossed the border of just living on the client-side inside of a browser. It’s nearly everywhere.
 
-  Also, Node.js’ NPM package manager is currently the most prominent and most active package registry platform ever created. As an example: From May 10th to May 17th of 2018, JavaScript developers downloaded 5.2 billion Node.js packages from the NPM registry, setting a new record \citep{inc_how_2018}
+  Also, Node.js’ NPM package manager is currently the most prominent and most active package registry platform ever created. As an example: From May 10th to May 17th of 2018, JavaScript developers downloaded 5.2 billion Node.js packages from the NPM registry, setting a new record \citep{npm_how_2018}
 
   \begin{figure}[ht]
     \centering
@@ -250,7 +161,7 @@
   \subsection{WASM~—~WebAssembly Binary Instruction Format}
   \label{sec:webassembly-binary-instruction-format}
 
-  While being in production, you probably won’t send the text instruction format file to the client-side. You’ll only send the binary instruction format (.wasm). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they’re referenced as WebAssembly modules \citep{mozilla_foundation_webassemblymodule_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
+  While being in production, you probably won’t send the text instruction format file to the client-side. You’ll only send the binary instruction format (.wasm). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they’re referenced as WebAssembly modules \citep{mozilla_webassembly_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
 
   \vspace{7pt}
   \begin{lstlisting}[language=C, caption=Code example from above compiled into the WebAssembly \\ Binary Instruction Format., label=lst:binary-example]
@@ -289,12 +200,69 @@
   \section{Pain Points And Limitations}
   \label{sec:pain-points-and-limitations}
 
-  The WebAssembly workflow sounds too good to be true, doesn’t it? Just write your code in a high-level language, compile it via Emscripten and then instantiate it inside of JavaScript—easy as that. Well no, it isn’t. There are still some huge pain points for easily porting your desktop-like application to the web, despite not having a garbage collector or exception handlers (WebAssembly Working Group, 2019). The biggest pain point right now is for sure the lack of web APIs. Let me give you a simple use case: Let’s say you want C++ code that can listen if a user clicks on a button and then render some data from your database into the client-side DOM view.
+  The WebAssembly workflow sounds too good to be true, doesn’t it? Just write your code in a high-level language, compile it via Emscripten and then instantiate it inside of JavaScript—easy as that. Well no, it isn’t. There are still some huge pain points for easily porting your desktop-like application to the web, despite not having a garbage collector or exception handlers \citep{w3c_roadmap_2019}. The biggest pain point right now is for sure the lack of web APIs. Let me give you a simple use case: Let’s say you want C++ code that can listen if a user clicks on a button and then render some data from your database into the client-side DOM view.
 
-  Well, I need to disappoint you, this isn’t going to work because WebAssembly can’t access the DOM API. The only way to access it is via JavaScript. If you would want to develop actual WebAssembly-ready client-side software, you would need to write some kind of JavaScript glue code (Mihaylov, 2018), that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+  Well, I need to disappoint you, this isn’t going to work because WebAssembly can’t access the DOM API. The only way to access it is via JavaScript. If you would want to develop actual WebAssembly-ready client-side software, you would need to write some kind of JavaScript glue code \citep{mihaylov_how_2018}, that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+
+  \begin{figure}[ht]
+    \centering
+    \frame{\includegraphics[width=\textwidth]{figures/glue-code.jpg}}
+    \floatcaption{Illustration of how WebAssembly works together with JavaScript}{\citep{mihaylov_how_2018}}
+    \label{fig:glue-code}
+  \end{figure}
+
+  \section{Current Best Use Case}
+  \label{sec:use-cases}
+
+  Currently, the best use case for WebAssembly under these circumstances would only be math-heavy calculations for graphics rendering inside of an HTML5 canvas element. This is because the canvas element is the only place where you can create a graphical user interface without accessing the DOM. This doesn’t sound very interesting for lots of people, but at least it’s super promising for the gaming industry. Since games rely on heavy shader calculations and simulations, the compilation to WebAssembly into a canvas makes perfect sense. That’s why Epic Games showcased a compiled Unreal Engine C++ high-resolution game inside the browser. Everything related to high-fidelity graphics or simulations is the easiest fit for WebAssembly right now — but for everything else that still needs to access or manipulate the DOM: use a glue code mixture between WebAssembly and JavaScript.
+
+  \section{Glue Code}
+  \label{sec:glue-code}
+
+  But Wait, this sounds familiar? Glue code? Wasn’t this the original purpose of JavaScript? Well, yes, it was. However, since the WebAssembly Working Group is actively working on an official DOM API \citep{mozilla_webassemblymodule_2023}, what’s the main purpose of JavaScript in the first place, though? If we soon can create very efficient full-stack web applications with just one high-level language, do we really need JavaScript in the near future?
+
+  Well, we don’t know, you can’t kill a whole ecosystem with millions of developers overnight. This didn’t work for PHP and also won’t work for JavaScript. However, different people have different predictions. Moreover, following chapter describes my predictions for the future.
+
+  \section{WebAssembly's Future}
+  \label{sec:webassembly-future}
+
+  Since people with in-depth knowledge of software development and computer science—aka our Wizards from Hogwarts — soon have the ability to port their power to the client-side, we will most likely see a completely new age of the world wide web as we know it today. Netscape Communications’ original vision of the web as a distributed operating system could finally become a reality. Native apps, as well as their app stores, are going extinct and whole software packages like the suites from Adobe and Autodesk will entirely run inside the browser. The web will push its current borders far beyond what we now define as the epicentre for the information and entertainment industry.
+
+  In the future, JavaScript will probably still have an essential role, but not as important as today. It will act as a simple scripting language to provide websites with dynamic content and to create animations. The positioning of JavaScript will most likely be like the one it originally was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting as e.g. the real-life uses cases in \autoref{tab:use-cases} present.
+
+  \begin{table}[ht]
+    \centering
+    % Increasing space between rows
+    \renewcommand{\arraystretch}{1.5}
+    % Increasing space between columns
+    \renewcommand{\tabcolsep}{7pt}
+    \begin{tabularx}{\textwidth}{{@{}lX@{}}}
+      \Xhline{2.75\arrayrulewidth} % Makes the top line thicker
+      \textbf{Company}  & \textbf{Use Case}                                                                                                                                                            \\
+      \midrule
+      \textbf{Figma}    & Browser-Based Interface Design Tool. Initially written in C++ and compiled from C++ to asm.js. Switching to WebAssembly improved document loading times by over three times. \\
+      % Start coloring the lines light gray
+      \arrayrulecolor{lightgray}
+      \midrule
+      \textbf{Autodesk} & CAD Drawing Software. Autodesk AutoCAD's original code, older than the WWW, was compiled to WebAssembly for use as a web app.                                                \\
+      \midrule
+      \textbf{eBay}     & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++ and compiling it to WebAssembly to enhance its success rate significantly.           \\
+      % Revert the rule color back to black
+      \arrayrulecolor{black}
+      \addlinespace
+      % Makes the top line thicker
+      \Xhline{2.75\arrayrulewidth}
+    \end{tabularx}
+    \caption{Real-life use cases for WebAssembly}
+    \label{tab:use-cases}
+  \end{table}
+
+  % ! ==============================================
+  % ! Start of the references and appendices content
+  % ! ==============================================
 
   \pagebreak
-  \bibliographystyle{references/custom-apa}
+  \bibliographystyle{../../templates/custom-apa}
   \bibliography{references/bibliography}
 
 \end{sloppypar}

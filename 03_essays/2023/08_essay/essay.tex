@@ -1,0 +1,232 @@
+% Global document settings
+\documentclass[10pt]{article}
+
+% Packages
+\usepackage{tgtermes}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tocloft}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[T1]{fontenc}
+\usepackage[nottoc]{tocbibind}
+\usepackage[breaklinks]{hyperref}
+\usepackage[font=small,skip=7pt]{caption}
+
+% Custom colours
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Listing styles
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{purple},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=true,
+  showtabs=false,
+  tabsize=2
+  }
+  \lstset{style=mystyle}
+
+  % Custom commands
+  \renewcommand{\bibname}{References} % Change bibliography title
+  \renewcommand\cftsecafterpnum{\vskip8pt}
+  \renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+  \renewcommand{\bibsection}{\section*{Bibliography}}
+  \renewcommand{\contentsname}{Table of Contents}
+  \renewcommand{\bibsection}{\section{\bibname}}
+  \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+  % Custom settings
+  \captionsetup{justification=centering}
+  \PassOptionsToPackage{hyphens}{url}
+  \urlstyle{same}
+  \def\Urlmuskip{0mu}
+  \def\UrlBreaks{\do\/\do-}
+  \hypersetup{
+    colorlinks = true,
+    urlcolor = blue,
+    linkcolor = black,
+    citecolor = black,
+  breaklinks=true,
+  pdfpagemode=UseOutlines,
+  bookmarksopen=true,
+  bookmarksopenlevel=2,
+  bookmarksnumbered=true
+  }
+
+  \title{\textbf{The Neuroscience of Cultured Meat:}\\ Consumer Adoption and Market Disruption}
+  \author[ ]{Daniel Burger}
+  \affil[ ]{\textbf{King’s College London}}
+  \affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+  \date{\textit{10. October 2023}}
+
+\begin{document}
+% \pagenumbering{roman}
+% \counterwithin{lstlisting}{section}
+% \counterwithin{figure}{section}
+% \counterwithin{table}{section}
+
+\maketitle
+% \thispagestyle{empty}
+
+% Double spacing for feedback
+% \doublespacing
+
+\begin{sloppypar} % For better line breaks
+  \begin{abstract}
+    Lab-grown, sometimes called cultured meat, offers a promising solution to address ethical and environmental issues associated with industrial animal agriculture. This essay provides an overview of how neuroscientific findings can inform strategies for developing and marketing lab-grown meat to consumers. Creating texture and mouthfeel comparable to conventional meat, optimising nutritional content, and demonstrating safety and sustainability will be critical in product development. Consumer research indicates concerns about naturalness but also openness motivated by potential benefits. Neuromarketing techniques like fMRI can provide additional insights into perceptions and decision-making.
+
+    There is ongoing interdisciplinary research and responsiveness to consumer feedback that will determine the speed and breadth of lab-grown meat’s disruption of the traditional meat industry.
+  \end{abstract}
+  \pagebreak
+
+  \pagenumbering{Roman}
+  \tableofcontents
+  \pagebreak
+
+  \listoffigures
+  \pagebreak
+
+  % \listoftables
+  % \pagebreak
+
+  % Back to normal numbering
+  \pagenumbering{arabic}
+
+  \section{Introduction}
+  \label{sec:introduction}
+
+  Generating traditional meat through livestock farming has brought forth prominent discussions regarding its alignment with ecological balance, the global climate scenario, and the ethical treatment of animals. Livestock production is estimated to account for approximately 34\% of global greenhouse gas emissions, requiring large amounts of land, water and feed crops \citep{tuomisto_environmental_2011}. In addition, practices in industrial animal farming such as close confinement in crates and cages, painful mutilations like dehorning, and selective breeding for accelerated growth have faced ethical criticisms regarding infringement of animal rights and natural behaviours \citep{stephens_bringing_2018}. As global meat consumption continues to rise, there is an urgent need for more sustainable and ethical alternatives to conventional meat production.
+
+  Laboratory-grown or cultured meat offers a promising solution to address these issues associated with industrial animal agriculture. It involves growing animal cells in a culture medium rich in nutrients, encouraging the cells to proliferate and differentiate into muscle and fat tissues \citep{datar_possibilities_2010}. This emerging technology enables meat production without animal slaughter and with substantially lower greenhouse gas emissions land and water use compared to conventional methods \citep{tuomisto_environmental_2011}. However, optimising bioreactor design and cell culture media formulation by reducing production costs is a crucial barrier to commercialisation \citep{specht_opportunities_2018}.
+
+  Consumer research indicates that concerns about environmental sustainability and animal welfare could motivate the purchase of lab-grown meat as an alternative to traditional meat \citep{circus_exploring_2018}. However, public perceptions and reactions to this novel food technology are still largely unknown and warrant further investigation \citep{verbeke_would_2015}. Consumers may harbour concerns regarding the safety, taste, price and perceived naturalness of lab-grown meat \citep{bryant_consumer_2018}. Neuromarketing techniques provide valuable insights into consumer decision-making and emotional responses that can help address these uncertainties. A deeper understanding of consumers’ motivations, preferences and attitudes will be critical to successfully developing and marketing lab-grown meat products.
+
+  This essay will provide an overview of the role of neuroscientific findings in developing and marketing lab-grown meat. Topics covered will include consumer perceptions, neuromarketing applications, product development strategies, and potential marketing approaches to introduce this sustainable protein alternative.
+
+  \section{Developing Lab-Grown Meat}
+  \label{sec:developing-lab-grown-meat}
+
+  Several key factors must be considered in developing high-quality lab-grown meat products that can successfully replace conventional meat. Creating lab-grown meat is a multi-step process that involves cell isolation and others, as illustrated in \autoref{fig:lab-grown-meat-process}.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/lab-grown-meat-step.png}
+    \caption[Modular process diagram depicting the generalised steps in cultured meat and seafood production.]{\textbf{Modular process diagram depicting the generalised steps in cultured meat and seafood production.} The main steps are obtaining initial cells from an animal source, preparing a cell line through isolation, culture, optimisation and selection, increasing cell biomass via proliferation, differentiation and/or maturation, harvesting the cultured product, and incorporating it into food items. Modifier steps like cell isolation, genetic modification, selection and storage may occur at various points. Arrows indicate the process flow from each step to the next \citep{ong_food_2021}.}
+    \label{fig:lab-grown-meat-process}
+  \end{figure}
+
+  Texture and mouthfeel are essential attributes, with consumers expecting a comparable experience to cooked animal meat \citep{datar_possibilities_2010}. Culturing techniques that promote muscle fibre alignment and the formation of connective tissue can help achieve the texture profile of whole-cut meats like steak \citep{post_cultured_2012}. For ground products like burgers, smaller tissue spheroids or microcarriers can be used \citep{specht_opportunities_2018}.
+
+  Flavour compounds produced during the cooking process also affect taste and should be matched to traditional meat using ingredients like heme to catalyse reactions like Maillard browning \citep{post_cultured_2012}.
+
+  Ensuring adequate nutritional quality is also critical. Fortification of culture medium with iron, zinc, vitamin B12, and other micronutrients found in meat can optimise the nutritional composition of cultured meat \citep{fraeye_sensorial_2020}. Health claims related to potential benefits like reduced saturated fats may add appeal for some consumers but require scientific substantiation \citep{sergelidis_lab_2019}.
+
+  Rigorous safety testing and compliance with regulatory standards will help address potential consumer concerns and build confidence in lab-grown meat. Careful screening for pathogens and contaminants combined with strict quality control during manufacturing is imperative \citep{ong_food_2021}. Obtaining regulatory approval from the FDA and USDA demonstrates oversight and safety, as it did just some time ago for two companies \citep{mccarthy_usda_nodate}.
+
+  Environmental sustainability of production methods should be demonstrated through life cycle assessments (LCAs) accounting for factors like energy use, emissions and raw material inputs \citep{mattick_anticipatory_2015}. Communicating the results of such studies can reinforce the ecological benefits compared to conventional meat.
+
+  Last but not least, transparent labelling that provides consumers with clear information on lab-grown meat’s origin and production process will be necessary for acceptance and adoption \citep{failla_evaluation_2023}. Descriptive designations help inform purchasing decisions.
+
+  Addressing these areas will allow developers of lab-grown meat to create products that match or exceed traditional meat in terms of sensory factors, nutritional content, safety and sustainability.
+
+  \section{Consumer Perceptions and Attitudes}
+  \label{sec:consumer-perceptions-and-attitudes}
+
+  Understanding consumer perceptions, motivations, and potential barriers regarding lab-grown meat is essential for its successful introduction and adoption.
+
+  Qualitative techniques like interviews and focus groups provide deeper insights into consumers’ values, concerns and ambivalence toward lab-grown meat \citep{laestadius_is_2015}. For example, doubts about naturalness and mixed perceptions of high-tech food production emerge in focus groups. Interviews reveal nuanced risk-benefit calculations regarding ethics, environment, and personal health. These methods reveal complex psychological factors shaping attitudes. Cultural and religious values also play a role, as do varying levels of trust in institutions \citep{al-kwifi_dynamics_2019}. Incorporating findings from qualitative research provides a more complete understanding of consumer decision-making.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/excerpt-lab-grown-meat.png}
+    \caption[Key Personal Drivers and Barriers for Lab-Grown Meat.]{\textbf{Key Personal Drivers and Barriers for Lab-Grown Meat.} This excerpt from Table 1 in \citeauthor{circus_exploring_2018}’s paper shows the top personal drivers and barriers for lab-grown meat. The drivers are Environmental friendliness, moral/ethical reasons, and interesting ideas (with percentage responses). The barriers are Moral/ethical issues, Too unnatural, and Preference for other proteins with percentages \citep{circus_exploring_2018}.}
+    \label{fig:consumer-survey}
+  \end{figure}
+
+  As depicted in \autoref{fig:consumer-survey}, recent surveys find that the percentage of consumers currently willing to try cultured meat products spans a wide range, from approximately 10\% on the low end up to 65\% on the high end, with cost, taste, and perceived naturalness being top concerns \citep{bryant_consumer_2018}. However, approximately two-thirds to three-quarters are open to trying lab-grown meat, motivated by potential benefits such as sustainability, animal welfare and health \citep{wilks_attitudes_2017}.
+
+  Demographic factors correlate with acceptance, with younger generations more open to radical food innovations. Urban, liberal, educated consumers also exhibit greater receptiveness to lab-grown meat than rural, conservative and less educated segments \citep{circus_exploring_2018}. Targeting aligned groups can drive early adoption.
+
+  Ongoing consumer research across diverse segments will be invaluable. Conjoint analysis can quantify preferences and willingness-to-pay, while choice modelling examines purchase decisions \citep{wilks_attitudes_2017}. Surveys should track key performance indicators over time.
+
+  These findings will inform educational and promotional initiatives to shift consumer perceptions and build acceptance in retail and food service channels. Monitoring online conversations with semantic analysis tools such as ‘Blue Ocean SWS’ provides real-time insights into evolving attitudes. While scepticism persists in some groups, systematic research and engagement can identify effective strategies for expanding consumer appeal.
+
+  \section{Role of Neuroscience}
+  \label{sec:role-of-neuroscience}
+
+  Neuromarketing techniques that measure brain activity provide novel insights into consumer decision-making that can inform efforts to develop and market lab-grown meat.
+
+  Tools like functional magnetic resonance imaging (fMRI) enable researchers to pinpoint specific regions of the brain activated in response to marketing messages or product concepts \citep{bryant_consumer_2018}. This can identify patterns tied to positive or negative perceptions that could potentially be used to refine communication materials.
+
+  Electroencephalography (EEG) detects electrical activity in the brain, helping decipher cognitive processing and emotional engagement with branding elements like logos, names or packaging \citep{khushaba_consumer_2013}. These inputs could guide design choices to spark favourable reactions. However, as is also the case with fMRI, it is important to note that there may be limitations in making broad generalisations due to inherent individual differences in brain structure and function across consumers.
+
+  Biometric measures like galvanic skin response and eye tracking also indicate emotional arousal and attention patterns when consumers view ads or evaluate products \citep{riedl_decade_2020}. This data could help optimise marketing content and formats.
+
+  The choice to buy lab-grown meat involves complex risk-benefit calculations that neuroscience can unpack. While consumers are often unaware of their deeper motivations, neuroimaging may reveal unfiltered responses that drive behaviour. Overall, neuromarketing may provide complementary perspectives to traditional consumer research for understanding the psychology behind adopting lab-grown meat. Further research on its specific applications in this context is still needed.
+
+  \section{Marketing Strategies}
+  \label{sec:marketing-strategies}
+
+  Marketing lab-grown meat requires strategic and targeted initiatives tailored to consumer segments most likely to adopt this novel product initially. A comparable example targeted tech-savvy early adopters of consumer electronic devices such as the iPhone in 200 \citep{vliert_apple_2021}. As a disruptive innovation, lab-grown meat should first focus on innovators and early adopters who are intrigued by new technologies and exhibit less risk aversion. Engaging these groups helps drive word-of-mouth and advocacy.
+
+  Leveraging social media and partnering with influencers, environmental groups, and technology sites exposes lab-grown meat to aligned audiences receptive to its sustainability and high-tech nature \citep{goodwin_future_2013}. Hashtags and shareable visual content should be part of the social strategy.
+
+  Messaging should focus on safety, nutritional parity with conventional meat, and ecological benefits, as these factors are likely top concerns and motivations \citep{circus_exploring_2018}. The higher production costs can also be framed as premium “clean meat”.
+
+  Monitoring social listening platforms like Reddit and X (formerly Twitter) provides invaluable real-time insight into consumer conversations, questions and attitudes to continually refine communication \citep{verbeke_would_2015}. Viral moments can be capitalised on.
+
+  As production scales and costs decrease, neuromarketing and consumer studies will identify how to pragmatically broaden the appeal of lab-grown meat to the mainstream \citep{verbeke_would_2015}. This may require adjustments to communication and pricing.
+
+  Partnerships with grocery retailers and experiential in-store sampling can help drive the trial and purchase of lab-grown meat products. Retail settings lend themselves to educational efforts about technology and its benefits.
+
+  Different branding and positioning may be optimal for launching lab-grown meat in retail channels focused on home cooking versus food service contexts where the experience of eating out differs from preparing one’s meals.
+
+  Just as plant-based alternatives have steadily gained acceptance, employing these targeted marketing strategies based on data-driven insights about early adopters can help establish lab-grown meat as part of the future food system.
+
+  \section{Thinking Outside the Box}
+  \label{sec:outside-the-box}
+
+  % Write something about how the research into the field of lab grown meat can also foster funding, awareness and transfer of knowledge to the field of tissue engineering and regenerative medicine, such as the development of organoids and organ-on-a-chip technologies.
+
+  \section{Conclusion}
+  \label{sec:conclusion}
+
+  Developing and marketing lab-grown meat requires an interdisciplinary approach integrating scientific innovation, consumer research, and neuromarketing.
+
+  Lab-grown meat holds immense promise as a sustainable alternative to conventional animal agriculture that can help address environmental and ethical concerns. However, realising this potential requires creating products that match the sensory experience of traditional meat while reassuring consumers of its safety, nutrition, and ecological advantages.
+
+  Ongoing research into consumer perceptions, motivations, and decision-making processes is crucial. Quantitative surveys, qualitative studies, and neuromarketing tools provide complementary insights that allow marketers to identify positioning, messaging, and engagement strategies that will foster adoption by specific consumer segments.
+
+  From a product development standpoint, factors like taste, texture, nutritional content, safety, and sustainability metrics must all be rigorously evaluated and optimised through iteration and testing. Transparent, descriptive labelling and branding also play a crucial role.
+
+  Targeted marketing efforts focused on innovators and early adopters can gradually expand the appeal of lab-grown meat as production scales and costs decrease over time. With responsiveness to consumer feedback and effective communication of its benefits, lab-grown meat can transform the food system and the way it is produced and consumed globally.
+
+  The multi-disciplinary research, commercialisation, and marketing of lab-grown meat remains in its early stages but promises to chart an exciting path forward for sustainable protein. Ongoing advances and insights will determine how quickly and broadly this technological innovation disrupts the traditional animal meat industry.
+
+  \pagebreak
+  \singlespacing % No need for double spacing in the references
+  \bibliographystyle{references/custom-apa}
+  \bibliography{references/bibliography}
+
+\end{sloppypar}
+\end{document}’
