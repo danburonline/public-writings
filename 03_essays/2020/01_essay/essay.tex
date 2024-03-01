@@ -113,12 +113,12 @@
   \section{WebAssembly Says Hello World}
   \label{sec:hello-world}
 
-  WebAssembly is the new player in the web development industry. It is fast, small, non-readable and not even an actual programming language. You literally cannot code in WebAssembly \citep{rourke_learn_2018}. So, why should we all be excited about it? As mentioned earlier, it is a compilation byte-format target for high-level languages.
+  WebAssembly is the new player in the web development industry. It is fast, small, non-readable and not even an actual programming language. You literally cannot code in WebAssembly \citep{rourke_learn_2018}. So, why should we all be excited about it? It is a compilation byte-format target for high-level languages used side-by-side with JavaScript, CSS and HTML, as illustrated in \autoref{fig:wasm}.
 
   \begin{figure}[ht]
     \centering
     \frame{\includegraphics[width=\textwidth]{figures/wasm.jpg}}
-    \floatcaption{Illustration of how WebAssembly modules are being delivered to the browser}{\citep{logrocket_logrocket_nodate}}
+    \caption[Conceptual diagram depicting the process of integrating WebAssembly with traditional web technologies.]{\textbf{Conceptual diagram depicting the process of integrating WebAssembly with traditional web technologies.} High-level programming languages like C++, C, or Rust are compiled into WebAssembly (WASM) modules, which are then delivered to the browser to work in conjunction with JavaScript (JS), Cascading Style Sheets (CSS), and HyperText Markup Language (HTML) \citep{logrocket_logrocket_nodate}.}
     \label{fig:wasm}
   \end{figure}
 
@@ -202,12 +202,12 @@
 
   The WebAssembly workflow sounds too good to be true. Just write your code in a high-level language, compile it via Emscripten, and then instantiate it inside JavaScript—it is as easy as that. Well, no, it is not. There are still some considerable pain points for easily porting your desktop-like application to the web despite not having a garbage collector or exception handlers \citep{w3c_roadmap_2019}. The most significant pain point right now is, for sure, the lack of web APIs. Let us say you want C++ code that can listen if a user clicks a button and then render some data from your database into the client-side DOM view.
 
-  Well, I need to disappoint you; this will not work because WebAssembly cannot access the DOM API. The only way to access it is via JavaScript. If you want to develop actual WebAssembly-ready client-side software, you would need to write some JavaScript glue code \citep{mihaylov_how_2018} that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+  Well, I need to disappoint you; this will not work because WebAssembly cannot access the DOM API. The only way to access it is via JavaScript. If you want to develop actual WebAssembly-ready client-side software, you would need to write some JavaScript glue code, as depicted in \autoref{fig:glue-code} \citep{mihaylov_how_2018} that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
 
   \begin{figure}[ht]
     \centering
     \frame{\includegraphics[width=\textwidth]{figures/glue-code.jpg}}
-    \floatcaption{Illustration of how WebAssembly works together with JavaScript}{\citep{mihaylov_how_2018}}
+    \caption[Workflow diagram illustrating the interaction between WebAssembly and JavaScript.]{\textbf{Workflow diagram illustrating the interaction between WebAssembly and JavaScript.} Developer code is compiled into a WebAssembly (.wasm) module, which is initialised through JavaScript glue code. This JavaScript code provides the necessary interface for the WebAssembly module to interact with the HTML page, enabling access to the DOM API that WebAssembly cannot directly manipulate \citep{mihaylov_how_2018}.}
     \label{fig:glue-code}
   \end{figure}
 
