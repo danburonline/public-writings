@@ -4,10 +4,4 @@ In this repo I will add all my public writings. I will try to keep it updated as
 
 ## Essays Overview
 
-Overview of all essays I have written, ordered by year and month.
-
-| Essay title                             | Date             | LaTeX                                         | PDF                                           |
-| --------------------------------------- | ---------------- | --------------------------------------------- | --------------------------------------------- |
-| WebAssembly and the Wizards of Hogwarts | 7. November 2020 | [`.tex`](./03_essays/2020/01_essay/essay.tex) | [`.pdf`](./03_essays/2020/01_essay/essay.pdf) |
-|                                         |                  |                                               |                                               |
-|                                         |                  |                                               |                                               |
+<!-- TODO Create overview as a list including BibTeX citation code snippets for each work -->
