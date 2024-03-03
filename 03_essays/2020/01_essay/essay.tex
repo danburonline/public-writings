@@ -66,13 +66,13 @@
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/netscape.jpg}
-    \caption[The Netscape Navigator browser interface, circa mid-1990s]{\textbf{The Netscape Navigator browser interface, circa mid-1990s.} This screenshot captures the early stages of the World Wide Web, where Netscape Communications made significant contributions towards a more dynamic and interactive web \citep{npr_home_nodate}.}
+    \caption[The Netscape Navigator browser interface, circa mid-1990s]{\textbf{The Netscape Navigator browser interface, circa mid-1990s.} Early stages of the World Wide Web \citep{npr_home_nodate}.}
     \label{fig:netscape}
   \end{figure}
 
   Marc Andreessen, founder of Netscape Communications, proposed that HTML needed some kind of “scripting language” that was approachable, something you could glue directly into the markup. A language that is easy to use by newbie programmers who do not want to handle compiler errors or strictly typed syntax.
 
-  That was why they hired the experienced programming language and network developer Brendan Eich. Brendan’s first task was the nearly unachievable goal of creating such a scripting language for the web—due in 10 days. They (later) called it JavaScript \citep{severance_javascript_2012}.
+  That was why they hired Brendan Eich. Brendan’s first task was the nearly unachievable goal of creating such a scripting language for the web—due in 10 days. They (later) called it JavaScript \citep{severance_javascript_2012}.
 
   \subsection{JavaScript’s Destiny}
   \label{sec:javascript-destiny}
@@ -113,14 +113,7 @@
   \section{WebAssembly Says Hello World}
   \label{sec:hello-world}
 
-  WebAssembly is the new player in the web development industry. It is fast, small, non-readable and not even an actual programming language. You literally cannot code in WebAssembly \citep{rourke_learn_2018}. So, why should we all be excited about it? It is a compilation byte-format target for high-level languages used side-by-side with JavaScript, CSS and HTML, as illustrated in \autoref{fig:wasm}.
-
-  \begin{figure}[ht]
-    \centering
-    \frame{\includegraphics[width=\textwidth]{figures/wasm.jpg}}
-    \caption[Conceptual diagram depicting the process of integrating WebAssembly with traditional web technologies.]{\textbf{Conceptual diagram depicting the process of integrating WebAssembly with traditional web technologies.} High-level programming languages like C++, C, or Rust are compiled into WebAssembly (WASM) modules, which are then delivered to the browser to work in conjunction with JavaScript (JS), Cascading Style Sheets (CSS), and HyperText Markup Language (HTML) \citep{logrocket_logrocket_nodate}.}
-    \label{fig:wasm}
-  \end{figure}
+  WebAssembly is the new player in the web development industry. It is fast, small, non-readable and not even an actual programming language. You literally cannot code in WebAssembly \citep{rourke_learn_2018}. So, why should we all be excited about it? It is a compilation byte-format target for high-level languages used side-by-side with JavaScript, CSS and HTML.
 
   You write your code in a high-level language like C or C++ and compile it to WebAssembly. The magic trick: It works in the browser and is super fast—sometimes about 5 to 20 times faster than JavaScript \citep{aboukhalil_how_2019}.
 
@@ -132,7 +125,7 @@
   \subsection{WAT~—~WebAssembly Text Format}
   \label{sec:webassembly-text-format}
 
-  This is a human-readable file format you will get when you compile your C, C++ or Rust code. It represents the abstract syntax tree (AST) from the source code of a programming language. An AST—or, in the WebAssembly case, a .wat file—may be verbose, but it does an excellent job describing the source code components. Representing source code in an AST makes verification and compilation simple and efficient. Here is a simple return function called \lstinline{getDoubleNumber} written in C:
+  This is a human-readable file format you will get when you compile your C, C++ or Rust code. It represents the abstract syntax tree (AST) from the source code of a programming language. An AST—or, in the WebAssembly case, a \lstinline{.wat} file—may be verbose, but it does an excellent job describing the source code components. Representing source code in an AST makes verification and compilation simple and efficient. Here is a simple return function called \lstinline{getDoubleNumber} written in C:
 
   \vspace{7pt}
   \begin{lstlisting}[language=C, caption=Code example in C., label=lst:c-example]
@@ -161,23 +154,22 @@
   \subsection{WASM~—~WebAssembly Binary Instruction Format}
   \label{sec:webassembly-binary-instruction-format}
 
-  While in production, you probably will not send the text instruction format file to the client side. You will only send the binary instruction format (.wasm). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they are referenced as WebAssembly modules \citep{mozilla_webassembly_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
+  While in production, you probably will not send the text instruction format file to the client side. You will only send the binary instruction format (\lstinline{.wasm}). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they are referenced as WebAssembly modules \citep{mozilla_webassembly_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
 
   \vspace{7pt}
   \begin{lstlisting}[language=C, caption=Code example from above compiled into the WebAssembly \\ Binary Instruction Format., label=lst:binary-example]
   0061 736d 0100 0000 0186 8080 8000 0160 017f 017f 0382
   8080 8000 0100 0484 8080 8000 0170 0000 0583 8080 8000
   0100 0106 8180 8080 0000 079c 8080 8000 0206 6d65 6d6f
-  7279 0200 0f67 6574 446f 7562 6c65 475 6d62 6572 0000
-  0a8d 8080 8000 0187 8080 8000 0020 0041 0174 0b\end{lstlisting}
+  7279 0200 0f67 6574 446f 7562 6c65 475 6d62 6572 0000\end{lstlisting}
 
   \subsection{WASM Module Instantiating}
   \label{sec:webassembly-module-instantiating}
 
-  If you want to access the C code within your website, you need to instantiate the WebAssembly .wat module inside JavaScript. This would look like this:
+  If you want to access the C code within your website, you need to instantiate the WebAssembly \lstinline{.wat} module inside JavaScript. This would look like this:
 
   \vspace{7pt}
-  \begin{lstlisting}[language=JavaScript, caption=Instantiate the .wasm module in JavaScript., label=lst:javascript-example]
+  \begin{lstlisting}[language=JavaScript, caption=Instantiate the \lstinline{.wasm} module in JavaScript., label=lst:javascript-example]
   // Access the WebAssembly object
   WebAssembly.instantiateStreaming(
     fetch("program.wasm"), imports)
@@ -190,7 +182,7 @@
   \subsection{WebAssembly Compilation}
   \label{sec:webassembly-compilation}
 
-  In order to get a .wasm or .wat file, you first need to compile your source code. There are already different compilers for the various languages out there. The most common one—and also the most famous one—is called Emscripten. Emscripten is described as a so-called LLVM source-to-source compiler with the main focus of compiling C code straight to a subset of JavaScript known as asm.js. However, the recent rise of WebAssembly has pushed the team behind Emscripten to shift its focus to help make WebAssembly more accessible and easier to start with. You can then access the Emscripten compiler inside your command-line interface to easily compile selected source code.
+  In order to get a \lstinline{.wasm} or \lstinline{.wat} file, you first need to compile your source code. There are already different compilers for the various languages out there. The most common one—and also the most famous one—is called Emscripten. Emscripten is described as a so-called LLVM source-to-source compiler with the main focus of compiling C code straight to a subset of JavaScript known as asm.js. However, the recent rise of WebAssembly has pushed the team behind Emscripten to shift its focus to help make WebAssembly more accessible and easier to start with. You can then access the Emscripten compiler inside your command-line interface to easily compile selected source code.
 
   \subsection{Original Source Code}
   \label{sec:original-source-code}
@@ -207,7 +199,7 @@
   \begin{figure}[ht]
     \centering
     \frame{\includegraphics[width=\textwidth]{figures/glue-code.jpg}}
-    \caption[Workflow diagram illustrating the interaction between WebAssembly and JavaScript.]{\textbf{Workflow diagram illustrating the interaction between WebAssembly and JavaScript.} Developer code is compiled into a WebAssembly (.wasm) module, which is initialised through JavaScript glue code. This JavaScript code provides the necessary interface for the WebAssembly module to interact with the HTML page, enabling access to the DOM API that WebAssembly cannot directly manipulate \citep{mihaylov_how_2018}.}
+    \caption[Workflow diagram illustrating the interaction between WebAssembly and JavaScript.]{\textbf{Workflow diagram illustrating the interaction between WebAssembly and JavaScript.} Developer code is compiled into a WebAssembly (\lstinline{.wasm}) module, which is initialised through JavaScript glue code. This JavaScript code provides the necessary interface for the WebAssembly module to interact with the HTML page, enabling access to the DOM API that WebAssembly cannot directly manipulate \citep{mihaylov_how_2018}.}
     \label{fig:glue-code}
   \end{figure}
 
@@ -244,7 +236,7 @@
       % Start coloring the lines light gray
       \arrayrulecolor{lightgray}
       \midrule
-      \textbf{Autodesk} & CAD Drawing Software. Autodesk AutoCAD’s original code, older than the WWW, was compiled into WebAssembly as a web app.                                                              \\
+      \textbf{Autodesk} & CAD Drawing Software. Autodesk AutoCAD’s original code, older than the World Wide Web, was compiled into WebAssembly as a web app.                                                   \\
       \midrule
       \textbf{eBay}     & Barcode Scanner. eBay improved their JavaScript barcode scanner by rebuilding it in C++ and compiling it to WebAssembly to enhance its success rate significantly.                   \\
       % Revert the rule color back to black
