@@ -1,0 +1,68 @@
+\documentclass[10pt]{article}
+\input{../../templates/preamble.tex}
+
+\begin{document}
+% Changing the initial page numbering to uppercase Roman
+\pagenumbering{roman}
+% Resetting the page counter to 1
+\counterwithin{lstlisting}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+% Sets the distance between the bottom and the footer
+\setlength{\footskip}{65pt}
+
+% ! ===============================
+% ! Start of the title page content
+% ! ===============================
+
+\title{\textbf{WebGPU vs Pixel Streaming:} \\ A View From Afar}
+\author[1]{Daniel Burger}
+\affil[1]{\textbf{Middlesex University London\thanks{In collaboration with SAE Institute Zürich.}}}
+\affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+\date{\textit{7. February 2021}}
+\maketitle
+% Resetting the page style for the first page
+\thispagestyle{empty}
+
+% The sloppypar environment adjusts the spaces between words such that each line fits into the text width
+\begin{sloppypar}
+  \begin{abstract}
+    Two completely new technologies to develop modern graphics-focused software are on the rise. WebGPU is the successor to WebGL and offers remarkable performance improvements. However, pixel streaming goes in a completely different direction and is actively used by the gaming industry.
+
+    In this article, we go into the near future and look at a hypothetical 3D application’s top-level architecture and argue the pros and cons of WebGPU vs pixel streaming from a developer’s perspective.
+  \end{abstract}
+
+  \pagebreak
+  % Changing the page numbering back to uppercase Roman
+  \pagenumbering{Roman}
+  \tableofcontents
+  \pagebreak
+  \listoffigures
+  \pagebreak
+  \listoftables
+  \pagebreak
+  \addcontentsline{toc}{section}{\lstlistlistingname} % Add to the TOC
+  \lstlistoflistings
+  \pagebreak
+  % Changing the page numbering back to Arabic
+  \pagenumbering{arabic}
+
+  % ! ====================================
+  % ! Start of the actual document content
+  % ! ====================================
+
+  \section{Introduction}
+  \label{sec:introduction}
+
+  On the 17th of June 2015, Brendan Eich—the inventor of JavaScript—and the teams behind Mozilla, Chrome, Edge and WebKit presented a new browser standard: \mbox{WebAssembly}, a portable and highly efficient byte-code compilation target for high-level languages such as C++ and Rust \citep{eich_asmjs_2015}.
+
+  % ! ==============================================
+  % ! Start of the references and appendices content
+  % ! ==============================================
+
+  \pagebreak
+  \bibliographystyle{../../templates/custom-apa}
+  \bibliography{references/bibliography}
+
+\end{sloppypar}
+\end{document}
