@@ -60,9 +60,9 @@
 
   \begin{figure}[ht]
     \centering
-    \frame{\includegraphics[width=\textwidth]{figures/001.png}}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versatility and the extensive ecosystem supported by NPM \citep{google_google_nodate}.}
-    \label{fig:atwood-law}
+    \includegraphics[width=\textwidth]{figures/gpu.png}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versatility and the extensive ecosystem supported by NPM.}
+    \label{fig:gpu}
   \end{figure}
 
   \section{WebGPU}
@@ -74,6 +74,13 @@
   \label{subsec:the-slow-death-of-webgl}
 
   Do not get me wrong; WebGL is a fantastic piece of technology! It allows developers to create interactive 2D and 3D graphics which is impossible with standard JavaScript. Compared to, e.g. Flash, it allows developers to ship their content on the web without the need to install a plugin. The implementation of WebGL 1.0 and WebGL 2.0 is embedded in nearly all major browsers and even mobile phones.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/can-i-use.png}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \label{fig:can-i-use}
+  \end{figure}
 
   Since technologies usually do not vanish overnight, WebGL will definitely stay for many more years. Numerous applications and frameworks rely on WebGL, millions of people use them (Similarweb, n.d.), and hundreds of thousands of developers produce new software with WebGL each day (npm Inc., n.d.). This is entirely understandable because developers can create remarkable things with a low-level graphics API like WebGL. The most famous example is Google Maps — especially Google Earth (Shankland, 2011). Applications like that were unattainable until some years ago, and today we take it for granted to e.g. interact with 3D content on a website — even on mobile devices!
 
@@ -87,6 +94,13 @@
   \label{subsec:shared-memory}
 
   To simply explain it with my beginner’s understanding: Shared memory is conceptually a place where each Arithmetic Logic Unit (ALU) can efficiently access logic of other ALUs instead of calculating it on its own (Wallez, 2020). I like to think of shared memory as a hashmap in dynamic programming that can optimise the space-time complexity in e.g. traversing through an input array with constant time operations to access data from the previous iterations instead of calculating them again on its own.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/shared-memory.png}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \label{fig:shared-memory}
+  \end{figure}
 
   Modern graphics card APIs such as Vulkan or Metal use concepts like shared memory — and many others — to optimise their performance. I like to think comparing OpenGL to e.g. Vulkan as comparing C to JavaScript: OpenGL — and therefore WebGL too — is slow because the other APIs are closer to the actual hardware and more or less platform-specific optimised as well (Hruska, 2015). OpenGL is not optimised for these new concepts. Many developers switched to Vulkan, Metal and co. because of these new concepts (like shared memory) and the benefits of a better performance. But why can’t we just create a new kind of OpenGL, which makes it possible to talk to all the modern graphics card APIs? Instead of porting an old native technology to the web, why can’t we just create a web API that provides some output that will be understood by the modern APIs (something similar to how WebAssembly works with the CPUs (Mozilla Foundation, 2021))? Well, that is precisely what the W3C intends to do with the new WebGPU browser standard.
 
@@ -112,9 +126,23 @@
 
   Basically, pixel streaming is about moving the heavy-lifting logic from the client to the server. It is the concept of developing software on dedicated hardware (with e.g. dedicated GPUs) and streaming the audio-visual output to the user. As a part of this, client-code (like JavaScript) will also be shipped to interact with the server’s software output in real-time (Epic Games Inc., n.d.). This makes pixel streaming from a developer’s perspective the less accessible technology compared to WebGL/WebGPU because it relies heavily on expensive hardware.
 
+  \begin{figure}[ht]
+    \centering
+    \frame{\includegraphics[width=\textwidth]{figures/pixel-streaming-architecture.png}}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \label{fig:pixel-streaming-architecture}
+  \end{figure}
+
   Nevertheless, with pixel streaming, nearly everything seems possible! Developers can produce cutting-edge software which only runs on high-end graphics cards which users could never buy on their own — or even maintain.
 
   However, that is precisely the problem: scalability. A company/a developer needs to gain access to this high-end hardware. Of course, there are Infrastructure as a Service (IaaS) providers like Amazon Web Services (AWS) and Google Cloud Platform (GCP), but there is still a significant limitation: costs (Amazon.com Inc., n.d.). Even with AWS, GCP and co. in the backpack, running software on the required high-end hardware is a computationally expensive task that consumes a lot of energy. Yes, Google and co. seem to have a sheer endless amount of available computing power to make use of, but with the needs of a freely available pixel streaming application, one would push it to a costly limit.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/project-anywhere.jpg}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \label{fig:project-anywhere}
+  \end{figure}
 
   There are working proof of concepts like the Project Anywhere from NVIDIA, Microsoft and co. with streaming-optimised graphics cards (Woodard and Young, 2020) or even running products like Google Stadia (Patterson, 2020). However, the problem with overcoming the huge price factor is that a company cannot give away a pixel streaming application freely on the web; they would need a payment model for access. Otherwise, the company would possibly ruin themselves financially (imagine e.g. the cost of a DDoS attack on such a free to use application).
 
