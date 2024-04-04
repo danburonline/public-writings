@@ -27,9 +27,9 @@
 % The sloppypar environment adjusts the spaces between words such that each line fits into the text width
 \begin{sloppypar}
   \begin{abstract}
-    Two completely new technologies to develop modern graphics-focused software are on the rise. WebGPU is the successor to WebGL and offers remarkable performance improvements. However, pixel streaming goes in a completely different direction and is actively used by the gaming industry.
+    Two completely new technologies for developing modern graphics-focused software are on the rise. WebGPU is the successor to WebGL and offers remarkable performance improvements. However, pixel streaming is a completely different direction and is actively used by the gaming industry.
 
-    In this article, we go into the near future and look at a hypothetical 3D application’s top-level architecture and argue the pros and cons of WebGPU vs pixel streaming from a developer’s perspective.
+    In this article, we look at a hypothetical 3D application’s top-level architecture in the near future and argue the pros and cons of WebGPU vs pixel streaming from a developer’s perspective.
   \end{abstract}
 
   \pagebreak
@@ -54,41 +54,41 @@
   \section{Introduction}
   \label{sec:introduction}
 
-  A company that wants to develop software asks itself at some point in the development process which technologies they should use. The investment in terms of future viability is a point to consider; e.g. if company XYZ writes an app with Perl, they will probably have difficulties finding new developers in 20 years who can continue developing with this technology (The HFT Guy, 2019).
+  At some point in the development process, a company that wants to develop software asks itself which technologies it should use. The investment in terms of future viability is a point to consider; e.g., if company XYZ writes an app with Perl, it will probably have difficulties finding new developers in 20 years who can continue developing with this technology (The HFT Guy, 2019).
 
-  The following passages will argue about two technologies that raise important questions for developing 3D applications in the next few years: In which direction should companies/developers invest? What are the advantages and disadvantages and above all: what are these technologies?
+  The following passages will argue about two technologies that raise important questions for developing 3D applications in the next few years: In which direction should companies/developers invest? What are the advantages and disadvantages of these technologies?
 
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/gpu.png}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versatility and the extensive ecosystem supported by NPM.}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language’s versatility and the extensive ecosystem supported by NPM.}
     \label{fig:gpu}
   \end{figure}
 
   \section{WebGPU}
   \label{sec:webgpu}
 
-  Before we can talk about WebGPU, let us first have a look at WebGL, and why it no longer has a future.
+  Before we can discuss WebGPU, let us first examine WebGL and why it no longer has a future.
 
   \subsection{The Slow Death of WebGL}
   \label{subsec:the-slow-death-of-webgl}
 
-  Do not get me wrong; WebGL is a fantastic piece of technology! It allows developers to create interactive 2D and 3D graphics which is impossible with standard JavaScript. Compared to, e.g. Flash, it allows developers to ship their content on the web without the need to install a plugin. The implementation of WebGL 1.0 and WebGL 2.0 is embedded in nearly all major browsers and even mobile phones.
+  Do not get it wrong; WebGL is a fantastic piece of technology! It allows developers to create interactive 2D and 3D graphics which is impossible with standard JavaScript. Compared to, e.g. Flash, it allows developers to ship their content on the web without the need to install a plugin. The implementation of WebGL 1.0 and WebGL 2.0 is embedded in nearly all major browsers and even mobile phones.
 
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/can-i-use.png}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language’s vice.}
     \label{fig:can-i-use}
   \end{figure}
 
-  Since technologies usually do not vanish overnight, WebGL will definitely stay for many more years. Numerous applications and frameworks rely on WebGL, millions of people use them (Similarweb, n.d.), and hundreds of thousands of developers produce new software with WebGL each day (npm Inc., n.d.). This is entirely understandable because developers can create remarkable things with a low-level graphics API like WebGL. The most famous example is Google Maps — especially Google Earth (Shankland, 2011). Applications like that were unattainable until some years ago, and today we take it for granted to e.g. interact with 3D content on a website — even on mobile devices!
+  Since technologies usually do not vanish overnight, WebGL will stay for many more years. Numerous applications and frameworks rely on WebGL, millions of people use them (Similarweb, n.d.), and hundreds of thousands of developers produce new software with WebGL daily (npm Inc., n.d.). This is understandable because developers can create remarkable things with a low-level graphics API like WebGL. The most famous example is Google Maps — especially Google Earth (Shankland, 2011). Applications like that were unattainable until some years ago, and today we take it for granted to e.g. interact with 3D content on a website — even on mobile devices!
 
-  WebGL gives developers the needed JavaScript binding to access the GPU. The WebGL API — especially shader programming in the Graphics Library Shader Language (GLSL) — is hard to use.
+  WebGL gives developers the JavaScript binding needed to access the GPU. However, the WebGL API—especially shader programming in the Graphics Library Shader Language (GLSL)—is difficult to use.
 
-  Only a few developers — myself excluded — grasp the complexity of OpenGL and therefore also WebGL.
+  Only a few developers — myself excluded — grasp the complexity of OpenGL and, therefore, also, WebGL.
 
-  That is why frameworks like Three.js, Babylon.js and Playcanvas came into existence. These frameworks are basically an abstraction on top of WebGL on top of OpenGL on top of the graphics cards to understand JavaScript code and render 2D/3D graphics in the browser. They are widely established and work great (Wappalyzer, n.d.). However, relying on a 10-year-old piece of technology has its downsides. Since the beginning in 2011, WebGL is based on OpenGL ES, a subset of the official OpenGL graphics API with various limitations like not using 3D textures, being limited to triangle meshes, and various others (The Khronos Group Inc., n.d.). WebGL is — from a high-level view — an API built on GPU technology’s understanding from around 15 years ago. Since then, many things have changed. One of the most notable changes is that modern GPUs usually work with shared memory access to perform parallel computing in a more performant fashion than before (Cabello and Wallez, 2019) — and that is where WebGPU comes into play.
+  That is why frameworks like Three.js, Babylon.js and Playcanvas came into existence. These frameworks are basically an abstraction on top of WebGL on top of OpenGL on top of the graphics cards to understand JavaScript code and render 2D/3D graphics in the browser. They are widely established and work great (Wappalyzer, n.d.). However, relying on a 10-year-old piece of technology has its downsides. Since the beginning in 2011, WebGL has been based on OpenGL ES, a subset of the official OpenGL graphics API with various limitations like not using 3D textures, being limited to triangle meshes, and various others (The Khronos Group Inc., n.d.). From a high-level view, WebGL is an API built on GPU technology’s understanding from around 15 years ago. Since then, many things have changed. One of the most notable changes is that modern GPUs usually work with shared memory access to perform parallel computing in a more performant fashion than before (Cabello and Wallez, 2019) — and that is where WebGPU comes into play.
 
   \subsection{Shared Memory}
   \label{subsec:shared-memory}
@@ -98,7 +98,7 @@
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/shared-memory.png}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language’s versa.}
     \label{fig:shared-memory}
   \end{figure}
 
@@ -129,7 +129,7 @@
   \begin{figure}[ht]
     \centering
     \frame{\includegraphics[width=\textwidth]{figures/pixel-streaming-architecture.png}}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language’s versa.}
     \label{fig:pixel-streaming-architecture}
   \end{figure}
 
@@ -140,7 +140,7 @@
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/project-anywhere.jpg}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versa.}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language’s versa.}
     \label{fig:project-anywhere}
   \end{figure}
 
@@ -176,7 +176,6 @@
   \label{sec:outlook}
 
   The entire topic about front vs back is an ongoing discussion in the web development/software industry. I do not think there will ever be a clear winner. It is exciting to see which of the two opponents in the graphics-world will be widely embraced — especially if pixel streaming is a thing to stay and how they want to overcome the high-price drawbacks. Moreover, maybe I am right with the hybrid solution, or perhaps an entirely new kind of technology enters the scene?
-
 
 
   % ! ==============================================
