@@ -92,7 +92,7 @@
   \begin{figure}[ht]
     \centering
     \frame{\includegraphics[width=\textwidth]{figures/google-trends.jpg}}
-    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language's versatility and the extensive ecosystem supported by NPM \citep{google_google_nodate}.}
+    \caption[Google Trends data illustrating the ascent of Node.js and React Native.]{\textbf{Google Trends data illustrating the ascent of Node.js (in red) and React Native (in blue) from January 2004 to 2018.} The marked increase aligns with the period when JavaScript began to dominate server-side programming and mobile app development, demonstrating the language’s versatility and the extensive ecosystem supported by NPM \citep{google_google_nodate}.}
     \label{fig:atwood-law}
   \end{figure}
 
@@ -101,7 +101,7 @@
 
   There are thousands of courses, books and tutorials on how to learn JavaScript. Every computer-related school now or then teaches JavaScript. Nearly everyone can learn it anywhere with a minimum amount of effort. The search term for “Learn JavaScript” on Google will get \num{2220000000} search results. In comparison, the search term “Learn Java” will get \num{305000000} results.
 
-  Though, is that a good thing? Is an originally lightweight scripting language capable of ruling the world of computational web development? My opinion: No, it is not, and there will not be such a bright future for JavaScript as nearly everybody claims. Let me explain it with a Harry Potter analogy:
+  Though, is that a good thing? Is an originally lightweight scripting language capable of ruling the world of computational web development? My opinion: No, it is not, and there will not be such a bright future for JavaScript as nearly everybody claims. Let me explain it with a Harry Potter analogy.
 
   \subsection{Muggles Entering Hogwarts}
   \label{sec:muggles}
@@ -117,12 +117,12 @@
 
   You write your code in a high-level language like C or C++ and compile it to WebAssembly. The magic trick: It works in the browser and is super fast—sometimes about 5 to 20 times faster than JavaScript \citep{aboukhalil_how_2019}.
 
-  \section{WebAssembly in a Nutshell}
+  \subsection{WebAssembly in a Nutshell}
   \label{sec:wasm-in-a-nutshell}
 
   The real face behind the term “WebAssembly” is not as uniform as it is being marketed. WebAssembly itself is only a piece of a bigger technology chain of workflows and concepts. Several other key components are essential for delivering super-fast web applications. It is also good to know its current limitations and which use cases it is the best for. Nevertheless, first, let us talk about the five key components:
 
-  \subsection{WAT~—~WebAssembly Text Format}
+  \subsection{WAT: WebAssembly Text Format}
   \label{sec:webassembly-text-format}
 
   This is a human-readable file format you will get when you compile your C, C++ or Rust code. It represents the abstract syntax tree (AST) from the source code of a programming language. An AST—or, in the WebAssembly case, a \lstinline{.wat} file—may be verbose, but it does an excellent job describing the source code components. Representing source code in an AST makes verification and compilation simple and efficient. Here is a simple return function called \lstinline{getDoubleNumber} written in C:
@@ -151,10 +151,12 @@
     )
   )\end{lstlisting}
 
-  \subsection{WASM~—~WebAssembly Binary Instruction Format}
+  \subsection{WASM: WebAssembly Binary Instruction Format}
   \label{sec:webassembly-binary-instruction-format}
 
   While in production, you probably will not send the text instruction format file to the client side. You will only send the binary instruction format (\lstinline{.wasm}). This is the actual low-byte format file, written in non-readable hexadecimal code. Usually, they are referenced as WebAssembly modules \citep{mozilla_webassembly_2023}. Here is the example from the \lstinline{getDoubleNumber} C function from above:
+
+  \pagebreak
 
   \vspace{7pt}
   \begin{lstlisting}[language=C, caption=Code example from above compiled into the WebAssembly \\ Binary Instruction Format., label=lst:binary-example]
@@ -163,8 +165,8 @@
   0100 0106 8180 8080 0000 079c 8080 8000 0206 6d65 6d6f
   7279 0200 0f67 6574 446f 7562 6c65 475 6d62 6572 0000\end{lstlisting}
 
-  \subsection{WASM Module Instantiating}
-  \label{sec:webassembly-module-instantiating}
+  \subsection{Module Instantiating}
+  \label{sec:module-instantiating}
 
   If you want to access the C code within your website, you need to instantiate the WebAssembly \lstinline{.wat} module inside JavaScript. This would look like this:
 
@@ -189,12 +191,17 @@
 
   To write efficient software and compile it to WebAssembly, you must be proficient in C, C++ or the Rust programming language (or use AssemblyScript if you are familiar with TypeScript). The WebAssembly Working Group has plans to add more languages in the near future. However, they have other priorities and next steps on their roadmap. They primarily focus on the most significant pain points of WebAssembly.
 
-  \section{Pain Points And Limitations}
+  \section{WebAssembly’s Reality}
+  \label{sec:webassembly-reality}
+
+  The WebAssembly workflow sounds too good to be true. Just write your code in a high-level language, compile it via Emscripten, and then instantiate it inside JavaScript—it is as easy as that. Well, no, it is not. There are still some considerable pain points for easily porting your desktop-like application to the web despite not having a garbage collector or exception handlers \citep{w3c_roadmap_2019}.
+
+  \subsection{Pain Points And Limitations}
   \label{sec:pain-points-and-limitations}
 
-  The WebAssembly workflow sounds too good to be true. Just write your code in a high-level language, compile it via Emscripten, and then instantiate it inside JavaScript—it is as easy as that. Well, no, it is not. There are still some considerable pain points for easily porting your desktop-like application to the web despite not having a garbage collector or exception handlers \citep{w3c_roadmap_2019}. The most significant pain point right now is, for sure, the lack of web APIs. Let us say you want C++ code that can listen if a user clicks a button and then render some data from your database into the client-side DOM view.
+  The most significant pain point right now is, for sure, the lack of web APIs. Let us say you want C++ code that can listen if a user clicks a button and then render some data from your database into the client-side DOM view.
 
-  Well, I need to disappoint you; this will not work because WebAssembly cannot access the DOM API. The only way to access it is via JavaScript. If you want to develop actual WebAssembly-ready client-side software, you would need to write some JavaScript glue code, as depicted in \autoref{fig:glue-code} \citep{mihaylov_how_2018} that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
+  Well, I need to disappoint you; this will not work because WebAssembly cannot access the DOM API. The only way to access it is via JavaScript. If you want to develop actual WebAssembly-ready client-side software, you would need to write some JavaScript glue code, as depicted in \autoref{fig:glue-code} \citep{mihaylov_how_2018}, that acts as the asynchronous bridge between your WASM module and the client-side HTML page.
 
   \begin{figure}[ht]
     \centering
@@ -203,24 +210,22 @@
     \label{fig:glue-code}
   \end{figure}
 
-  \section{Current Best Use Case}
+  \subsection{Current Best Use Case}
   \label{sec:use-cases}
 
   As of today, the best use case for WebAssembly under these circumstances is math-heavy calculations for graphics rendering inside an HTML5 canvas element. The canvas element is the only place to create a graphical user interface without accessing the DOM. This does not sound very interesting to many, but at least it is super promising for the gaming industry. Since games rely on computationally heavy shader calculations and simulations, compiling WebAssembly makes perfect sense. That is why Epic Games showcased a compiled Unreal Engine C++ high-resolution game inside the browser. Everything related to high-fidelity graphics or simulations is the most straightforward fit for WebAssembly right now—but for everything else that still needs to access or manipulate the DOM, use a glue code mixture between WebAssembly and JavaScript.
 
-  \section{Glue Code}
+  \subsection{Glue Code}
   \label{sec:glue-code}
 
   But wait, this sounds familiar? Glue code? Wasn’t this the original purpose of JavaScript? Well, yes, it was. However, since the WebAssembly Working Group is actively working on an official DOM API \citep{mozilla_webassemblymodule_2023}, what is the primary purpose of JavaScript in the first place? If we can soon create very efficient full-stack web applications with just one high-level language, do we really need JavaScript in the near future?
 
   Well, we do not know; you cannot kill a whole ecosystem with millions of developers overnight. This did not work for other "dead-talked" ecosystems like PHP and will not work for JavaScript either. However, different people have different predictions. Moreover, the following chapter describes some predictions for the future.
 
-  \section{WebAssembly's Future}
-  \label{sec:webassembly-future}
+  \section{Conclusion}
+  \label{sec:conclusion}
 
   Since people with in-depth knowledge of software development and computer science—aka our Wizards from Hogwarts — soon have the ability to port their power to the client side, we will most likely see a completely new age of the World Wide Web as we know it today. Netscape Communications’ original vision of the web as a distributed operating system could finally become a reality. Native apps and their app stores are going extinct, and whole software packages like the suites from Adobe and Autodesk will run entirely inside the browser. The web will push its borders far beyond what we now define as the information and entertainment industry epicentre.
-
-  In the future, JavaScript will still have an essential role, but not as crucial as today. It will act as a simple scripting language to provide websites with dynamic content and to create animations. The positioning of JavaScript will most likely be like the one it initially was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting as, e.g. the real-life uses cases in \autoref{tab:use-cases} present.
 
   \begin{table}[ht]
     \centering
@@ -248,6 +253,13 @@
     \caption{Real-life use cases for WebAssembly}
     \label{tab:use-cases}
   \end{table}
+
+  \pagebreak
+
+  \subsection{Outlook}
+  \label{sec:outlook}
+
+  In the future, JavaScript will still have an essential role, but not as crucial as today. It will act as a simple scripting language to provide websites with dynamic content and to create animations. The positioning of JavaScript will most likely be like the one it initially was being created for, and WebAssembly will act as the binary format for the browser to do all software-like heavy-lifting as, e.g. the real-life use cases in \autoref{tab:use-cases} present.
 
   % ! ==============================================
   % ! Start of the references and appendices content
