@@ -86,7 +86,7 @@
 
   WebGL gives developers the JavaScript binding needed to access the GPU. However, the WebGL API—especially shader programming in the Graphics Library Shader Language (GLSL)—is difficult to use.
 
-  Only a few developers—myself excluded—grasp the complexity of OpenGL and, therefore, WebGL.
+  Only a few developers grasp the complexity of OpenGL and, therefore, WebGL.
 
   That is why frameworks like Three.js, Babylon.js and Playcanvas came into existence. These frameworks are basically an abstraction on top of WebGL on top of OpenGL on top of the graphics cards to understand JavaScript code and render 2D/3D graphics in the browser. They are widely established and work great (Wappalyzer, n.d.). However, relying on a 10-year-old piece of technology has its downsides. Since the beginning in 2011, WebGL has been based on OpenGL ES, a subset of the official OpenGL graphics API with various limitations like not using 3D textures, being limited to triangle meshes, and various others (The Khronos Group Inc., n.d.). From a high-level view, WebGL is an API built on GPU technology’s understanding from around 15 years ago. Since then, many things have changed. One of the most notable changes is that modern GPUs usually work with shared memory access to perform parallel computing in a more performant fashion than before (Cabello and Wallez, 2019) — and that is where WebGPU comes into play.
 
@@ -102,7 +102,7 @@
     \label{fig:shared-memory}
   \end{figure}
 
-  Modern graphics cards APIs such as Vulkan or Metal use concepts like shared memory — and many others — to optimise their performance. One can think comparing OpenGL to, e.g. Vulkan as comparing C to JavaScript: OpenGL — and therefore WebGL too — is slow because the other APIs are closer to the actual hardware and more or less platform-specific optimised as well (Hruska, 2015). OpenGL is not optimised for these new concepts. Many developers switched to Vulkan, Metal, and more. Because of these new concepts (like shared memory) and the benefits of a better performance. However, why can’t we create a new kind of OpenGL that allows talking to all the modern graphics card APIs? Instead of porting an old native technology to the web, why can’t we create a web API that provides some output that will be understood by the modern APIs (similar to how WebAssembly works with the CPUs (Mozilla Foundation, 2021))? That is precisely what the W3C intends to do with the new WebGPU browser standard.
+  Modern graphics card APIs such as Vulkan or Metal use concepts like shared memory — and many others — to optimise their performance. One can think comparing OpenGL to, e.g. Vulkan as comparing C to JavaScript: OpenGL — and therefore WebGL too — is slow because the other APIs are closer to the actual hardware and more or less platform-specific optimised as well (Hruska, 2015). OpenGL is not optimised for these new concepts. Many developers switched to Vulkan, Metal, and more. Because of these new concepts (like shared memory) and the benefits of a better performance. However, why can’t we create a new kind of OpenGL that allows talking to all the modern graphics card APIs? Instead of porting an old native technology to the web, why can’t we create a web API that provides some output that will be understood by the modern APIs (similar to how WebAssembly works with the CPUs (Mozilla Foundation, 2021))? That is precisely what the W3C intends to do with the new WebGPU browser standard.
 
   \subsection{A Group Effort}
   \label{subsec:a-group-effort}
@@ -119,12 +119,12 @@
   \section{Pixel Streaming}
   \label{sec:pixel-streaming}
 
-  Pixel streaming (sometimes also called render streaming or remote rendering) allows the audio-visual output of a hosted cloud software to be streamed to the client (Antunes, 2020). The client does not need expensive hardware—only a good internet connection.
+  Pixel streaming (sometimes called render streaming or remote rendering) allows the audio-visual output of a hosted cloud software to be streamed to the client (Antunes, 2020). The client does not need expensive hardware—only a good internet connection.
 
   \subsection{How Pixel Streaming Works}
   \label{subsec:how-pixel-streaming-works}
 
-  Basically, pixel streaming is about moving the heavy-lifting logic from the client to the server. It is the concept of developing software on dedicated hardware (with, e.g. dedicated GPUs) and streaming the audio-visual output to the user. As a part of this, client code (like JavaScript) will also be shipped to interact with the server’s software output in real-time (Epic Games Inc., n.d.). This makes pixel streaming, from a developer’s perspective, the less accessible technology compared to WebGL/WebGPU because it relies heavily on expensive hardware.
+  Basically, pixel streaming is about moving the heavy-lifting logic from the client to the server. It is the concept of developing software on dedicated hardware (with, e.g. dedicated GPUs) and streaming the audio-visual output to the user. As a part of this, client code (like JavaScript) will also be shipped to interact with the server’s software output in real time (Epic Games Inc., n.d.). This makes pixel streaming, from a developer’s perspective, the less accessible technology compared to WebGL/WebGPU because it relies heavily on expensive hardware.
 
   \begin{figure}[ht]
     \centering
@@ -149,14 +149,14 @@
   \section{Hypothetical App: Virtual Offices}
   \label{sec:hypothetical-app-virtual-offices}
 
-  Now that we know the technologies and some pros and cons let us imagine we want to build a 3D application soon. The application is called Hejm and aims to accommodate people worldwide in a 3D virtual office. No matter what kind of business they run, Hejm provides them with the tools they will need for their remote-only office. Users can enter the office via virtual reality, augmented reality headsets or a standard computer screen.
+  Now that we know the technologies and some pros and cons, let us imagine we want to build a 3D application soon. The application is called Hejm and aims to accommodate people worldwide in a 3D virtual office. No matter what kind of business they run, Hejm provides them with the tools they will need for their remote-only office. Users can enter the office via virtual reality, augmented reality headsets or a standard computer screen.
 
   \subsection{The Complexity of Pixel Streaming}
   \label{subsec:the-complexity-of-pixel-streaming}
 
-  In a pixel streaming scenario, we would write the Hejm software to run on a cloud GPU instance (e.g. AWS EC2 GPU). We then create a client-side of the software that only provides the interaction JavaScript code to access the server-side logic via a real-time communication protocol. Something to be aware of is the problem that, per accessing user, we would need to fire up an instance with the running software. It is possible to stream the output of one instance to multiple clients (and they can even all interact with it), but that is, yet again, another drawback. In this sense, Multiplayer can — as of today — only be achieved with multiple instances (Epic Games Inc., n.d.), which pushes the costs, too. We can modify our software to optimise it to run for more than one accessing user per instance. Nonetheless, there is still a vertical limit per GPU.
+  In a pixel streaming scenario, we would write the Hejm software to run on a cloud GPU instance (e.g. AWS EC2 GPU). We then create a client-side of the software that only provides the interaction JavaScript code to access the server-side logic via a real-time communication protocol. Something to be aware of is the problem that, per accessing user, we would need to fire up an instance with the running software. It is possible to stream the output of one instance to multiple clients (and they can even all interact with it), but that is, yet again, another drawback. In this sense, Multiplayer can — as of today — only be achieved with multiple instances (Epic Games Inc., n.d.), which pushes the costs, too. We can modify our software to optimise it for more than one accessing user per instance. Nonetheless, there is still a vertical limit per GPU.
 
-  Users should also be able to interact with each other in real-time and, therefore, require real-time server communication between instances. The instances also need a single source of truth for updates within the virtual office. There has to be a synchronisation module that updates all the different scenes in the other instances. However, this means that if, e.g. many people move around or do things visible to all the other instances, simple functionalities can already be vast computational tasks and, therefore, costly. On top of this, there should be chat, video, and audio call features within the virtual office application, which are expensive.
+  Users should also be able to interact with each other in real time and, therefore, require real-time server communication between instances. The instances also need a single source of truth for updates within the virtual office. There has to be a synchronisation module that updates all the different scenes in the other instances. However, this means that if, e.g. many people move around or do things visible to all the other instances, simple functionalities can already be vast computational tasks and, therefore, costly. On top of this, there should be chat, video, and audio call features within the virtual office application, which are expensive.
 
   \subsection{A Hybrid Solution}
   \label{subsec:a-hybrid-solution}
@@ -168,12 +168,12 @@
 
   There is — as with many things — never a simple solution. However, which technology should companies/developers use? One would say that it depends. Creating high-end 3D software that can only run on high-end hardware with limited access and a small user base: develop it with pixel streaming. If the application needs to be served to thousands or millions of users for free but does not require advanced features and visualisations, use WebGPU. If time allows it — and resources for research and development are available — the author would encourage companies and developers to create a hybrid to satisfy both worlds’ requirements.
 
-  One can compare it with the discussion between Single-Page Applications (SPAs) and Multi-Page Applications (MPAs): First, the entire page was created on the server and sent as plain HTML/CSS/JS to the client. Then came Angular, React and co., and the UI logic layer shifted to the client; the server was only here to handle and serve the data. However, this solution was suboptimal: small websites used to send megabytes of JavaScript chunks to display a simple UI (Tsarouva, 2019). This part of the web development industry is also going into a hybrid phase: Server-Side Rendering (SSR) and Incremental Static Generation (ISG). These two different terms deserve an article of their own. However, They solve the problem by pre-rendering the most critical software parts on the server, and everything that needs to be asynchronous will be put together in the browser (Szczeciński, 2018).
+  One can compare it with the discussion between Single-Page Applications (SPAs) and Multi-Page Applications (MPAs): First, the entire page was created on the server and sent as plain HTML/CSS/JS to the client. Then came Angular, React and co., and the UI logic layer shifted to the client; the server was only here to handle and serve the data. However, this solution needed to be more suboptimal: small websites used to send megabytes of JavaScript chunks to display a simple UI (Tsarouva, 2019). This part of the web development industry also goes into a hybrid phase: Server-Side Rendering (SSR) and Incremental Static Generation (ISG). These two different terms deserve an article of their own. However, They solve the problem by pre-rendering the most critical software parts on the server, and everything that needs to be asynchronous will be put together in the browser (Szczeciński, 2018).
 
   \section{Outlook}
   \label{sec:outlook}
 
-  The entire front vs. back topic is an ongoing discussion in the web development/software industry. One can assume that there will never be a clear winner. It is exciting to see which of the two opponents in the graphics world will be widely embraced—especially if pixel streaming is a thing to stay and how they want to overcome the high-price drawbacks. Moreover, the hybrid solution might be right, or perhaps an entirely new technology enters the scene.
+  The entire front vs. back topic is an ongoing web development/software industry discussion. One can assume that there will never be a clear winner. It is exciting to see which of the two opponents in the graphics world will be widely embraced—especially if pixel streaming is a thing to stay and how they want to overcome the high-price drawbacks. Moreover, the hybrid solution might be right, or perhaps an entirely new technology enters the scene.
 
   % ! ==============================================
   % ! Start of the references and appendices content
