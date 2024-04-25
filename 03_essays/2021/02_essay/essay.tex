@@ -27,7 +27,7 @@
 % The sloppypar environment adjusts the spaces between words such that each line fits into the text width
 \begin{sloppypar}
   \begin{abstract}
-    Two completely new technologies for developing modern graphics-focused software are on the rise. WebGPU is the successor to WebGL and offers remarkable performance improvements. However, pixel streaming is an entirely different direction and is actively used by the gaming industry.
+    Two completely new technologies for developing modern graphics-focused software are on the rise. WebGPU is the successor to WebGL and offers remarkable performance improvements. Pixel streaming, on the other hand, is an entirely different direction and is actively used by the gaming industry.
 
     In this article, we look at a hypothetical 3D application’s top-level architecture in the near future and argue the pros and cons of WebGPU vs pixel streaming from a developer’s perspective.
   \end{abstract}
@@ -54,9 +54,9 @@
   \section{Introduction}
   \label{sec:introduction}
 
-  At some point in the development process, a company that wants to develop software asks itself which technologies it should use. The investment in terms of future viability is a point to consider; e.g., if company XYZ writes an app with Perl, it will probably have difficulties finding new developers in 20 years who can continue developing with this technology (The HFT Guy, 2019).
+  At some point in the development process, a company that wants to develop software needs to ask itself which technologies it should use. The investment in terms of future viability is a point to consider; e.g., if company XYZ writes an app with Perl, it will probably have difficulties finding new developers in 20 years who can continue developing with this technology (The HFT Guy, 2019).
 
-  The following passages will argue about two technologies that raise important questions for developing 3D applications in the next few years: In which direction should companies/developers invest? What are the advantages and disadvantages of these technologies?
+  The following passages will argue about two technologies that raise important questions for developing 3D applications in the next few years: In which direction should companies and developers invest? What are the advantages and disadvantages of these technologies?
 
   \begin{figure}[ht]
     \centering
@@ -73,7 +73,7 @@
   \subsection{The Slow Death of WebGL}
   \label{subsec:the-slow-death-of-webgl}
 
-  Do not get it wrong; WebGL is a fantastic piece of technology! It allows developers to create interactive 2D and 3D graphics, which is impossible with standard JavaScript. Compared to Flash, it allows developers to ship their content on the web without the need to install a plugin. The implementation of WebGL 1.0 and WebGL 2.0 is embedded in nearly all major browsers and even mobile phones.
+  WebGL is a fantastic piece of technology, it allows developers to create interactive 2D and 3D graphics, which is impossible with standard JavaScript. Compared to Flash, it allows developers to ship their content on the web without the need to install a plugin. The implementation of WebGL 1.0 and WebGL 2.0 is embedded in nearly all major browsers and even mobile phones.
 
   \begin{figure}[ht]
     \centering
@@ -82,13 +82,11 @@
     \label{fig:can-i-use}
   \end{figure}
 
-  Since technologies usually do not vanish overnight, WebGL will stay for many years. Numerous applications and frameworks rely on WebGL, millions of people use them (Similarweb, n.d.), and hundreds of thousands of developers produce new software with WebGL daily (npm Inc., n.d.). This is understandable because developers can create remarkable things with a low-level graphics API like WebGL. The most famous example is Google Maps — especially Google Earth (Shankland, 2011). Applications like that were unattainable until some years ago, and today, we take it for granted to e.g. interact with 3D content on a website — even on mobile devices!
+  Since technologies usually do not vanish overnight, WebGL will for sure stay for many more years. Numerous applications and frameworks rely on WebGL, millions of people use these applications (Similarweb, n.d.), and hundreds of thousands of developers produce new software with WebGL daily, with libraries dependent on WebGL (npm Inc., n.d.). This is understandable because developers can create remarkable things with a low-level graphics API like WebGL. The most famous example is Google Maps — especially Google Earth (Shankland, 2011). Applications like that were unattainable until some years ago, and today, we take it for granted to e.g. interact with 3D content on a website — even on mobile devices!
 
-  WebGL gives developers the JavaScript binding needed to access the GPU. However, the WebGL API—especially shader programming in the Graphics Library Shader Language (GLSL)—is difficult to use.
+  WebGL gives developers the JavaScript binding needed to access the computer’s GPU. However, the WebGL API—especially shader programming in the Graphics Library Shader Language (GLSL)—is difficult to use. Therefore, only a few developers grasp and can work with the complexity of WebGL.
 
-  Only a few developers grasp the complexity of OpenGL and, therefore, WebGL.
-
-  That is why frameworks like Three.js, Babylon.js and Playcanvas came into existence. These frameworks are basically an abstraction on top of WebGL on top of OpenGL on top of the graphics cards to understand JavaScript code and render 2D/3D graphics in the browser. They are widely established and work great (Wappalyzer, n.d.). However, relying on a 10-year-old piece of technology has its downsides. Since the beginning in 2011, WebGL has been based on OpenGL ES, a subset of the official OpenGL graphics API with various limitations like not using 3D textures, being limited to triangle meshes, and various others (The Khronos Group Inc., n.d.). From a high-level view, WebGL is an API built on GPU technology’s understanding from around 15 years ago. Since then, many things have changed. One of the most notable changes is that modern GPUs usually work with shared memory access to perform parallel computing in a more performant fashion than before (Cabello and Wallez, 2019) — and that is where WebGPU comes into play.
+  That is why libraries like Three.js, Babylon.js and Playcanvas came into existence. These libraries are basically an abstraction on top of WebGL to render 2D and 3D graphics in the browser via an easy-to-understand JavaScript API. These libraries are widely established and have shown their strength in big production applications (Wappalyzer, n.d.). Nonetheless, WebGL is based on OpenGL ES, a subset of the OpenGL specification designed for browser use, and while OpenGL is a well-established technology, it has some limitations. For instance, it does not support 3D textures, is restricted to triangle meshes, and has various other constraints (The Khronos Group Inc., n.d.). From a high-level view, WebGL is an API built on GPU technology’s understanding from around 15 years ago. Since then, many things have changed. One of the most notable changes is that modern GPUs usually work with shared memory access to perform parallel computing in a more performant fashion than before (Cabello and Wallez, 2019) — and that is where WebGPU comes into play.
 
   \subsection{Shared Memory}
   \label{subsec:shared-memory}
@@ -102,12 +100,12 @@
     \label{fig:shared-memory}
   \end{figure}
 
-  Modern graphics card APIs such as Vulkan or Metal use concepts like shared memory — and many others — to optimise their performance. One can think comparing OpenGL to, e.g. Vulkan as comparing C to JavaScript: OpenGL — and therefore WebGL too — is slow because the other APIs are closer to the actual hardware and more or less platform-specific optimised as well (Hruska, 2015). OpenGL is not optimised for these new concepts. Many developers switched to Vulkan, Metal, and more. Because of these new concepts (like shared memory) and the benefits of a better performance. However, why can’t we create a new kind of OpenGL that allows talking to all the modern graphics card APIs? Instead of porting an old native technology to the web, why can’t we create a web API that provides some output that will be understood by the modern APIs (similar to how WebAssembly works with the CPUs (Mozilla Foundation, 2021))? That is precisely what the W3C intends to do with the new WebGPU browser standard.
+  Modern graphics card APIs such as Vulkan or Metal use concepts like shared memory — and many others — to optimise their performance. One can think comparing OpenGL to, e.g. Vulkan as comparing C to JavaScript: OpenGL — and therefore WebGL too — is slow because the other APIs are closer to the actual hardware and more or less platform-specific optimised as well (Hruska, 2015). OpenGL is not optimised for these new concepts. Many developers switched to Vulkan and Metal due to these new concepts (like shared memory) and the benefits of better performance. However, why can’t we create a new kind of generic OpenGL API that allows talking to all the modern graphics cards? Instead of porting an old native technology to the web, why can’t we create a web API that provides some output that will be understood by the modern APIs (similar to how WebAssembly works with the CPUs (Mozilla Foundation, 2021))? That is precisely what the W3C intends to do with the new WebGPU browser standard.
 
   \subsection{A Group Effort}
   \label{subsec:a-group-effort}
 
-  WebGPU is a group effort between Apple, Google, Microsoft, and many others, and it is currently being standardised by the W3C to replace WebGL (World Wide Web Consortium, n.d.). Compared to WebGL, WebGPU is not a port of an existing native graphics API to the web. It is based on concepts from, e.g. Vulkan, and aims to provide high performance on modern GPUs thanks to their optimised architecture (Wallez, 2018). It is intended to be able to write WebGPU-specific JavaScript, which all the modern graphics card APIs will understand.
+  WebGPU is a group effort between Apple, Google, Microsoft, and many others, and it is currently being standardised by the W3C to replace WebGL (World Wide Web Consortium, n.d.). Compared to WebGL, WebGPU is not a port of an existing native graphics API to the web. It borrows concepts from, e.g. Vulkan, and aims to provide high performance on modern GPUs thanks to their optimised architecture (Wallez, 2018). It is intended to be able to write WebGPU-specific JavaScript, which all the modern graphics card APIs will understand.
 
   Additionally, WebGPU is stateless and allows command reuse, meaning that sending instructions to the GPU is less expensive than with WebGL because it creates groups of instructions which will be used in advance (Cabello and Wallez, 2019). It can switch between entire instruction groups at runtime with a single function call (thanks to shared memory). Shortly explained: The current implementation of WebGPU works much faster than WebGL — especially with many 3D object instances in a complex scene.
 
@@ -133,9 +131,9 @@
     \label{fig:pixel-streaming-architecture}
   \end{figure}
 
-  Nevertheless, with pixel streaming, nearly everything seems possible! Developers can produce cutting-edge software that only runs on high-end graphics cards, which users could never buy or even maintain.
+  Nevertheless, with pixel streaming, nearly everything seems possible! Developers can produce cutting-edge software that only runs on high-end graphics cards, which users could never buy or maintain.
 
-  However, that is precisely the problem: scalability. A company/developer needs to gain access to this high-end hardware. Of course, there are Infrastructure as a Service (IaaS) providers like Amazon Web Services (AWS) and Google Cloud Platform (GCP), but there is still a significant limitation: costs (Amazon.com Inc., n.d.). Even with AWS, GCP, and others in the backpack, running software on the required high-end hardware is computationally expensive and consumes much energy. Yes, Google and Co. have endless available computing power. However, with the need for a freely available pixel streaming application, one would push it to a costly limit.
+  However, that is precisely the problem: scalability. A company/developer needs to gain access to this high-end hardware. Of course, there are Infrastructure as a Service (IaaS) providers like Amazon Web Services (AWS) and Google Cloud Platform (GCP), but there is still a significant limitation: costs. Even with AWS, GCP, and others in the backpack, running software on the required high-end hardware is computationally expensive and consumes much energy (Amazon.com Inc., n.d.). Yes, Google and Co. seem to have endless available computing power, but one would push it to a costly limit with the need for a freely available pixel streaming application.
 
   \begin{figure}[ht]
     \centering
@@ -144,7 +142,7 @@
     \label{fig:project-anywhere}
   \end{figure}
 
-  There are working proof of concepts like the Project Anywhere from NVIDIA, Microsoft and co. with streaming-optimised graphics cards (Woodard and Young, 2020) or running products like Google Stadia (Patterson, 2020). However, the problem with overcoming the huge price factor is that a company cannot freely give away a pixel streaming application on the web; they would need a payment model for access. Otherwise, the company could ruin itself financially (imagine, e.g. the cost of a DDoS attack on such a free-to-use application).
+  There are working proof of concepts like the Project Anywhere from NVIDIA, Microsoft and co. with streaming-optimised graphics cards (Woodard and Young, 2020) or (now deprecated) running products like Google Stadia (Patterson, 2020). However, the problem with overcoming the huge price factor is that a company cannot freely give away a pixel streaming application on the web; they would need a payment model for access. Otherwise, the company could ruin itself financially (imagine, e.g. the cost of a DDoS attack on such a free-to-use application).
 
   \section{Hypothetical App: Virtual Offices}
   \label{sec:hypothetical-app-virtual-offices}
