@@ -29,7 +29,7 @@
   \begin{abstract}
     Two completely new technologies for developing modern graphics-focused software are on the rise. WebGPU is the successor to WebGL and offers remarkable performance improvements. Pixel streaming, on the other hand, is an entirely different direction and is actively used by the gaming industry.
 
-    In this article, we look at a hypothetical 3D application’s top-level architecture in the near future and argue the pros and cons of WebGPU vs pixel streaming from a developer’s perspective.
+    In this essay, we look at a hypothetical 3D application’s top-level architecture in the near future and argue the pros and cons of WebGPU vs pixel streaming from a developer’s perspective.
   \end{abstract}
 
   \pagebreak
@@ -166,7 +166,7 @@
 
   There is — as with many things — never a simple solution. However, which technology should companies/developers use? One would say that it depends. Creating high-end 3D software that can only run on high-end hardware with limited access and a small user base: develop it with pixel streaming. If the application needs to be served to thousands or millions of users for free but does not require advanced features and visualisations, use WebGPU. If time allows it — and resources for research and development are available — the author would encourage companies and developers to create a hybrid to satisfy both worlds’ requirements.
 
-  One can compare it with the discussion between Single-Page Applications (SPAs) and Multi-Page Applications (MPAs): First, the entire page was created on the server and sent as plain HTML/CSS/JS to the client. Then came Angular, React and co., and the UI logic layer shifted to the client; the server was only here to handle and serve the data. However, this solution needed to be more suboptimal: small websites used to send megabytes of JavaScript chunks to display a simple UI (Tsarouva, 2019). This part of the web development industry also goes into a hybrid phase: Server-Side Rendering (SSR) and Incremental Static Generation (ISG). These two different terms deserve an article of their own. However, They solve the problem by pre-rendering the most critical software parts on the server, and everything that needs to be asynchronous will be put together in the browser (Szczeciński, 2018).
+  One can compare it with the discussion between Single-Page Applications (SPAs) and Multi-Page Applications (MPAs): First, the entire page was created on the server and sent as plain HTML/CSS/JS to the client. Then came Angular, React and co., and the UI logic layer shifted to the client; the server was only here to handle and serve the data. However, this solution needed to be more suboptimal: small websites used to send megabytes of JavaScript chunks to display a simple UI (Tsarouva, 2019). This part of the web development industry also goes into a hybrid phase: Server-Side Rendering (SSR) and Incremental Static Generation (ISG). These two different terms deserve an essay of their own. However, They solve the problem by pre-rendering the most critical software parts on the server, and everything that needs to be asynchronous will be put together in the browser (Szczeciński, 2018).
 
   \section{Outlook}
   \label{sec:outlook}
