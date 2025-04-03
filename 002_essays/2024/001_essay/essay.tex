@@ -12,17 +12,17 @@
 % ! Start title page content
 % ! ========================
 
-\title{\textbf{Implementing a Brain in a Vat:} \linebreak Insights from Streaming a Simulated Environment Through the Internet}
+\title{\textbf{Lab-Grown Human Brain \\ Embodied in a Virtual World}}
 \author[1]{Daniel Burger}
 \affil[1]{\textbf{FinalSpark Sàrl}}
-\affil[ ]{\href{mailto:daniel.burger@finalspark.com}{daniel.burger@finalspark.com}}
-\date{\textit{\today}}
+\affil[ ]{\href{mailto:public@danielburger.online}{public@danielburger.online}}
+\date{\textit{October 18, 2024}}
 \maketitle
 \thispagestyle{empty}
 
 \begin{sloppypar}
   \begin{abstract}
-    % TODO To be continued
+    Our team put a human mini-brain into virtual reality and let people interact with it over the internet. It's the first time anyone has done this, and we'd like to share the behind-the-scenes with you.
   \end{abstract}
 
   \pagebreak
@@ -45,7 +45,26 @@
   \section{Introduction}
   \label{sec:introduction}
 
-  % TODO To be continued
+  Earlier this year, I had the opportunity to work on a project with FinalSpark, a Swiss startup developing the world's first wetware cloud platform. We created the Neuroplatform, a system that enables researchers and developers to interact remotely with human brain organoids. Our platform essentially allows 'running software' on biological neural networks (BNNs), with the ultimate goal of achieving and deploying synthetic biological intelligence.
+
+  The potential benefits of BNNs over traditional silicon-based artificial neural networks (ANNs) are numerous, though they are mainly theoretical today. Nonetheless, the advantages include significantly lower energy consumption (the human brain operates on only about 20 watts \autoref{balasubramanian_brain_2021}), truly higher cognitive and adaptive behaviour such as creativity, true zero-shot learning capabilities, superior pattern recognition and generalisation, better handling of ambiguity and noise, and the potential for self-repair and neuroplasticity.
+
+  \begin{quote}
+    \itshape
+    \textbf{What is a Brain Organoid?}
+    A brain organoid is a three-dimensional cellular model of the human brain grown in a laboratory from stem cells. These miniature "mini-brains" are typically the size of a pea or smaller and contain various types of brain cells organised in a structure that mimics aspects of a developing human brain. While they don't have the full complexity of an adult human brain, brain organoids can develop basic neural circuits and exhibit spontaneous electrical activity.
+
+    Researchers usually use brain organoids to study human brain development and neurological disorders and, more recently, as is the case with FinalSpark, as biological/wetware computing components.
+  \end{quote}
+
+  The Neuroplatform currently hosts 16 active brain organoids, with the potential to rapidly deploy many more from our extensive stock of neural progenitors stored in liquid nitrogen. These mini-brains, derived from induced pluripotent stem cells (iPSCs), are maintained in incubators at 37°C (shown in \autoref{fig:incubator}), closely mimicking the intracranial conditions of the human body. Each organoid, comprising approximately 10,000 neurons, interfaces with a multi-electrode array (MEA) for bidirectional electrical communication. The platform also incorporates a sophisticated microfluidic system and an ultraviolet light-controlled uncaging mechanism, enabling precise delivery of nutrient media, neurotransmitters, and neuromodulators like dopamine and serotonin, thus closely replicating the functional environment of the human brain.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/incubator.jpg}
+    \caption{A look into the incubator inside the lab at FinalSpark, where our brain organoids are connected to various systems to keep them alive and ultimately connected to the internet.}
+    \label{fig:incubator}
+  \end{figure}
 
   % ! ======================
   % ! Start references, etc.
@@ -54,6 +73,7 @@
   \pagebreak
   \bibliographystyle{../../templates/custom-apa}
   \bibliography{references/bibliography}
+  \nocite{*}
 
 \end{sloppypar}
 \end{document}
