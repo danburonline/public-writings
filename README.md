@@ -1,9 +1,11 @@
 # Public Writings
 
-In this repo I will add all my public writings. More information to be added soon.
+This repository hosts the content and source code for all my public writings, including papers, essays, and other works. Contributions are welcome, as these documents are intended to be continuously updated, even after initial publication.
 
 ## Papers Overview
 
 ## Essays Overview
 
-<!-- TODO Create overview as a list including BibTeX citation code snippets for each work -->
+| Essay Title                                       | Publication  | DOI | Citation |
+| ------------------------------------------------- | ------------ | --- | -------- |
+| Lab-Grown Human Brain Embodied in a Virtual World | Oct 18, 2024 | TBC | TBC      |
