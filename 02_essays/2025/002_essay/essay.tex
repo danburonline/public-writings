@@ -1,0 +1,58 @@
+\documentclass[10pt]{article}
+\input{../../templates/preamble.tex}
+
+\begin{document}
+\pagenumbering{roman}
+\counterwithin{lstlisting}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\setlength{\footskip}{65pt}
+
+% ! ===========================
+% ! # MARK: Title, author, etc.
+% ! ===========================
+
+\title{\textbf{Death is an \\ Engineering Challenge}}
+\author[1]{Daniel Burger}
+\affil[1]{\textbf{Eightsix Science}}
+\affil[ ]{\href{mailto:daniel@eightsix.science}{daniel@eightsix.science}}
+\date{\textit{\today}}
+\maketitle
+\thispagestyle{empty}
+
+\begin{sloppypar}
+  \begin{abstract}
+    We introduce Synconetics, a new scientific discipline dedicated to solving death through synthetic consciousness mechanics—a set of practical, engineering-focused, transdisciplinary approaches grounded in solutions achievable today. Synconetics prioritises evidence-based, buildable technologies over philosophical speculation, aiming to preserve the continuity of human consciousness across different substrates.
+  \end{abstract}
+
+  \pagebreak
+  \pagenumbering{Roman}
+  \tableofcontents
+  \pagebreak
+  \listoffigures
+  \pagebreak
+  \listoftables
+  \pagebreak
+  \addcontentsline{toc}{section}{\lstlistlistingname}
+  \lstlistoflistings
+  \pagebreak
+  \pagenumbering{arabic}
+
+  % ! ========================
+  % ! # MARK: Document content
+  % ! ========================
+
+  \section{Introduction}
+  \label{sec:introduction}
+
+  % ! ========================
+  % ! # MARK: References, etc.
+  % ! ========================
+
+  \pagebreak
+  \bibliographystyle{../../templates/custom-apa}
+  \bibliography{references/bibliography}
+  \nocite{*}
+
+\end{sloppypar}
+\end{document}
