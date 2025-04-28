@@ -8,4 +8,5 @@ This repository hosts the content and source code for all my public writings, in
 
 | Essay Title                                       | Publication  | DOI | Citation |
 | ------------------------------------------------- | ------------ | --- | -------- |
+| Death is an Engineering Challenge                 | Apr 27, 2025 | TBC | TBC      |
 | Lab-Grown Human Brain Embodied in a Virtual World | Oct 18, 2024 | TBC | TBC      |
