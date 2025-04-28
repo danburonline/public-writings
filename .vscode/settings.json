@@ -1,3 +1,55 @@
 {
-  "cSpell.words": ["hybrots", "microfluidic", "Neuroplatform", "uncaging"]
+  "cSpell.words": [
+    "biohybrid",
+    "biohybridisation",
+    "callosotomy",
+    "computationalism",
+    "connectomes",
+    "engineerable",
+    "femtowatt",
+    "Husserlian",
+    "hybrots",
+    "Masataka",
+    "microfluidic",
+    "neuroengineering",
+    "neurointegration",
+    "neuromorphic",
+    "Neuroplatform",
+    "neuroprosthetic",
+    "neuroprosthetics",
+    "reportability",
+    "synconetic",
+    "Synconetics",
+    "uncaging"
+  ],
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "entity.name.type.class",
+          "keyword",
+          "storage.modifier",
+          "storage.type",
+          "support.class.builtin",
+          "keyword.control",
+          "constant.language",
+          "entity.other.attribute-name",
+          "string.quoted.single",
+          "entity.name.method",
+          "entity.name.tag"
+        ],
+        "settings": {
+          "fontStyle": "italic bold"
+        }
+      },
+      {
+        "scope": "keyword.other.dotenv",
+        "settings": {
+          "foreground": "#FF000000"
+        }
+      }
+    ],
+    "comments": ""
+  }
 }
