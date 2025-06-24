@@ -54,7 +54,7 @@
 
 ## Bibliography & Citations
 
-- Use BibTeX with custom APA style (`templates/custom-apa.bst`)
+- Use BibTeX with custom APA style (`templates/apa.bst`)
 - Maintain separate `.bib` files in `references/` directories
 - Follow British academic citation conventions
 - Ensure all citations are properly formatted and accessible
