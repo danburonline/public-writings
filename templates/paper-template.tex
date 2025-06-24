@@ -1,3 +1,4 @@
+% Paper Template - Two Column Layout with Standard Font
 % Packages
 \usepackage{makecell} % For thicker lines
 \usepackage{setspace}  % Controls line spacing
@@ -25,7 +26,7 @@
 \usepackage{geometry}  % For page layout control
 \usepackage{dblfloatfix}  % Fix for double-column floats placement
 
-% Set default margins for single-column layouts (larger margins)
+% Set default margins for single-column layouts (larger margins for front/back matter)
 \geometry{
   left=3cm,
   right=3cm,
@@ -33,9 +34,9 @@
   bottom=3cm
 }
 
-% Multicol settings
+% Multicolumn settings
 \setlength{\columnseprule}{0pt}  % Remove the line between columns
-\setlength{\columnsep}{0.7cm}  % Space between columns (also set in geometry)
+\setlength{\columnsep}{0.7cm}  % Space between columns
 
 % Float settings for better control
 \renewcommand{\topfraction}{0.9}
@@ -61,7 +62,7 @@
 
 \setlength\bibindent{0pt}
 
-% Optional options
+% ! Optional options
 % \usepackage{background} % Creates a DRAFT background image on all pages
 % \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
 % This command changes the line spacing to double.
@@ -137,4 +138,3 @@
 \def\UrlBreaks{\do\/\do-}
 \def\UrlBigBreaks{\do\/\do-\do:\do.}
 \setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
-

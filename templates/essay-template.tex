@@ -1,3 +1,4 @@
+% Essay Template - Single Column Layout with Larger Font
 % Packages
 \usepackage{makecell} % For thicker lines
 \usepackage{setspace}  % Controls line spacing
@@ -21,29 +22,21 @@
 \usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
 \usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
 \usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}  % Customising captions in floating envs
-\usepackage{multicol}  % For multi-column layout control
 \usepackage{geometry}  % For page layout control
-\usepackage{dblfloatfix}  % Fix for double-column floats placement
 
-% Set default margins for single-column layouts (larger margins)
+% Set margins for single-column essay layout (extra comfortable reading margins)
 \geometry{
-  left=3cm,
-  right=3cm,
-  top=2.5cm,
-  bottom=3cm
+  left=4cm,
+  right=4cm,
+  top=3cm,
+  bottom=3.5cm
 }
-
-% Multicol settings
-\setlength{\columnseprule}{0pt}  % Remove the line between columns
-\setlength{\columnsep}{0.7cm}  % Space between columns (also set in geometry)
 
 % Float settings for better control
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.8}
-\renewcommand{\dbltopfraction}{0.9}
-\renewcommand{\dblfloatpagefraction}{0.8}
 
 % Adjust the page margins in the bibliography
 \let\oldthebibliography=\thebibliography
@@ -61,7 +54,7 @@
 
 \setlength\bibindent{0pt}
 
-% Optional options
+% ! Optional options
 % \usepackage{background} % Creates a DRAFT background image on all pages
 % \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
 % This command changes the line spacing to double.
@@ -137,4 +130,3 @@
 \def\UrlBreaks{\do\/\do-}
 \def\UrlBigBreaks{\do\/\do-\do:\do.}
 \setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
-
