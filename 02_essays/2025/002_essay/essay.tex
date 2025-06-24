@@ -32,19 +32,9 @@
 
 \begin{sloppypar}
 
-  \begin{figure}[ht]
-    \centering
-    % Image width matches the two-column content width
-    \includegraphics[width=0.8\textwidth]{figures/cover.png}
-    \label{fig:cover}
-    \caption{Artistic visualisation of consciousness’ physical-dynamical processes.}
-  \end{figure}
-
   % ! ================
   % ! # MARK: Abstract
   % ! ================
-
-  \newpage
 
   \begin{abstract}
     % Substack version: We propose synconetics, a new discipline for sustained, empirically testable consciousness continuity to solve death through engineering. This essay outlines core principles and practical approaches.
@@ -53,16 +43,6 @@
   \end{abstract}
 
   \pagebreak
-  \pagenumbering{Roman}
-  \tableofcontents
-  \pagebreak
-  \listoffigures
-  \pagebreak
-  % \listoftables
-  % \pagebreak
-  % \addcontentsline{toc}{section}{\lstlistlistingname}
-  % \lstlistoflistings
-  % \pagebreak
   \pagenumbering{arabic}
 
   % Start two-column layout for main content with reduced margins
@@ -391,14 +371,22 @@
     % ! # MARK: References, etc.
     % ! ========================
 
-  \end{multicols}  % End two-column layout before bibliography
+    \newpage
 
-  % Restore original margins for bibliography
-  \restoregeometry
-  \pagebreak
-  \bibliographystyle{../../../templates/custom-apa}
-  \bibliography{references/bibliography}
-  \nocite{*}
+    % Keep two-column layout for bibliography with proper formatting
+    % Additional URL breaking for bibliography
+    \def\UrlBreaks{\do\/\do-\do:\do.\do=\do?\do&}
+    \def\UrlBigBreaks{\do\/\do-\do:\do.\do=\do?\do&\do\_}
+    % Adjust bibliography formatting to match figure captions
+    \renewcommand{\bibfont}{\footnotesize}
+    % Reduce spacing between bibliography entries
+    \setlength{\bibsep}{3pt}
+    % Ensure proper hanging indent and no extra spacing
+    \setlength{\bibhang}{1em}
+    \bibliographystyle{../../../templates/custom-apa}
+    \bibliography{references/bibliography}
+    \nocite{*}
+  \end{multicols}
 
 \end{sloppypar}
 \end{document}
