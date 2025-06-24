@@ -2,7 +2,8 @@
 % ! # MARK: Packages
 % ! ================
 
-% ! Check if templatevariant is defined, default to essay if not
+% Check if templatevariant is defined
+% Default to essay if not
 \providecommand{\templatevariant}{essay}
 
 % Common packages used by both templates
@@ -26,9 +27,13 @@
 \usepackage{microtype}  % Improves the spacing between words and letters
 \usepackage{enumitem}  % Control layout of itemize, enumerate, description
 \usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
-\usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
-\usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}  % Customising captions in floating envs
+\usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}  % Floating envs
+\usepackage[breaklinks,linktocpage]{hyperref}  % Hyperlinks
 \usepackage{geometry}  % For page layout control
+
+% ! ======================
+% ! # MARK: Configurations
+% ! ======================
 
 % Variant-specific packages and settings
 \ifx\templatevariant\undefined
@@ -91,12 +96,19 @@
 
 \setlength\bibindent{0pt}
 
-% ! Optional options
+% ! =======================
+% ! # MARK: Draft watermark
+% ! =======================
+
 % \usepackage{background} % Creates a DRAFT background image on all pages
-% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray} % Adds a watermark to the document
-% % This command changes the line spacing to double.
-% % ? Needed for reviews/drafts
+% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray} % Adds a watermark
+% This command changes the line spacing to double for reviews/comments
+% ? Needed for reviews/drafts
 % \doublespacing
+
+% ! =======================
+% ! # MARK: Customisations
+% ! =======================
 
 % Custom colours
 \definecolor{codegreen}{rgb}{0,0.5,0}
@@ -138,7 +150,10 @@
   backgroundcolor=\color{backcolour}}
 \lstset{style=mystyle}
 
-% ! Custom template commands
+% ! =======================
+% ! # MARK: Custom commands
+% ! =======================
+
 % Add a vertical space after section numbers in ToC
 \renewcommand\cftsecafterpnum{\vskip8pt}
 % Changes the title of the list of listings
