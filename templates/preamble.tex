@@ -1,71 +1,69 @@
-% ! ================
-% ! # MARK: Packages
-% ! ================
+% ! ========================
+% ! # MARK: Template Control
+% ! ========================
 
-% Check if templatevariant is defined
-% Default to essay if not
+% Defines the template variant. Can be 'essay' (default) or 'paper'.
+% This command must come before the document class definition in the main file.
 \providecommand{\templatevariant}{essay}
 
-% Common packages used by both templates
-\usepackage{makecell} % For thicker lines
-\usepackage{setspace}  % Controls line spacing
-\usepackage{hhline}   % For double horizontal lines
-\usepackage{colortbl}  % Add colour to LaTeX tables
-\usepackage[T1]{fontenc}  % Choice of font encodings
-\usepackage{tgtermes}  % Loads the TeX Gyre Termes font
-\usepackage{siunitx}  % A comprehensive (SI) units package
-\usepackage{tabularx, booktabs} % For advanced table layout
-\usepackage{url}  % Verbatim with URL-sensitive line breaks
-\usepackage{authblk}  % For author and affiliation management
-\usepackage{natbib}  % A package for bibliographies and citations
-\usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
-\usepackage{listings}  % Typeset programming code within the document
-\usepackage{amssymb}  % Mathematical symbols
-\usepackage{amsmath}  % Advanced math environments including split
-\usepackage[nottoc]{tocbibind}  % Adds entries to the table of contents
-\usepackage{xcolor}  % Provides easy driver-independent access to colors
-\usepackage{microtype}  % Improves the spacing between words and letters
-\usepackage{enumitem}  % Control layout of itemize, enumerate, description
-\usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
-\usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}  % Floating envs
-\usepackage[breaklinks,linktocpage]{hyperref}  % Hyperlinks
-\usepackage{geometry}  % For page layout control
 
-% ! ======================
-% ! # MARK: Configurations
-% ! ======================
+% ! =======================
+% ! # MARK: Package Loading
+% ! =======================
 
-% Variant-specific packages and settings
-\ifx\templatevariant\undefined
-  \def\templatevariant{essay}
-\fi
+% Common Packages
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage{tgtermes} % TeX Gyre Termes font (Times clone)
+\usepackage{geometry} % Page layout control
+\usepackage{setspace} % Line spacing control
+\usepackage{graphicx} % Enhanced graphics
+\usepackage{xcolor} % Color definitions
+\usepackage{colortbl} % Color in tables
+\usepackage{hhline} % Double horizontal lines in tables
+\usepackage{makecell} % Thicker lines in tables
+\usepackage{tabularx, booktabs} % Advanced table layouts
+\usepackage{enumitem} % Custom list environments
+\usepackage{amsmath} % Advanced math environments
+\usepackage{amssymb} % Math symbols
+\usepackage{siunitx} % SI units package
+\usepackage{listings} % Code listings
+\usepackage{natbib} % Bibliography and citations
+\usepackage{authblk} % Author and affiliation blocks
+\usepackage{tocloft} % ToC, LoF, LoT styling
+\usepackage[nottoc]{tocbibind} % Add Bib, Index, etc., to ToC
+\usepackage{microtype} % Improved typography (justification, spacing)
+\usepackage{url} % URL formatting
+\usepackage[breaklinks,linktocpage]{hyperref} % Hyperlinks (must be loaded late)
 
+% Variant-Specific Packages
+% Define variant names for comparison
 \def\papervariant{paper}
 \def\essayvariant{essay}
 
+% Load packages only required for the 'paper' template
 \ifx\templatevariant\papervariant
-  % Paper template specific packages
-  \usepackage{multicol}  % For multi-column layout control
-  \usepackage{dblfloatfix}  % Fix for double-column floats placement
+  \usepackage{multicol}     % For multi-column layout
+  \usepackage{dblfloatfix}  % Fixes for double-column floats
+\fi
 
-  % Set default margins for paper template (larger margins for front/back matter)
+
+% ! ==============================
+% ! # MARK: Page Layout & Geometry
+% ! ==============================
+
+\ifx\templatevariant\papervariant
+  % Paper Template Layout (Two-Column)
   \geometry{
     left=3cm,
     right=3cm,
     top=2.5cm,
     bottom=3cm
   }
-
-  % Multicolumn settings for paper template
-  \setlength{\columnseprule}{0pt}  % Remove the line between columns
-  \setlength{\columnsep}{0.7cm}  % Space between columns
-
-  % Additional float settings for paper template
-  \renewcommand{\dbltopfraction}{0.9}
-  \renewcommand{\dblfloatpagefraction}{0.8}
+  % Settings for two-column layout
+  \setlength{\columnseprule}{0pt} % No vertical rule between columns
+  \setlength{\columnsep}{0.7cm}   % Space between columns
 \else
-  % Essay template specific settings (default)
-  % Set margins for single-column essay layout (extra comfortable reading margins)
+  % Essay Template Layout (Single-Column, Default)
   \geometry{
     left=4cm,
     right=4cm,
@@ -74,13 +72,47 @@
   }
 \fi
 
-% Common float settings for better control
+
+% ! ==========================
+% ! # MARK: Typography & Fonts
+% ! ==========================
+
+% Page Numbering
+\renewcommand{\thepage}{\footnotesize\arabic{page}}
+
+% List Spacing
+\setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
+
+
+% ! ================================
+% ! # MARK: Floats, Figures & Tables
+% ! ================================
+
+% Float Placement Parameters
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.8}
+% Additional float settings for two-column paper template
+\ifx\templatevariant\papervariant
+  \renewcommand{\dbltopfraction}{0.9}
+  \renewcommand{\dblfloatpagefraction}{0.8}
+\fi
 
-% Adjust the page margins in the bibliography
+% Caption Styling
+\usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}
+\captionsetup{justification=raggedright} % Left-align all captions
+\newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}} % Custom caption command
+
+
+% ! ================================
+% ! # MARK: Bibliography & Citations
+% ! ================================
+
+\renewcommand{\bibname}{References} % Change bibliography title
+\setlength\bibindent{0pt}           % No indentation for bibliography entries
+
+% Adjust layout and font size in the bibliography environment
 \let\oldthebibliography=\thebibliography
 \let\endoldthebibliography=\endthebibliography
 \renewenvironment{thebibliography}[1]{%
@@ -94,29 +126,19 @@
   \end{oldthebibliography}%
 }
 
-\setlength\bibindent{0pt}
 
-% ! =======================
-% ! # MARK: Draft watermark
-% ! =======================
+% ! =====================
+% ! # MARK: Code Listings
+% ! =====================
 
-% \usepackage{background} % Creates a DRAFT background image on all pages
-% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray} % Adds a watermark
-% This command changes the line spacing to double for reviews/comments
-% ? Needed for reviews/drafts
-% \doublespacing
-
-% ! =======================
-% ! # MARK: Customisations
-% ! =======================
-
-% Custom colours
+% Custom Colors for Code
 \definecolor{codegreen}{rgb}{0,0.5,0}
 \definecolor{codegray}{rgb}{0.4,0.4,0.4}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
 \definecolor{lightgray}{gray}{0.8}
 
+% Language Definition (Example: JavaScript)
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
   morecomment=[l]{//},
@@ -126,62 +148,70 @@
   sensitive=true
 }
 
-% Listing styles
+% Listing Style Definition
 \lstdefinestyle{mystyle}{
-  frame=tb,
-  tabsize=2,
-  captionpos=b,
-  numbers=left,
-  framerule=0pt,
-  numbersep=5pt,
-  showtabs=false,
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{purple},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
   breaklines=true,
-  keepspaces=true,
-  showspaces=false,
+  captionpos=b,
+  frame=tb,
+  framerule=0pt,
   framextopmargin=6pt,
   framexbottommargin=6pt,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
   showstringspaces=false,
-  breakatwhitespace=false,
-  keywordstyle=\color{purple},
-  commentstyle=\color{codegreen},
-  stringstyle=\color{codepurple},
-  numberstyle=\tiny\color{codegray},
-  basicstyle=\ttfamily\footnotesize,
-  backgroundcolor=\color{backcolour}}
-\lstset{style=mystyle}
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=mystyle} % Apply the defined style globally
 
-% ! =======================
-% ! # MARK: Custom commands
-% ! =======================
 
-% Add a vertical space after section numbers in ToC
-\renewcommand\cftsecafterpnum{\vskip8pt}
-% Changes the title of the list of listings
-\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
-% Changes the title of the bibliography
-\renewcommand{\bibname}{References}
-% Changes the title of the table of contents
+% ! ===================================
+% ! # MARK: Document Structure & Titles
+% ! ===================================
+
+% Table of Contents (ToC)
 \renewcommand{\contentsname}{Table of Contents}
-% Changes the leader between section and page numbers in ToC
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
+\renewcommand\cftsecafterpnum{\vskip8pt}              % Vertical space after section numbers
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Dotted leaders for sections
 
-% Custom template settings
-\captionsetup{justification=raggedright}  % All captions will be left-aligned
-% Caption width now uses full text width for all figures
+% List of Listings (LoL)
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
 
-% Page numbering font size
-\renewcommand{\thepage}{\footnotesize\arabic{page}}
+
+% ! ==========================
+% ! # MARK: Hyperlinks & URLs
+% ! ==========================
+
 \hypersetup{
   colorlinks = true,
-  urlcolor = blue,
-  linkcolor = blue,
-  citecolor = blue,
+  urlcolor   = blue,
+  linkcolor  = blue,
+  citecolor  = blue,
   breaklinks = true
 }
+% URL Line Breaking
 \PassOptionsToPackage{hyphens}{url}
 \urlstyle{same}
 \def\Urlmuskip{0mu plus 1mu}
 \def\UrlBreaks{\do\/\do-}
 \def\UrlBigBreaks{\do\/\do-\do:\do.}
-\setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
+
+
+% ! =======================
+% ! # MARK: Draft Watermark
+% ! =======================
+
+% Uncomment the following lines to add a "DRAFT" watermark on every page.
+% \usepackage{background}
+% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray}
+% Line Spacing
+% \doublespacing % Uncomment for review drafts

@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+Always write British English in documentation (Markdown, etc.) and code comments.
