@@ -1,0 +1,60 @@
+# Cursor Rules for Academic Writings Repository
+
+## Language & Style
+
+- Always write British English in documentation (Markdown, etc.) and code comments
+- Use British spelling: "optimised", "organised", "colour", "centre", "realise", etc.
+- Use British punctuation: single quotes for emphasis, double quotes for direct quotations
+- Academic tone: formal, precise, and scholarly language in all documentation
+
+## LaTeX Guidelines
+
+- Use the unified preamble system from `templates/preamble.tex`
+- Always define `\templatevariant` before inputting the preamble using `\providecommand`
+- Use `\floatcaption{title}{description}` for enhanced figure/table captions
+- Follow British academic conventions for citations and references
+- Use `natbib` citation style with proper author-year format
+- Maintain consistent indentation (2 spaces) in LaTeX files
+
+## File Organisation
+
+- Papers: `01_papers/YYYY/XXX_paper/` structure
+- Essays: `02_essays/YYYY/XXX_essay/` structure
+- Main LaTeX file should match directory name (e.g., `essay.tex`, `paper.tex`)
+- Include `figures/` and `references/` subdirectories
+- Use descriptive filenames with underscores, not spaces
+
+## Template Usage
+
+- Essay variant: Single-column, generous margins, for long-form writing
+- Paper variant: Two-column support, compact margins, for academic papers
+- Always test both variants when modifying the preamble
+- Document any template changes in `templates/README.md`
+
+## Code Quality
+
+- Comment complex LaTeX commands and custom macros
+- Use semantic section markers (`% ! # MARK: Section Name`)
+- Keep lines under 100 characters where possible
+- Remove generated files (.aux, .log, .synctex.gz, etc.) from version control
+
+## Documentation Standards
+
+- Update main README.md when adding new papers/essays
+- Include publication dates, DOIs, and citation information
+- Maintain clear, comprehensive documentation for template usage
+- Use proper markdown formatting with British spelling
+
+## Version Control
+
+- Commit source files (.tex, .bib, .md) but exclude generated files
+- Use descriptive commit messages in British English
+- Keep template changes separate from content changes
+- Tag releases for published works
+
+## Bibliography & Citations
+
+- Use BibTeX with custom APA style (`templates/custom-apa.bst`)
+- Maintain separate `.bib` files in `references/` directories
+- Follow British academic citation conventions
+- Ensure all citations are properly formatted and accessible
