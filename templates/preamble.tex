@@ -13,13 +13,37 @@
 \usepackage{graphicx}  % Enhances LaTeX's built-in graphics features
 \usepackage{listings}  % Typeset programming code within the document
 \usepackage{amssymb}  % Mathematical symbols
+\usepackage{amsmath}  % Advanced math environments including split
 \usepackage[nottoc]{tocbibind}  % Adds entries to the table of contents
 \usepackage{xcolor}  % Provides easy driver-independent access to colors
 \usepackage{microtype}  % Improves the spacing between words and letters
 \usepackage{enumitem}  % Control layout of itemize, enumerate, description
 \usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
 \usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
-\usepackage[font=small,skip=7pt,labelfont=bf]{caption}  % Customising captions in floating envs
+\usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}  % Customising captions in floating envs
+\usepackage{multicol}  % For multi-column layout control
+\usepackage{geometry}  % For page layout control
+\usepackage{dblfloatfix}  % Fix for double-column floats placement
+
+% Set default margins for single-column layouts (larger margins)
+\geometry{
+  left=3cm,
+  right=3cm,
+  top=2.5cm,
+  bottom=2.5cm
+}
+
+% Multicol settings
+\setlength{\columnseprule}{0pt}  % Remove the line between columns
+\setlength{\columnsep}{0.7cm}  % Space between columns (also set in geometry)
+
+% Float settings for better control
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\dblfloatpagefraction}{0.8}
 
 % Adjust the page margins in the bibliography
 \let\oldthebibliography=\thebibliography
@@ -94,7 +118,8 @@
 \newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
 
 % Custom template settings
-\captionsetup{justification=centering}  % All captions will be centered
+\captionsetup{justification=raggedright}  % All captions will be left-aligned
+% Caption width now uses full text width for all figures
 \hypersetup{
   colorlinks = true,
   urlcolor = blue,
