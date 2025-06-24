@@ -1,19 +1,18 @@
-# Templates: Essay vs Paper Templates
+# Unified Template System
 
-This template system provides two distinct templates optimized for different document types:
+This template system provides a single, unified template ([`template.tex`](/templates/template.tex)) that supports two distinct layout variants optimized for different document types. You control which variant to use by defining `\templatevariant` in your document.
 
-## Template Files
+## Template Variants
 
-### Essay Template ([`essay-template.tex`](/templates/essay-template.tex))
+### Essay Variant (`essay`)
 
-- **Purpose**: Long-form essays, reports, and single-column documents
-- **Font size**: 11pt (larger for comfortable reading)
-- **Layout**: Single column throughout
+- **Purpose**: Long-form essays in a single-column documents
+- **Font size**: 11pt (standard document font size)
 - **Margins**: Extra generous margins (4cm left/right, 3cm top/3.5cm bottom) for readability
 
-### Paper Template ([`paper-template.tex`](/templates/paper-template.tex))
+### Paper Variant (`paper`)
 
-- **Purpose**: Academic (pre-print) papers, conference submissions, journal articles
+- **Purpose**: Academic (pre-print) papers
 - **Font size**: 10pt (standard academic font size)
 - **Layout**: Two-column support with `multicol` package
 - **Margins**: Adjustable margins (default large for front matter, reduced for main content)
@@ -22,14 +21,15 @@ This template system provides two distinct templates optimized for different doc
 
 ### For Essays (Single Column)
 
-Use the essay template for documents that need comfortable reading layout:
+Define the template variant as "essay" before inputting the template:
 
 ```latex
 \documentclass[11pt]{article}
-\input{../../../templates/essay-template.tex}
+\newcommand{\templatevariant}{essay}
+\input{../../../templates/template.tex}
 
 \begin{document}
-  % All content in single column with 11pt font
+  % All content in single column with generous margins
   \maketitle
   \tableofcontents
 
@@ -42,11 +42,12 @@ Use the essay template for documents that need comfortable reading layout:
 
 ### For Papers (Two Column)
 
-Use the paper template for academic papers with two-column layout:
+Define the template variant as "paper" before inputting the template:
 
 ```latex
 \documentclass[10pt]{article}
-\input{../../../templates/paper-template.tex}
+\newcommand{\templatevariant}{paper}
+\input{../../../templates/template.tex}
 
 \begin{document}
   % Front matter (title, abstract, TOC) - single column with default margins
@@ -69,9 +70,11 @@ Use the paper template for academic papers with two-column layout:
 \end{document}
 ```
 
+**Note**: If you don't specify `\templatevariant`, it defaults to "essay" layout.
+
 ## Figures and Tables
 
-### In Essay Template (Single Column)
+### In Essay Variant (Single Column)
 
 - Use standard `\begin{figure}` and `\begin{table}`
 - Width can be up to `\textwidth`
@@ -85,7 +88,7 @@ Use the paper template for academic papers with two-column layout:
 \end{figure}
 ```
 
-### In Paper Template (Two Column)
+### In Paper Variant (Two Column)
 
 - **Single-column float**: Use `\begin{figure}` or `\begin{table}`
 
@@ -112,3 +115,11 @@ Use the paper template for academic papers with two-column layout:
   \caption{Double column figure spanning both columns}
 \end{figure*}
 ```
+
+## Technical Details
+
+The unified template uses LaTeX conditionals to check the value of `\templatevariant`:
+
+- **Essay variant**: Loads single-column settings with generous margins
+- **Paper variant**: Additionally loads `multicol` and `dblfloatfix` packages with different margin settings
+- **Default**: If `\templatevariant` is not defined, defaults to essay layout

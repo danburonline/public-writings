@@ -1,4 +1,11 @@
-% Packages
+% ! ================
+% ! # MARK: Packages
+% ! ================
+
+% ! Check if templatevariant is defined, default to essay if not
+\providecommand{\templatevariant}{essay}
+
+% Common packages used by both templates
 \usepackage{makecell} % For thicker lines
 \usepackage{setspace}  % Controls line spacing
 \usepackage{hhline}   % For double horizontal lines
@@ -21,29 +28,52 @@
 \usepackage{tocloft}  % Controls the typographic design of table of contents, etc.
 \usepackage[breaklinks,linktocpage]{hyperref}  % Creates hyperlinks in your document
 \usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}  % Customising captions in floating envs
-\usepackage{multicol}  % For multi-column layout control
 \usepackage{geometry}  % For page layout control
-\usepackage{dblfloatfix}  % Fix for double-column floats placement
 
-% Set default margins for single-column layouts (larger margins)
-\geometry{
-  left=3cm,
-  right=3cm,
-  top=2.5cm,
-  bottom=3cm
-}
+% Variant-specific packages and settings
+\ifx\templatevariant\undefined
+  \def\templatevariant{essay}
+\fi
 
-% Multicol settings
-\setlength{\columnseprule}{0pt}  % Remove the line between columns
-\setlength{\columnsep}{0.7cm}  % Space between columns (also set in geometry)
+\def\papervariant{paper}
+\def\essayvariant{essay}
 
-% Float settings for better control
+\ifx\templatevariant\papervariant
+  % Paper template specific packages
+  \usepackage{multicol}  % For multi-column layout control
+  \usepackage{dblfloatfix}  % Fix for double-column floats placement
+
+  % Set default margins for paper template (larger margins for front/back matter)
+  \geometry{
+    left=3cm,
+    right=3cm,
+    top=2.5cm,
+    bottom=3cm
+  }
+
+  % Multicolumn settings for paper template
+  \setlength{\columnseprule}{0pt}  % Remove the line between columns
+  \setlength{\columnsep}{0.7cm}  % Space between columns
+
+  % Additional float settings for paper template
+  \renewcommand{\dbltopfraction}{0.9}
+  \renewcommand{\dblfloatpagefraction}{0.8}
+\else
+  % Essay template specific settings (default)
+  % Set margins for single-column essay layout (extra comfortable reading margins)
+  \geometry{
+    left=4cm,
+    right=4cm,
+    top=3cm,
+    bottom=3.5cm
+  }
+\fi
+
+% Common float settings for better control
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.1}
 \renewcommand{\floatpagefraction}{0.8}
-\renewcommand{\dbltopfraction}{0.9}
-\renewcommand{\dblfloatpagefraction}{0.8}
 
 % Adjust the page margins in the bibliography
 \let\oldthebibliography=\thebibliography
@@ -61,11 +91,11 @@
 
 \setlength\bibindent{0pt}
 
-% Optional options
+% ! Optional options
 % \usepackage{background} % Creates a DRAFT background image on all pages
-% \backgroundsetup{contents=Preprint, opacity=0.25, color=gray} % Adds a watermark to the document
-% This command changes the line spacing to double.
-% ? Needed for reviews/drafts
+% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray} % Adds a watermark to the document
+% % This command changes the line spacing to double.
+% % ? Needed for reviews/drafts
 % \doublespacing
 
 % Custom colours
@@ -124,6 +154,9 @@
 % Custom template settings
 \captionsetup{justification=raggedright}  % All captions will be left-aligned
 % Caption width now uses full text width for all figures
+
+% Page numbering font size
+\renewcommand{\thepage}{\footnotesize\arabic{page}}
 \hypersetup{
   colorlinks = true,
   urlcolor = blue,
@@ -137,4 +170,3 @@
 \def\UrlBreaks{\do\/\do-}
 \def\UrlBigBreaks{\do\/\do-\do:\do.}
 \setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt}
-
