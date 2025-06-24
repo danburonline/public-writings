@@ -3,7 +3,7 @@
 % ! ========================
 
 % Defines the template variant. Can be 'essay' (default) or 'paper'.
-% This command must come before the document class definition in the main file.
+% This command must be defined *after* \documentclass but *before* inputting this preamble.
 \providecommand{\templatevariant}{essay}
 
 
@@ -221,4 +221,4 @@
 % ! =================
 
 % \nocite{*} % This command is used to include all references in the bibliography.
-\overfullrule=5pt % This command is used to show the overfull lines in the document.
+% \overfullrule=5pt % This command is used to show the overfull lines in the document.

@@ -1,6 +1,8 @@
 # Public Writings
 
-This repository hosts the content and source code for all my public writings, including papers, essays, and other works. Contributions are welcome, as these documents are intended to be continuously updated, even after initial publication.
+This repository hosts the content and source code for all my public writings, including papers, essays, and other works. The documents are written in LaTeX using a custom template system that can be found in the `templates` directory. For more details on the template system, please see the [`templates/README.md`](templates/README.md).
+
+Contributions are welcome, as these documents are intended to be continuously updated, even after initial publication.
 
 ## Papers Overview
 

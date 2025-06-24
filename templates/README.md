@@ -83,29 +83,44 @@ Define the template variant as "paper" **before** inputting the preamble:
 ### Automatic Package Loading
 
 - **Common packages**: Both variants load essential packages (fonts, maths, tables, citations, etc.)
-- **Variant-specific packages**: Paper variant automatically loads `multicol` and `dblfloatfix`
-- **Smart conditionals**: The preamble uses `\ifx` conditionals to load appropriate packages
+- **Variant-specific packages**: Paper variant automatically loads `multicol` and `dblfloatfix`.
+- **Smart conditionals**: The preamble uses `\ifx` conditionals to load appropriate packages.
 
 ### Typography & Layout
 
-- **Font**: TeX Gyre Termes (Times clone) with T1 encoding
-- **Microtype**: Enhanced typography and justification
-- **Custom spacing**: Optimised line spacing and list formatting
-- **Hyperlinks**: Configured with blue colours and proper line breaking
+- **Font**: TeX Gyre Termes (Times clone) with T1 encoding.
+- **Microtype**: Enhanced typography and justification.
+- **Custom spacing**: Optimised line spacing and list formatting.
+- **Hyperlinks**: Configured with blue colours and proper line breaking.
 
 ### Citations & Bibliography
 
-- **natbib**: Advanced citation management
-- **Custom styling**: Bibliography formatted with proper spacing and alignment
-- **References title**: Automatically uses "References" instead of "Bibliography"
+- **`natbib`**: Advanced citation management.
+- **Custom styling**: Bibliography formatted with proper spacing and alignment.
+- **References title**: Automatically uses "References" instead of "Bibliography".
+
+### Custom Commands & Environments
+
+- **`\floatcaption{title}{description}`**: Creates a caption for floats with a bold title and a description.
+- **Code Listings**: The preamble provides extensive support for syntax-highlighted code listings using the `listings` package. A custom style named `mystyle` is pre-configured with a light grey background, specific colours for keywords, strings, and comments, and line numbers. To add a code block, use the `lstlisting` environment and specify the language.
+
+  ```latex
+  \begin{lstlisting}[language=JavaScript, caption={A JavaScript code example.}, label={lst:example}]
+  function helloWorld() {
+    // This is a comment
+    const message = "Hello, World!";
+    console.log(message);
+  }
+  \end{lstlisting}
+  ```
 
 ## Figures and Tables
 
 ### In Essay Variant (Single Column)
 
-- Use standard `\begin{figure}` and `\begin{table}`
-- Width can be up to `\textwidth`
-- Simple, straightforward layout
+- Use standard `\begin{figure}` and `\begin{table}`.
+- Width can be up to `\textwidth`.
+- Simple, straightforward layout.
 
 ```latex
 \begin{figure}[ht]
@@ -117,15 +132,13 @@ Define the template variant as "paper" **before** inputting the preamble:
 
 ### In Paper Variant (Two Column)
 
-- **Single-column float**: Use `\begin{figure}` or `\begin{table}`
-
-  - Float appears within one column only
-  - Width should be `\columnwidth` or less
-
-- **Double-column float**: Use `\begin{figure*}` or `\begin{table*}`
-  - Float spans both columns
-  - Width can be up to `\textwidth`
-  - Appears at top or bottom of page
+- **Single-column float**: Use `\begin{figure}` or `\begin{table}`.
+  - Float appears within one column only.
+  - Width should be `\columnwidth` or less.
+- **Double-column float**: Use `\begin{figure*}` or `\begin{table*}`.
+  - Float spans both columns.
+  - Width can be up to `\textwidth`.
+  - Appears at top or bottom of page.
 
 ```latex
 % Single column figure
@@ -143,26 +156,18 @@ Define the template variant as "paper" **before** inputting the preamble:
 \end{figure*}
 ```
 
-## Custom Commands
-
-The preamble provides several custom commands:
-
-- **`\floatcaption{title}{description}`**: Enhanced caption formatting
-- **Code listings**: Pre-configured with syntax highlighting
-- **Custom colours**: Defined for code and styling
-
 ## Technical Details
 
 The unified preamble uses LaTeX conditionals to check the value of `\templatevariant`:
 
-- **Essay variant (default)**: Single-column settings with generous margins
-- **Paper variant**: Loads additional packages (`multicol`, `dblfloatfix`) with compact margins
-- **Conditional loading**: Uses `\ifx\templatevariant\papervariant` to determine package loading
-- **Fallback**: If `\templatevariant` is not defined, `\providecommand` ensures essay layout
+- **Essay variant (default)**: Single-column settings with generous margins.
+- **Paper variant**: Loads additional packages (`multicol`, `dblfloatfix`) with compact margins.
+- **Conditional loading**: Uses `\ifx\templatevariant\papervariant` to determine package loading.
+- **Fallback**: If `\templatevariant` is not defined, `\providecommand` ensures essay layout.
 
 ## Important Notes
 
-1. **Order matters**: Always define `\templatevariant` **before** inputting the preamble
-2. **Use `\providecommand`**: This prevents errors if the command is already defined
-3. **Package compatibility**: The preamble loads packages in the correct order to avoid conflicts
-4. **Hyperref**: Loaded last to ensure proper functionality with other packages
+1.  **Order matters**: Always define `\templatevariant` **before** inputting the preamble.
+2.  **Use `\providecommand`**: This prevents errors if the command is already defined.
+3.  **Package compatibility**: The preamble loads packages in the correct order to avoid conflicts.
+4.  **Hyperref**: Loaded last to ensure proper functionality with other packages.

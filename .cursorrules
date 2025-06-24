@@ -37,6 +37,7 @@
 - Use semantic section markers (`% ! # MARK: Section Name`)
 - Keep lines under 100 characters where possible
 - Remove generated files (.aux, .log, .synctex.gz, etc.) from version control
+- Use the pre-configured `listings` environment for all code blocks to ensure consistent styling.
 
 ## Documentation Standards
 
