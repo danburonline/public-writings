@@ -87,35 +87,5 @@
     "underexplored",
     "Wataru",
     "Yatte"
-  ],
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "comment",
-          "entity.name.type.class",
-          "keyword",
-          "storage.modifier",
-          "storage.type",
-          "support.class.builtin",
-          "keyword.control",
-          "constant.language",
-          "entity.other.attribute-name",
-          "string.quoted.single",
-          "entity.name.method",
-          "entity.name.tag"
-        ],
-        "settings": {
-          "fontStyle": "italic bold"
-        }
-      },
-      {
-        "scope": "keyword.other.dotenv",
-        "settings": {
-          "foreground": "#FF000000"
-        }
-      }
-    ],
-    "comments": ""
-  }
+  ]
 }
