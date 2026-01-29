@@ -6,33 +6,35 @@ Contributions welcome — these are living documents, continuously updated post-
 
 ## Repository Structure
 
-```
+```txt
 Writings/
-├── 01_patents/     # Technical inventions (confidential until filed)
+├── 01_patents/     # Technical inventions
 ├── 02_papers/      # Academic papers and preprints
 ├── 03_books/       # Extended works with chapter structure
 ├── 04_essays/      # Long-form scientific/philosophical writing
 └── _templates/     # Shared LaTeX templates
 ```
 
+## Patents
+
+| Title | Filing Date | Status |
+|-------|-------------|--------|
+
 ## Papers
 
-| Title | Venue | Status |
-|-------|-------|--------|
+| Title                        | Venue     | Status      |
+| ---------------------------- | --------- | ----------- |
 | Brain-in-Vatism: [Title TBC] | HCII 2026 | In progress |
-
-## Essays
-
-| Title | Publication | DOI | Citation |
-|-------|-------------|-----|----------|
-| Mind Uploading: A Candidate for the Great Filter | TBC | TBC | TBC |
-| Death is an Engineering Challenge | May 13, 2025 | TBC | TBC |
-| Lab-Grown Human Brain Embodied in a Virtual World | Oct 18, 2024 | TBC | TBC |
 
 ## Books
 
-_No books published yet._
+| Title | Publication | Status |
+|-------|-------------|--------|
 
-## Patents
+## Essays
 
-_Patent applications are confidential until provisional filing._
+| Title                                             | Publication  | DOI | Citation |
+| ------------------------------------------------- | ------------ | --- | -------- |
+| Mind Uploading: A Candidate for the Great Filter  | TBC          | TBC | TBC      |
+| Death is an Engineering Challenge                 | May 13, 2025 | TBC | TBC      |
+| Lab-Grown Human Brain Embodied in a Virtual World | Oct 18, 2024 | TBC | TBC      |
