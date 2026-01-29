@@ -635,7 +635,3 @@ As demonstrated by \citet{author_keyword_year}, ...
 - **Figures:** `descriptive-name.png` (lowercase, hyphens)
 - **BibTeX keys:** `lastname_keyword_year`
 - **Labels:** `type:descriptive-name` (e.g., `fig:process-world-line`, `sec:introduction`, `eq:continuity`)
-
----
-
-_Last updated: January 2026_

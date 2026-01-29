@@ -48,11 +48,11 @@
 
 % USPTO requires: 8.5" x 11", 1" margins minimum, 1.5 line spacing
 \geometry{
-	letterpaper,
-	left=1in,
-	right=1in,
-	top=1in,
-	bottom=1in
+  letterpaper,
+  left=1in,
+  right=1in,
+  top=1in,
+  bottom=1in
 }
 
 % Double spacing (USPTO requirement for provisional applications)
@@ -70,14 +70,14 @@
 \newcounter{patentpara}
 \setcounter{patentpara}{0}
 \newcommand{\para}{%
-	\refstepcounter{patentpara}%
-	\noindent[\arabic{patentpara}]\quad%
+  \refstepcounter{patentpara}%
+  \noindent[\arabic{patentpara}]\quad%
 }
 
 % Alternative: continuous paragraph numbers without brackets
 \newcommand{\pnum}{%
-	\refstepcounter{patentpara}%
-	\noindent\arabic{patentpara}.\quad%
+  \refstepcounter{patentpara}%
+  \noindent\arabic{patentpara}.\quad%
 }
 
 % List formatting
@@ -144,10 +144,10 @@
 \setcounter{claim}{0}
 
 \newenvironment{claims}{%
-	\section{Claims}
-	\begin{enumerate}[label=\textbf{\arabic*.}, ref=\arabic*, leftmargin=2em, itemsep=12pt]
-		}{%
-	\end{enumerate}
+  \section{Claims}
+  \begin{enumerate}[label=\textbf{\arabic*.}, ref=\arabic*, leftmargin=2em, itemsep=12pt]
+    }{%
+  \end{enumerate}
 }
 
 % Individual claim (use inside claims environment)
@@ -173,11 +173,11 @@
 % ! ==========================
 
 \hypersetup{
-	colorlinks = true,
-	urlcolor   = blue,
-	linkcolor  = blue,
-	citecolor  = blue,
-	breaklinks = true
+  colorlinks = true,
+  urlcolor   = blue,
+  linkcolor  = blue,
+  citecolor  = blue,
+  breaklinks = true
 }
 \PassOptionsToPackage{hyphens}{url}
 \urlstyle{same}
@@ -198,57 +198,57 @@
 
 % Title page macro
 \newcommand{\patenttitle}[1]{%
-	\begin{center}
-		\Large\bfseries\MakeUppercase{#1}
-	\end{center}
-	\vspace{24pt}
+  \begin{center}
+    \Large\bfseries\MakeUppercase{#1}
+  \end{center}
+  \vspace{24pt}
 }
 
 % Inventor listing
 \newcommand{\inventor}[2]{%
-	\noindent\textbf{Inventor:} #1\\
-	\textbf{Address:} #2\\[12pt]
+  \noindent\textbf{Inventor:} #1\\
+  \textbf{Address:} #2\\[12pt]
 }
 
 % Cross-reference section
 \newcommand{\crossref}[1]{%
-	\section{Cross-Reference to Related Applications}
-	#1
+  \section{Cross-Reference to Related Applications}
+  #1
 }
 
 % Technical field section
 \newcommand{\technicalfield}[1]{%
-	\section{Technical Field}
-	#1
+  \section{Technical Field}
+  #1
 }
 
 % Background section
 \newcommand{\background}[1]{%
-	\section{Background}
-	#1
+  \section{Background}
+  #1
 }
 
 % Summary section
 \newcommand{\summary}[1]{%
-	\section{Summary}
-	#1
+  \section{Summary}
+  #1
 }
 
 % Brief description of drawings
 \newcommand{\drawingsdesc}[1]{%
-	\section{Brief Description of Drawings}
-	#1
+  \section{Brief Description of Drawings}
+  #1
 }
 
 % Detailed description section
 \newcommand{\detaileddesc}[1]{%
-	\section{Detailed Description}
-	#1
+  \section{Detailed Description}
+  #1
 }
 
 % Abstract (for end of document)
 \newcommand{\patentabstract}[1]{%
-	\newpage
-	\section{Abstract}
-	#1
+  \newpage
+  \section{Abstract}
+  #1
 }

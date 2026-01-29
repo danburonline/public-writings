@@ -6,13 +6,13 @@ This folder contains personal drafting templates for different document types.
 
 ## Available Templates
 
-| Template | Purpose | Layout |
-|----------|---------|--------|
-| `essay-preamble.tex` | Essays, thought pieces | Single-column, 11pt, 4cm margins |
-| `paper-preamble.tex` | Papers, preprints | Two-column ready, 10pt, 3cm margins |
-| `book-preamble.tex` | Technical books | Memoir class, A4, chapter structure |
-| `patent-preamble.tex` | Patent applications | Letter, 12pt, double-spaced, numbered paragraphs |
-| `preamble.tex` | Legacy (backwards compat) | Conditional via `\templatevariant` |
+| Template              | Purpose                   | Layout                                           |
+| --------------------- | ------------------------- | ------------------------------------------------ |
+| `essay-preamble.tex`  | Essays, thought pieces    | Single-column, 11pt, 4cm margins                 |
+| `paper-preamble.tex`  | Papers, preprints         | Two-column ready, 10pt, 3cm margins              |
+| `book-preamble.tex`   | Technical books           | Memoir class, A4, chapter structure              |
+| `patent-preamble.tex` | Patent applications       | Letter, 12pt, double-spaced, numbered paragraphs |
+| `preamble.tex`        | Legacy (backwards compat) | Conditional via `\templatevariant`               |
 
 ## Usage
 
@@ -226,10 +226,10 @@ The unified preamble uses LaTeX conditionals to check the value of `\templatevar
 
 ## Important Notes
 
-1.  **Order matters**: Always define `\templatevariant` **before** inputting the preamble.
-2.  **Use `\providecommand`**: This prevents errors if the command is already defined.
-3.  **Package compatibility**: The preamble loads packages in the correct order to avoid conflicts.
-4.  **Hyperref**: Loaded last to ensure proper functionality with other packages.
+1. **Order matters**: Always define `\templatevariant` **before** inputting the preamble.
+2. **Use `\providecommand`**: This prevents errors if the command is already defined.
+3. **Package compatibility**: The preamble loads packages in the correct order to avoid conflicts.
+4. **Hyperref**: Loaded last to ensure proper functionality with other packages.
 
 ---
 
@@ -247,6 +247,7 @@ The book template uses the **memoir** class, which provides superior typography 
 ### Chapter Style
 
 A clean, modern chapter style with:
+
 - Large chapter number and title on same line
 - Generous spacing before and after
 - Section numbering to subsection level
@@ -260,6 +261,7 @@ A clean, modern chapter style with:
 ### Index Support
 
 Index generation is enabled by default. Use:
+
 - `\index{term}` in text to add entries
 - `\printindex` in backmatter to output
 
@@ -302,17 +304,17 @@ Use `\refnum{102}` for consistent formatting of reference numerals in detailed d
 
 ### Convenience Macros
 
-| Macro | Purpose |
-|-------|---------|
-| `\patenttitle{...}` | Centred, uppercase title |
-| `\inventor{name}{address}` | Inventor listing |
-| `\crossref{...}` | Cross-reference section |
-| `\technicalfield{...}` | Technical field section |
-| `\background{...}` | Background section |
-| `\summary{...}` | Summary section |
-| `\drawingsdesc{...}` | Brief description of drawings |
-| `\detaileddesc{...}` | Detailed description section |
-| `\patentabstract{...}` | Abstract (end of document) |
+| Macro                      | Purpose                       |
+| -------------------------- | ----------------------------- |
+| `\patenttitle{...}`        | Centred, uppercase title      |
+| `\inventor{name}{address}` | Inventor listing              |
+| `\crossref{...}`           | Cross-reference section       |
+| `\technicalfield{...}`     | Technical field section       |
+| `\background{...}`         | Background section            |
+| `\summary{...}`            | Summary section               |
+| `\drawingsdesc{...}`       | Brief description of drawings |
+| `\detaileddesc{...}`       | Detailed description section  |
+| `\patentabstract{...}`     | Abstract (end of document)    |
 
 ### Figure Naming
 
