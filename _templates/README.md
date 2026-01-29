@@ -1,80 +1,139 @@
-# LaTeX Template
+# LaTeX Templates
 
-This template system provides a unified preamble ([`preamble.tex`](/templates/preamble.tex)) that supports two distinct layout variants optimised for different document types. You control which variant to use by defining `\templatevariant` **before** inputting the preamble.
+This folder contains personal drafting templates for different document types.
 
-## Template Variants
+> **Note:** These are **personal drafting templates**. When submitting to journals or conferences (e.g., Springer LNCS for HCII, IEEE, ACM), use their official templates and convert your content accordingly.
 
-### Essay Variant (`essay`) – Default
+## Available Templates
 
-- **Purpose**: Long-form essays and single-column documents
-- **Layout**: Single-column with generous margins
-- **Margins**: 4cm left/right, 3cm top/3.5cm bottom for readability
-- **Font**: TeX Gyre Termes (Times clone) with standard sizing
-
-### Paper Variant (`paper`)
-
-- **Purpose**: Academic papers and pre-prints
-- **Layout**: Optimised for two-column layout with `multicol` package support
-- **Margins**: 3cm left/right, 2.5cm top/3cm bottom (more compact)
-- **Font**: TeX Gyre Termes (Times clone) with standard sizing
-- **Additional packages**: Includes `multicol` and `dblfloatfix` for advanced layouts
+| Template | Purpose | Layout |
+|----------|---------|--------|
+| `essay-preamble.tex` | Essays, thought pieces | Single-column, 11pt, 4cm margins |
+| `paper-preamble.tex` | Papers, preprints | Two-column ready, 10pt, 3cm margins |
+| `book-preamble.tex` | Technical books | Memoir class, A4, chapter structure |
+| `patent-preamble.tex` | Patent applications | Letter, 12pt, double-spaced, numbered paragraphs |
+| `preamble.tex` | Legacy (backwards compat) | Conditional via `\templatevariant` |
 
 ## Usage
 
-### For Essays (Single Column)
-
-Define the template variant as "essay" **before** inputting the preamble:
+### For Essays
 
 ```latex
 \documentclass[11pt]{article}
-
-% Define template variant BEFORE loading preamble
-\providecommand{\templatevariant}{essay}
-\input{../../../templates/preamble.tex}
+\input{../../../_templates/essay-preamble.tex}
 
 \begin{document}
-  % All content in single column with generous margins
+  \maketitle
+  \tableofcontents
+  \section{Introduction}
+  ...
+  \bibliography{references}
+\end{document}
+```
+
+### For Papers
+
+```latex
+\documentclass[10pt]{article}
+\input{../../../_templates/paper-preamble.tex}
+
+\begin{document}
   \maketitle
   \tableofcontents
 
-  \section{Introduction}
-  ...
+  % Optional: Use two-column layout
+  \begin{multicols}{2}
+    \section{Introduction}
+    ...
+  \end{multicols}
 
   \bibliography{references}
 \end{document}
 ```
 
-**Note**: If you don't specify `\templatevariant`, it defaults to "essay" layout.
-
-### For Papers (Two Column)
-
-Define the template variant as "paper" **before** inputting the preamble:
+### For Books
 
 ```latex
-\documentclass[10pt]{article}
-
-% Define template variant BEFORE loading preamble
-\providecommand{\templatevariant}{paper}
-\input{../../../templates/preamble.tex}
+\documentclass[11pt,a4paper,openany]{memoir}
+\input{../../_templates/book-preamble.tex}
 
 \begin{document}
-  % Front matter (title, abstract, TOC) - single column with default margins
-  \maketitle
-  \tableofcontents
 
-  % Start two-column layout with reduced margins
-  \newgeometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
-  \begin{multicols}{2}
+\frontmatter
+\title{Book Title}
+\author{Author Name}
+\maketitle
+\tableofcontents
 
-    % Your main content here in two columns
-    \section{Introduction}
-    ...
+\mainmatter
+\chapter{Introduction}
+...
 
-  \end{multicols}  % End two-column layout
-  \restoregeometry  % Restore default margins
+\appendix
+\chapter{Supplementary Material}
+...
 
-  % Back matter (bibliography) - single column with default margins
-  \bibliography{references}
+\backmatter
+\bibliography{references}
+\printindex
+
+\end{document}
+```
+
+### For Patents
+
+```latex
+\documentclass[12pt]{article}
+\input{../../../_templates/patent-preamble.tex}
+
+\begin{document}
+
+\patenttitle{Method and System for Doing Something Novel}
+
+\inventor{Daniel Burger}{London, United Kingdom}
+
+\crossref{This application claims priority to...}
+
+\technicalfield{
+\para The present invention relates to...
+}
+
+\background{
+\para Existing systems suffer from...
+\para There is a need for...
+}
+
+\summary{
+\para The present invention provides...
+}
+
+\drawingsdesc{
+\para FIG. 1 illustrates...
+\para FIG. 2 shows...
+}
+
+\detaileddesc{
+\para Referring to FIG. 1, a system \refnum{100} includes...
+\para The processor \refnum{102} is configured to...
+}
+
+\begin{claims}
+  \claim A method for doing something, comprising:
+    \begin{enumerate}[label=(\alph*)]
+      \item receiving input data;
+      \item processing the input data; and
+      \item outputting a result.
+    \end{enumerate}
+  \claim The method of claim \claimref{1}, wherein the processing includes...
+  \claim A system comprising:
+    \begin{enumerate}[label=(\alph*)]
+      \item a processor; and
+      \item a memory storing instructions.
+    \end{enumerate}
+\end{claims}
+
+\patentabstract{A method and system for... [150 words max]}
+
 \end{document}
 ```
 
@@ -171,3 +230,90 @@ The unified preamble uses LaTeX conditionals to check the value of `\templatevar
 2.  **Use `\providecommand`**: This prevents errors if the command is already defined.
 3.  **Package compatibility**: The preamble loads packages in the correct order to avoid conflicts.
 4.  **Hyperref**: Loaded last to ensure proper functionality with other packages.
+
+---
+
+## Book Template Features
+
+The book template uses the **memoir** class, which provides superior typography and extensive customisation for longer works.
+
+### Document Structure
+
+- **`\frontmatter`**: Roman numerals, no chapter numbers (title page, TOC, preface)
+- **`\mainmatter`**: Arabic numerals, chapter numbers (main content)
+- **`\appendix`**: Appendix chapters (A, B, C...)
+- **`\backmatter`**: No chapter numbers (bibliography, index)
+
+### Chapter Style
+
+A clean, modern chapter style with:
+- Large chapter number and title on same line
+- Generous spacing before and after
+- Section numbering to subsection level
+
+### Headers & Footers
+
+- Even pages: page number left, chapter name right
+- Odd pages: section name left, page number right
+- Chapter opening pages: centred page number only
+
+### Index Support
+
+Index generation is enabled by default. Use:
+- `\index{term}` in text to add entries
+- `\printindex` in backmatter to output
+
+---
+
+## Patent Template Features
+
+The patent template is designed for **drafting** patent applications. Convert to official format (USPTO, EPO, WIPO) before filing.
+
+### Formatting
+
+- **Letter paper** (8.5" × 11") with 1" margins
+- **12pt font** with double spacing (USPTO provisional requirements)
+- **No section numbering** (patent convention)
+- **Centred, uppercase section headings**
+
+### Paragraph Numbering
+
+Two styles available:
+
+```latex
+\para This paragraph will be numbered [1], [2], etc.
+
+\pnum This paragraph will be numbered 1., 2., etc.
+```
+
+### Claims Environment
+
+```latex
+\begin{claims}
+  \claim An independent claim...
+  \claim The method of claim \claimref{1}, wherein... (dependent)
+  \claim Another independent claim...
+\end{claims}
+```
+
+### Reference Numerals
+
+Use `\refnum{102}` for consistent formatting of reference numerals in detailed description. Outputs **102** in bold.
+
+### Convenience Macros
+
+| Macro | Purpose |
+|-------|---------|
+| `\patenttitle{...}` | Centred, uppercase title |
+| `\inventor{name}{address}` | Inventor listing |
+| `\crossref{...}` | Cross-reference section |
+| `\technicalfield{...}` | Technical field section |
+| `\background{...}` | Background section |
+| `\summary{...}` | Summary section |
+| `\drawingsdesc{...}` | Brief description of drawings |
+| `\detaileddesc{...}` | Detailed description section |
+| `\patentabstract{...}` | Abstract (end of document) |
+
+### Figure Naming
+
+Figures automatically use "FIG. X" notation (patent standard) instead of "Figure X".

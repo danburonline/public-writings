@@ -1,0 +1,98 @@
+% ! ======================
+% ! # MARK: Document setup
+% ! ======================
+
+\documentclass[10pt]{article}
+\input{../../../_templates/paper-preamble.tex}
+
+\begin{document}
+\pagenumbering{roman}
+\counterwithin{lstlisting}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% ! =====================
+% ! # MARK: Frontmatter
+% ! =====================
+
+\title{\textbf{Paper Title Here}}
+\author[1]{Daniel Burger}
+\affil[1]{\textbf{Eightsix Science Ltd}}
+\date{\textit{January 2026}}
+\maketitle
+
+% ! =====================
+% ! # MARK: Abstract
+% ! =====================
+
+\begin{abstract}
+	Abstract text here. Summarise the research question, methods, key findings, and conclusions.
+\end{abstract}
+
+% ! =====================
+% ! # MARK: Preliminaries
+% ! =====================
+
+\tableofcontents
+\listoffigures
+\listoftables
+\pagebreak
+\pagenumbering{arabic}
+
+\begin{sloppypar}
+
+	% ! =====================
+	% ! # MARK: Introduction
+	% ! =====================
+
+	\section{Introduction}
+	\label{sec:introduction}
+
+	Introduction text here.
+
+	% ! =====================
+	% ! # MARK: Methods
+	% ! =====================
+
+	\section{Methods}
+	\label{sec:methods}
+
+	Methods text here.
+
+	% ! =====================
+	% ! # MARK: Results
+	% ! =====================
+
+	\section{Results}
+	\label{sec:results}
+
+	Results text here.
+
+	% ! =====================
+	% ! # MARK: Discussion
+	% ! =====================
+
+	\section{Discussion}
+	\label{sec:discussion}
+
+	Discussion text here.
+
+	% ! =====================
+	% ! # MARK: Conclusion
+	% ! =====================
+
+	\section{Conclusion}
+	\label{sec:conclusion}
+
+	Conclusion text here.
+
+	% ! ========================
+	% ! # MARK: References, etc.
+	% ! ========================
+
+	\pagebreak
+	\bibliographystyle{../../../_templates/apa}
+	\bibliography{references/bibliography}
+
+\end{sloppypar}
+\end{document}

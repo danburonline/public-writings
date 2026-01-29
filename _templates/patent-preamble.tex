@@ -1,0 +1,254 @@
+% ! =============================
+% ! # MARK: Patent Template
+% ! =============================
+% Clean layout for patent application drafting.
+% Usage: \documentclass[12pt]{article}
+%        \input{../../../_templates/patent-preamble.tex}
+%
+% NOTE: This is a DRAFTING template. Final submission formats vary by
+% patent office (USPTO, EPO, WIPO, JPO). Convert to official format
+% before filing.
+%
+% Standard patent structure:
+%   1. Title
+%   2. Cross-Reference to Related Applications
+%   3. Technical Field
+%   4. Background
+%   5. Summary
+%   6. Brief Description of Drawings
+%   7. Detailed Description
+%   8. Claims
+%   9. Abstract
+
+% ! =======================
+% ! # MARK: Package Loading
+% ! =======================
+
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[breaklinks,linktocpage]{hyperref}
+
+
+% ! ==============================
+% ! # MARK: Page Layout & Geometry
+% ! ==============================
+
+% USPTO requires: 8.5" x 11", 1" margins minimum, 1.5 line spacing
+\geometry{
+	letterpaper,
+	left=1in,
+	right=1in,
+	top=1in,
+	bottom=1in
+}
+
+% Double spacing (USPTO requirement for provisional applications)
+\doublespacing
+
+
+% ! ==========================
+% ! # MARK: Typography & Fonts
+% ! ==========================
+
+% 12pt font, required by most patent offices
+% (Set in \documentclass[12pt]{article})
+
+% Paragraph numbering (common in patent specifications)
+\newcounter{patentpara}
+\setcounter{patentpara}{0}
+\newcommand{\para}{%
+	\refstepcounter{patentpara}%
+	\noindent[\arabic{patentpara}]\quad%
+}
+
+% Alternative: continuous paragraph numbers without brackets
+\newcommand{\pnum}{%
+	\refstepcounter{patentpara}%
+	\noindent\arabic{patentpara}.\quad%
+}
+
+% List formatting
+\setlist[itemize]{noitemsep, topsep=7pt, partopsep=0pt, leftmargin=*, label=\textendash}
+\setlist[enumerate]{noitemsep, topsep=7pt, partopsep=0pt, leftmargin=*}
+
+
+% ! ================================
+% ! # MARK: Section Styles
+% ! ================================
+
+% Patent sections use all caps, centred
+\titleformat{\section}
+{\normalfont\large\bfseries\centering}
+{}
+{0pt}
+{\MakeUppercase}
+
+\titleformat{\subsection}
+{\normalfont\normalsize\bfseries}
+{}
+{0pt}
+{}
+
+\titlespacing*{\section}{0pt}{24pt}{12pt}
+\titlespacing*{\subsection}{0pt}{18pt}{6pt}
+
+% No section numbering (patent convention)
+\setcounter{secnumdepth}{0}
+
+
+% ! ================================
+% ! # MARK: Headers & Footers
+% ! ================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+% ! ================================
+% ! # MARK: Floats, Figures & Tables
+% ! ================================
+
+\usepackage[font=small,skip=7pt,labelfont=bf]{caption}
+\captionsetup{justification=raggedright}
+
+% Patent figures use "FIG. X" notation
+\renewcommand{\figurename}{FIG.}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+% Custom caption for patent figures
+\newcommand{\figcaption}[1]{\caption{#1}}
+
+
+% ! ================================
+% ! # MARK: Claims Environment
+% ! ================================
+
+% Claims section with automatic numbering
+\newcounter{claim}
+\setcounter{claim}{0}
+
+\newenvironment{claims}{%
+	\section{Claims}
+	\begin{enumerate}[label=\textbf{\arabic*.}, ref=\arabic*, leftmargin=2em, itemsep=12pt]
+		}{%
+	\end{enumerate}
+}
+
+% Individual claim (use inside claims environment)
+% Usage: \claim This invention claims...
+\newcommand{\claim}{\item}
+
+% Dependent claim reference
+% Usage: The method of claim \claimref{1}, wherein...
+\newcommand{\claimref}[1]{#1}
+
+
+% ! ================================
+% ! # MARK: Reference Numerals
+% ! ================================
+
+% For consistent reference numeral formatting
+% Usage: The processor \refnum{102} connects to memory \refnum{104}.
+\newcommand{\refnum}[1]{\textbf{#1}}
+
+
+% ! ==========================
+% ! # MARK: Hyperlinks & URLs
+% ! ==========================
+
+\hypersetup{
+	colorlinks = true,
+	urlcolor   = blue,
+	linkcolor  = blue,
+	citecolor  = blue,
+	breaklinks = true
+}
+\PassOptionsToPackage{hyphens}{url}
+\urlstyle{same}
+
+
+% ! =======================
+% ! # MARK: Draft Watermark
+% ! =======================
+
+% Uncomment for draft mode:
+% \usepackage{background}
+% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray}
+
+
+% ! ================================
+% ! # MARK: Patent-Specific Macros
+% ! ================================
+
+% Title page macro
+\newcommand{\patenttitle}[1]{%
+	\begin{center}
+		\Large\bfseries\MakeUppercase{#1}
+	\end{center}
+	\vspace{24pt}
+}
+
+% Inventor listing
+\newcommand{\inventor}[2]{%
+	\noindent\textbf{Inventor:} #1\\
+	\textbf{Address:} #2\\[12pt]
+}
+
+% Cross-reference section
+\newcommand{\crossref}[1]{%
+	\section{Cross-Reference to Related Applications}
+	#1
+}
+
+% Technical field section
+\newcommand{\technicalfield}[1]{%
+	\section{Technical Field}
+	#1
+}
+
+% Background section
+\newcommand{\background}[1]{%
+	\section{Background}
+	#1
+}
+
+% Summary section
+\newcommand{\summary}[1]{%
+	\section{Summary}
+	#1
+}
+
+% Brief description of drawings
+\newcommand{\drawingsdesc}[1]{%
+	\section{Brief Description of Drawings}
+	#1
+}
+
+% Detailed description section
+\newcommand{\detaileddesc}[1]{%
+	\section{Detailed Description}
+	#1
+}
+
+% Abstract (for end of document)
+\newcommand{\patentabstract}[1]{%
+	\newpage
+	\section{Abstract}
+	#1
+}

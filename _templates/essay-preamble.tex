@@ -1,0 +1,170 @@
+% ! =============================
+% ! # MARK: Essay Template
+% ! =============================
+% Single-column layout with generous margins for long-form essays.
+% Usage: \input{../../../_templates/essay-preamble.tex}
+
+% ! =======================
+% ! # MARK: Package Loading
+% ! =======================
+
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{makecell}
+\usepackage{tabularx, booktabs}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{censor}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{tocloft}
+\usepackage[nottoc]{tocbibind}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[breaklinks,linktocpage]{hyperref}
+
+
+% ! ==============================
+% ! # MARK: Page Layout & Geometry
+% ! ==============================
+
+\geometry{
+	left=4cm,
+	right=4cm,
+	top=3cm,
+	bottom=3.5cm
+}
+
+
+% ! ==========================
+% ! # MARK: Typography & Fonts
+% ! ==========================
+
+\renewcommand{\thepage}{\footnotesize\arabic{page}}
+\setlist[itemize]{noitemsep, topsep=7pt, partopsep=0pt, leftmargin=*, label=\textendash}
+
+
+% ! ================================
+% ! # MARK: Floats, Figures & Tables
+% ! ================================
+
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+
+\usepackage[font=footnotesize,skip=7pt,labelfont=bf]{caption}
+\captionsetup{justification=raggedright}
+\newcommand{\floatcaption}[2]{\caption[#1.]{#1~#2.}}
+
+
+% ! ================================
+% ! # MARK: Bibliography & Citations
+% ! ================================
+
+\renewcommand{\bibname}{References}
+\setlength\bibindent{0pt}
+
+\let\oldthebibliography=\thebibliography
+\let\endoldthebibliography=\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+	\begin{oldthebibliography}{#1}%
+		\raggedright%
+		\footnotesize%
+		\setlength{\itemsep}{3pt}%
+		\setlength{\parsep}{0pt}%
+		\setlength{\parskip}{0pt}%
+		}{%
+	\end{oldthebibliography}%
+}
+
+
+% ! =====================
+% ! # MARK: Code Listings
+% ! =====================
+
+\definecolor{codegreen}{rgb}{0,0.5,0}
+\definecolor{codegray}{rgb}{0.4,0.4,0.4}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.96,0.96,0.96}
+\definecolor{lightgray}{gray}{0.8}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+	sensitive=true
+}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{purple},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	frame=tb,
+	framerule=0pt,
+	framextopmargin=6pt,
+	framexbottommargin=6pt,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+
+% ! ===================================
+% ! # MARK: Document Structure & Titles
+% ! ===================================
+
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand\cftsecafterpnum{\vskip8pt}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}
+
+
+% ! ==========================
+% ! # MARK: Hyperlinks & URLs
+% ! ==========================
+
+\hypersetup{
+	colorlinks = true,
+	urlcolor   = blue,
+	linkcolor  = blue,
+	citecolor  = blue,
+	breaklinks = true
+}
+\PassOptionsToPackage{hyphens}{url}
+\urlstyle{same}
+\def\Urlmuskip{0mu plus 1mu}
+\def\UrlBreaks{\do\/\do-}
+\def\UrlBigBreaks{\do\/\do-\do:\do.}
+
+
+% ! =======================
+% ! # MARK: Draft Watermark
+% ! =======================
+
+% Uncomment for draft mode:
+% \usepackage{background}
+% \backgroundsetup{contents=DRAFT, opacity=0.25, color=gray}
+% \doublespacing
