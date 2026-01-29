@@ -1,6 +1,6 @@
 # AGENTS.md — Writings Workspace
 
-> Knowledge base for AI agents (Cursor, opencode) working in this scientific writings repository.
+> Knowledge base for AI agents (Cursor, OpenCode) working in this scientific writings repository.
 
 ## Workspace Overview
 
@@ -34,19 +34,19 @@ Writings/
 │   ├── apa.bst                   # APA citation style
 │   └── README.md                 # Template documentation
 ├── .cursor/skills/               # Cursor agent skills
-├── .opencode/skills/             # opencode agent skills (mirrored)
+├── .opencode/skills/             # OpenCode agent skills (mirrored)
 ├── .editorconfig                 # Editor formatting
 └── AGENTS.md                     # This file
 ```
 
 ### Content Types
 
-| Type        | Template Variant | Purpose                                    | Status  |
-| ----------- | ---------------- | ------------------------------------------ | ------- |
-| **Patents** | `patent`         | Technical inventions                       | Active  |
-| **Papers**  | `paper`          | Academic papers, preprints                 | Active  |
-| **Books**   | `book`           | Extended works with chapter structure      | Active  |
-| **Essays**  | `essay`          | Long-form scientific/philosophical writing | Active  |
+| Type        | Template Variant | Purpose                                    | Status |
+| ----------- | ---------------- | ------------------------------------------ | ------ |
+| **Patents** | `patent`         | Technical inventions                       | Active |
+| **Papers**  | `paper`          | Academic papers, preprints                 | Active |
+| **Books**   | `book`           | Extended works with chapter structure      | Active |
+| **Essays**  | `essay`          | Long-form scientific/philosophical writing | Active |
 
 ---
 
@@ -111,25 +111,26 @@ Separate preamble files for each document type:
 \input{../../../_templates/paper-preamble.tex}
 ```
 
-| Template | Layout | Margins | Use Case |
-|----------|--------|---------|----------|
-| `essay-preamble.tex` | Single-column, 11pt | 4cm L/R, generous | Essays, thought pieces |
-| `paper-preamble.tex` | Two-column ready, 10pt | 3cm L/R, compact | Papers, preprints |
-| `preamble.tex` | Legacy unified | Conditional | Backwards compatibility |
+| Template             | Layout                 | Margins           | Use Case                |
+| -------------------- | ---------------------- | ----------------- | ----------------------- |
+| `essay-preamble.tex` | Single-column, 11pt    | 4cm L/R, generous | Essays, thought pieces  |
+| `paper-preamble.tex` | Two-column ready, 10pt | 3cm L/R, compact  | Papers, preprints       |
+| `preamble.tex`       | Legacy unified         | Conditional       | Backwards compatibility |
 
 #### Submission Templates (for Journals/Conferences)
 
 When submitting to journals or conferences, **use their official templates**:
 
-| Venue | Template | Notes |
-|-------|----------|-------|
-| **Springer LNCS** | [splncs04.cls](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines) | HCII, HCI conferences |
-| **IEEE** | [IEEEtran.cls](https://www.ieee.org/conferences/publishing/templates.html) | IEEE conferences/journals |
-| **ACM** | [acmart.cls](https://www.acm.org/publications/proceedings-template) | CHI, UIST, etc. |
-| **Elsevier** | [elsarticle.cls](https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions) | Elsevier journals |
-| **Nature/Science** | Word templates | Often require Word submission |
+| Venue              | Template                                                                                            | Notes                         |
+| ------------------ | --------------------------------------------------------------------------------------------------- | ----------------------------- |
+| **Springer LNCS**  | [splncs04.cls](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines) | HCII, HCI conferences         |
+| **IEEE**           | [IEEEtran.cls](https://www.ieee.org/conferences/publishing/templates.html)                          | IEEE conferences/journals     |
+| **ACM**            | [acmart.cls](https://www.acm.org/publications/proceedings-template)                                 | CHI, UIST, etc.               |
+| **Elsevier**       | [elsarticle.cls](https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions)       | Elsevier journals             |
+| **Nature/Science** | Word templates                                                                                      | Often require Word submission |
 
 **Workflow:**
+
 1. **Draft** using personal templates (`essay` or `paper` variant)
 2. **Finalise** content and structure
 3. **Convert** to venue-specific template before submission (AI agents can assist)
@@ -385,62 +386,20 @@ When this work is cited:
 
 ---
 
-## Domain Knowledge
-
-### Synconetics (Core Research Area)
-
-Synconetics is a novel scientific discipline focused on:
-
-- Understanding fundamental aspects of death
-- Overcoming death through synthetic consciousness mechanics
-- Engineering interventions to sustain consciousness-supporting physical dynamics
-- Non-destructive substrate transitions
-
-**Key Concepts:**
-
-| Term                                             | Definition                                                                  |
-| ------------------------------------------------ | --------------------------------------------------------------------------- |
-| **Process-world-line**                           | 4D spatiotemporal trajectory of physical states underpinning consciousness  |
-| **Processual Continuity (PC)**                   | Uninterrupted persistence of the causal topology constituting consciousness |
-| **Synthetic Consciousness Substrate (SCS)**      | Physical system verified to sustain conscious experience                    |
-| **Synthetic Consciousness Transformation (SCT)** | Protocols for non-destructive consciousness transition                      |
-
-**Core Principles:**
-
-1. Process-World-Line Fidelity
-2. Non-Destructive Transition
-3. Substrate Agnosticism with Physical Grounding
-4. Empirical Primacy
-5. Near-Term Engineering Urgency
-
-### Mathematical Formalism
-
-The continuity condition central to synconetics:
-
-$$\mathcal{C}(\mathcal{I}, [t_0, t_1]) \iff \forall t \in [t_0, t_1] : \left\| \frac{dS_{\text{crit}}}{dt}(t) \right\|_{\mathcal{S}} \le \Lambda_{\text{adapt}}(S_{\text{crit}}(t))$$
-
-Where:
-
-- $S_{\text{crit}}(t)$ — Critical state vector (neural firing rates, synaptic weights, etc.)
-- $\Lambda_{\text{adapt}}$ — State-dependent adaptive capacity threshold
-- $\mathcal{S}$ — High-dimensional state space
-
----
-
 ## Available Skills
 
 Skills provide specialised guidance for agents. Located in `.cursor/skills/` and `.opencode/skills/` (mirrored).
 
 ### Skill Overview
 
-| Skill | Purpose | When to Use |
-|-------|---------|-------------|
-| `writing-clearly-and-concisely` | Strunk's Elements of Style + AI pattern avoidance | Any prose for humans |
-| `scientific-writing` | IMRAD structure, citations, reporting guidelines | Research papers, manuscripts |
-| `scientific-critical-thinking` | Methodology critique, bias detection, evidence quality | Reviewing claims, research design |
-| `scientific-brainstorming` | Research ideation, hypothesis generation | Creative problem-solving |
-| `scientific-visualization` | Publication figures (matplotlib/seaborn/plotly) | Creating journal-ready plots |
-| `latex-writing` | LaTeX best practices, semantic markup | Writing/editing .tex files |
+| Skill                           | Purpose                                                | When to Use                       |
+| ------------------------------- | ------------------------------------------------------ | --------------------------------- |
+| `writing-clearly-and-concisely` | Strunk's Elements of Style + AI pattern avoidance      | Any prose for humans              |
+| `scientific-writing`            | IMRAD structure, citations, reporting guidelines       | Research papers, manuscripts      |
+| `scientific-critical-thinking`  | Methodology critique, bias detection, evidence quality | Reviewing claims, research design |
+| `scientific-brainstorming`      | Research ideation, hypothesis generation               | Creative problem-solving          |
+| `scientific-visualization`      | Publication figures (matplotlib/seaborn/plotly)        | Creating journal-ready plots      |
+| `latex-writing`                 | LaTeX best practices, semantic markup                  | Writing/editing .tex files        |
 
 ---
 
@@ -449,11 +408,13 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 **Purpose:** Apply Strunk's timeless rules for clearer, stronger writing. Avoid AI writing patterns.
 
 **Use when:**
+
 - Writing documentation, explanations, any prose humans will read
 - Editing to improve clarity and conciseness
 - Avoiding AI-generated "slop" (puffery, empty phrases, promotional language)
 
 **Key principles:**
+
 - Use active voice
 - Put statements in positive form
 - Use definite, specific, concrete language
@@ -469,12 +430,14 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 **Purpose:** Write scientific manuscripts with IMRAD structure, proper citations, and reporting guidelines.
 
 **Use when:**
+
 - Writing any section of a scientific manuscript (abstract, introduction, methods, results, discussion)
 - Formatting citations (APA, AMA, Vancouver, Chicago, IEEE)
 - Applying reporting guidelines (CONSORT, STROBE, PRISMA)
 - Preparing manuscripts for journal submission
 
 **Critical principle:** Always write in full paragraphs with flowing prose. Never submit bullet points. Use two-stage process:
+
 1. Create section outlines with key points
 2. Convert outlines to complete paragraphs
 
@@ -487,6 +450,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 **Purpose:** Evaluate research rigor, assess methodology, detect biases, analyse statistical validity.
 
 **Use when:**
+
 - Reviewing research papers or evaluating scientific claims
 - Assessing experimental design and methodology
 - Identifying biases and confounding factors
@@ -494,6 +458,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 - Planning rigorous new studies
 
 **Core capabilities:**
+
 - Methodology critique (study design, validity analysis)
 - Bias detection (cognitive, selection, measurement, analysis)
 - Statistical analysis evaluation (power, tests, p-values, effect sizes)
@@ -509,6 +474,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 **Purpose:** Research ideation partner for generating hypotheses and exploring interdisciplinary connections.
 
 **Use when:**
+
 - Generating novel research ideas or directions
 - Exploring interdisciplinary connections and analogies
 - Challenging assumptions in existing frameworks
@@ -516,6 +482,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 - Overcoming creative blocks
 
 **Workflow phases:**
+
 1. Understanding context (research question, constraints)
 2. Divergent exploration (cross-domain analogies, assumption reversal, scale shifting)
 3. Connection making (patterns, themes, unexpected links)
@@ -531,6 +498,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 **Purpose:** Create publication-quality figures with matplotlib, seaborn, and plotly.
 
 **Use when:**
+
 - Creating plots for scientific manuscripts
 - Preparing figures for journal submission (Nature, Science, Cell, PLOS)
 - Ensuring colorblind-friendly, accessible figures
@@ -538,6 +506,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 - Exporting at correct resolution and format (PDF/EPS/TIFF)
 
 **Key requirements:**
+
 - Colorblind-safe palettes (Okabe-Ito recommended)
 - Proper resolution (300-600 DPI for raster, vector preferred)
 - Sans-serif fonts (Arial, Helvetica), minimum 6-7pt at final size
@@ -557,11 +526,13 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 **Purpose:** Guide LaTeX authoring with semantic markup and best practices.
 
 **Use when:**
+
 - Writing or editing .tex files
 - Reviewing LaTeX code quality
 - Working with literate programming (.nw) files
 
 **Key principles:**
+
 - **Semantic markup:** Use environments matching content meaning, not visual appearance
 - **Lists:** Use `description` for term-definition pairs, not `\textbf{Label:}` in `itemize`
 - **Cross-references:** Always use `\autoref{}` (hyperref), never `\S\ref{}` or `Figure~\ref{}`
@@ -569,6 +540,7 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 - **Literate programming:** Use `[[code]]` notation in .nw files, not `\texttt{..._...}`
 
 **Anti-patterns to avoid:**
+
 - `\textbf{Label:}` in itemize → use `\item[Label]` in description
 - `Section~\ref{sec:x}` → use `\autoref{sec:x}`
 - ALL CAPS emphasis → use `\emph{emphasis}`
@@ -590,21 +562,23 @@ This section documents planned additions to the workspace and agent capabilities
 
 Future skill modules to be added:
 
-| Skill | Purpose |
-|-------|---------|
-| `mathematics` | Equation formatting, proof structure, notation consistency |
-| `bibliography-manager` | Citation verification, DOI lookup, reference formatting |
-| `figure-design` | TikZ diagrams, scientific visualisation guidance |
-| `patent-drafting` | Claims structure, legal language, prior art analysis |
+| Skill                  | Purpose                                                    |
+| ---------------------- | ---------------------------------------------------------- |
+| `mathematics`          | Equation formatting, proof structure, notation consistency |
+| `bibliography-manager` | Citation verification, DOI lookup, reference formatting    |
+| `figure-design`        | TikZ diagrams, scientific visualisation guidance           |
+| `patent-drafting`      | Claims structure, legal language, prior art analysis       |
 
 ### Integration Notes
 
 **Cursor + opencode workflow:**
+
 - Cursor provides IDE features (syntax highlighting, file navigation)
 - opencode provides AI capabilities via terminal
 - AGENTS.md serves both through shared knowledge base
 
 **Zed compatibility:**
+
 - Author uses Zed as primary editor
 - `zed <FILE>` opens files from CLI
 - This AGENTS.md is editor-agnostic
@@ -664,4 +638,4 @@ As demonstrated by \citet{author_keyword_year}, ...
 
 ---
 
-*Last updated: January 2026*
+_Last updated: January 2026_
