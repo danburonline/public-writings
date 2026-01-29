@@ -319,9 +319,9 @@ When working in Cursor with this repository:
 3. **Maintain consistency** — Match existing document style in same category
 4. **Preserve semantic markers** — Keep `% ! # MARK:` comments for navigation
 
-### For opencode (Terminal)
+### For OpenCode (Terminal)
 
-When running opencode inside Cursor terminal or native terminal:
+When running OpenCode inside Cursor terminal or native terminal:
 
 1. **Load relevant skills** — Skills in `.opencode/skills/` mirror Cursor skills
 2. **Context awareness** — This is a writings workspace, not a code repository
@@ -571,10 +571,10 @@ Future skill modules to be added:
 
 ### Integration Notes
 
-**Cursor + opencode workflow:**
+**Cursor + OpenCode workflow:**
 
 - Cursor provides IDE features (syntax highlighting, file navigation)
-- opencode provides AI capabilities via terminal
+- OpenCode provides AI capabilities via terminal
 - AGENTS.md serves both through shared knowledge base
 
 **Zed compatibility:**
