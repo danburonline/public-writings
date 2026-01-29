@@ -17,8 +17,8 @@ Writings/
 
 ## Patents
 
-| Title | Filing Date | Status |
-|-------|-------------|--------|
+| Title | Date | Status |
+|-------|------|--------|
 
 ## Papers
 
@@ -28,13 +28,13 @@ Writings/
 
 ## Books
 
-| Title | Publication | Status |
-|-------|-------------|--------|
+| Title | Date | Status |
+|-------|------|--------|
 
 ## Essays
 
-| Title                                             | Publication  | DOI | Citation |
-| ------------------------------------------------- | ------------ | --- | -------- |
-| Mind Uploading: A Candidate for the Great Filter  | TBC          | TBC | TBC      |
-| Death is an Engineering Challenge                 | May 13, 2025 | TBC | TBC      |
-| Lab-Grown Human Brain Embodied in a Virtual World | Oct 18, 2024 | TBC | TBC      |
+| Title                                             | Date         | Status      |
+| ------------------------------------------------- | ------------ | ----------- |
+| Mind Uploading: A Candidate for the Great Filter  | —            | In progress |
+| Death is an Engineering Challenge                 | May 13, 2025 | Published   |
+| Lab-Grown Human Brain Embodied in a Virtual World | Oct 18, 2024 | Published   |
