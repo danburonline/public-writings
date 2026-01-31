@@ -30,7 +30,11 @@ Writings/
 │       ├── figures/
 │       └── references/
 ├── _templates/                   # Shared LaTeX templates
-│   ├── preamble.tex              # Unified preamble (essay/paper variants)
+│   ├── essay-preamble.tex        # Essays (single-column, 11pt)
+│   ├── paper-preamble.tex        # Papers (two-column ready, 10pt)
+│   ├── book-preamble.tex         # Books (memoir class, chapters)
+│   ├── patent-preamble.tex       # Patents (double-spaced, numbered paras)
+│   ├── preamble.tex              # Legacy (backwards compatibility)
 │   ├── apa.bst                   # APA citation style
 │   └── README.md                 # Template documentation
 ├── .cursor/skills/               # Cursor agent skills
@@ -270,9 +274,8 @@ BibTeX entries in `references/bibliography.bib`:
 
 1. Create directory: `XX_type/YYYY/NNN_type/`
 2. Copy structure from existing document of same type
-3. Update `\input{}` path to templates
-4. Set appropriate `\templatevariant`
-5. Create `figures/` and `references/` subdirectories
+3. Update `\input{}` path to appropriate preamble (e.g., `essay-preamble.tex`, `paper-preamble.tex`)
+4. Create `figures/` and `references/` subdirectories
 
 ### Compilation
 
@@ -357,7 +360,7 @@ Before completing any task:
 
 ### Patents
 
-**CRITICAL:** Patent documents in `03_patents/` have special handling:
+**CRITICAL:** Patent documents in `01_patents/` have special handling:
 
 1. **Pre-submission:** Content is confidential; do not discuss publicly
 2. **Post-provisional:** Can be pushed to public repository only after provisional patent application filed
@@ -376,10 +379,10 @@ All other content (essays, papers, books) is intended for public access:
 When this work is cited:
 
 ```bibtex
-@misc{burger_writings_2025,
+@misc{burger_writings_2026,
   author = {Burger, Daniel},
   title = {Public Writings Repository},
-  year = {2025},
+  year = {2026},
   url = {https://github.com/[username]/Writings}
 }
 ```
@@ -392,14 +395,15 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 
 ### Skill Overview
 
-| Skill                           | Purpose                                                | When to Use                       |
-| ------------------------------- | ------------------------------------------------------ | --------------------------------- |
-| `writing-clearly-and-concisely` | Strunk's Elements of Style + AI pattern avoidance      | Any prose for humans              |
-| `scientific-writing`            | IMRAD structure, citations, reporting guidelines       | Research papers, manuscripts      |
-| `scientific-critical-thinking`  | Methodology critique, bias detection, evidence quality | Reviewing claims, research design |
-| `scientific-brainstorming`      | Research ideation, hypothesis generation               | Creative problem-solving          |
-| `scientific-visualization`      | Publication figures (matplotlib/seaborn/plotly)        | Creating journal-ready plots      |
-| `latex-writing`                 | LaTeX best practices, semantic markup                  | Writing/editing .tex files        |
+| Skill                           | Purpose                                                | When to Use                         |
+| ------------------------------- | ------------------------------------------------------ | ----------------------------------- |
+| `writing-clearly-and-concisely` | Strunk's Elements of Style + AI pattern avoidance      | Any prose for humans                |
+| `scientific-writing`            | IMRAD structure, citations, reporting guidelines       | Research papers, manuscripts        |
+| `scientific-critical-thinking`  | Methodology critique, bias detection, evidence quality | Reviewing claims, research design   |
+| `scientific-brainstorming`      | Research ideation, hypothesis generation               | Creative problem-solving            |
+| `scientific-visualization`      | Publication figures (matplotlib/seaborn/plotly)        | Creating journal-ready plots        |
+| `latex-writing`                 | LaTeX best practices, semantic markup                  | Writing/editing .tex files          |
+| `mermaid-diagrams`              | Software diagrams using Mermaid syntax                 | Flowcharts, sequence diagrams, ERDs |
 
 ---
 
@@ -544,6 +548,38 @@ Skills provide specialised guidance for agents. Located in `.cursor/skills/` and
 - `\textbf{Label:}` in itemize → use `\item[Label]` in description
 - `Section~\ref{sec:x}` → use `\autoref{sec:x}`
 - ALL CAPS emphasis → use `\emph{emphasis}`
+
+---
+
+### mermaid-diagrams
+
+**Purpose:** Create professional software diagrams using Mermaid's text-based syntax.
+
+**Use when:**
+
+- Creating flowcharts, sequence diagrams, class diagrams, or ERDs
+- Visualising system architecture (C4 diagrams)
+- Documenting user journeys, workflows, or state machines
+- Explaining code structure or application flows
+
+**Diagram types:**
+
+| Type              | Use Case                                |
+| ----------------- | --------------------------------------- |
+| Class diagrams    | Domain modelling, OOP design            |
+| Sequence diagrams | API flows, method calls                 |
+| Flowcharts        | Processes, algorithms, user journeys    |
+| ERDs              | Database schemas                        |
+| C4 diagrams       | System/container/component architecture |
+| State diagrams    | State machines, lifecycles              |
+| Gantt charts      | Project timelines                       |
+
+**Key principles:**
+
+- First line declares diagram type (`classDiagram`, `sequenceDiagram`, `flowchart`)
+- Use `%%` for comments
+- Diagrams are version-controllable text
+- Unknown words break diagrams; parameters fail silently
 
 ---
 

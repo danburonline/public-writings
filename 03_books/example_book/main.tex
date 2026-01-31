@@ -1,0 +1,126 @@
+% ! ======================
+% ! # MARK: Document setup
+% ! ======================
+
+\documentclass[11pt,a4paper,openany]{memoir}
+\input{../../_templates/book-preamble.tex}
+
+\begin{document}
+
+% ! ====================
+% ! # MARK: Frontmatter
+% ! ====================
+
+\frontmatter
+
+\title{\textbf{Book Title}}
+\author{Daniel Burger}
+\date{2026}
+\maketitle
+
+% ! ====================
+% ! # MARK: Preface
+% ! ====================
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+[Write the preface here. Explain the motivation, scope, and intended audience for the book.]
+
+% ! ====================
+% ! # MARK: Contents
+% ! ====================
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ! ====================
+% ! # MARK: Mainmatter
+% ! ====================
+
+\mainmatter
+
+% ! ====================
+% ! # MARK: Part I
+% ! ====================
+
+\part{Foundations}
+
+\chapter{Introduction}
+\label{ch:introduction}
+
+[Introduction text here.]
+
+\section{Background}
+\label{sec:background}
+
+[Background section.]
+
+\section{Overview of This Book}
+\label{sec:overview}
+
+[Overview of chapters and structure.]
+
+% ! ====================
+% ! # MARK: Chapter 2
+% ! ====================
+
+\chapter{[Chapter Title]}
+\label{ch:chapter2}
+
+[Chapter content here.]
+
+\section{[Section Title]}
+\label{sec:section1}
+
+[Section content.]
+
+\subsection{[Subsection Title]}
+\label{subsec:subsection1}
+
+[Subsection content.]
+
+% ! ====================
+% ! # MARK: Part II
+% ! ====================
+
+\part{Applications}
+
+\chapter{[Application Chapter]}
+\label{ch:applications}
+
+[Application content.]
+
+% ! ====================
+% ! # MARK: Appendices
+% ! ====================
+
+\appendix
+
+\chapter{Supplementary Material}
+\label{app:supplementary}
+
+[Supplementary content, proofs, extended data, etc.]
+
+% ! ====================
+% ! # MARK: Backmatter
+% ! ====================
+
+\backmatter
+
+% ! ====================
+% ! # MARK: Bibliography
+% ! ====================
+
+% \bibliography{references/bibliography}
+% \bibliographystyle{../../_templates/apa}
+
+% ! ====================
+% ! # MARK: Index
+% ! ====================
+
+% Use \index{term} in text to add entries
+% \printindex
+
+\end{document}

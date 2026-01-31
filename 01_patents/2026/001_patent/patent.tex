@@ -1,0 +1,121 @@
+% ! ======================
+% ! # MARK: Document setup
+% ! ======================
+
+\documentclass[12pt]{article}
+\input{../../../_templates/patent-preamble.tex}
+
+\begin{document}
+
+% ! ====================
+% ! # MARK: Title Page
+% ! ====================
+
+\patenttitle{[INVENTION TITLE]}
+
+\inventor{Daniel Burger}{London, United Kingdom}
+
+% ! ================================
+% ! # MARK: Cross-Reference (optional)
+% ! ================================
+
+% \crossref{This application claims priority to provisional application No. XX/XXX,XXX filed [date].}
+
+% ! ====================
+% ! # MARK: Technical Field
+% ! ====================
+
+\technicalfield{
+  \para The present invention relates generally to [technical field], and more particularly to [specific aspect].
+}
+
+% ! ====================
+% ! # MARK: Background
+% ! ====================
+
+\background{
+  \para [Describe existing solutions and their limitations.]
+
+  \para [Identify the technical problem that needs solving.]
+
+  \para There exists a need for [solution].
+}
+
+% ! ====================
+% ! # MARK: Summary
+% ! ====================
+
+\summary{
+  \para The present invention provides [high-level solution].
+
+  \para In one embodiment, [describe key aspect].
+
+  \para In another embodiment, [describe alternative aspect].
+}
+
+% ! ================================
+% ! # MARK: Brief Description of Drawings
+% ! ================================
+
+\drawingsdesc{
+  \para FIG. 1 illustrates [description of figure 1].
+
+  \para FIG. 2 shows [description of figure 2].
+}
+
+% ! ================================
+% ! # MARK: Detailed Description
+% ! ================================
+
+\detaileddesc{
+  \para The following detailed description refers to the accompanying drawings. The same reference numerals may be used in different drawings to identify the same or similar elements.
+
+  \para Referring to FIG. 1, a system \refnum{100} includes [component description]. The system \refnum{100} comprises a processor \refnum{102} and a memory \refnum{104}.
+
+  \para The processor \refnum{102} is configured to [functionality].
+
+  \para [Continue detailed description...]
+}
+
+% ! ====================
+% ! # MARK: Claims
+% ! ====================
+
+\begin{claims}
+  \claim A method for [doing something], comprising:
+  \begin{enumerate}[label=(\alph*)]
+    \item receiving [input];
+    \item processing [the input]; and
+    \item outputting [result].
+  \end{enumerate}
+
+  \claim The method of claim \claimref{1}, wherein the processing comprises [additional limitation].
+
+  \claim The method of claim \claimref{1}, further comprising [additional step].
+
+  \claim A system comprising:
+  \begin{enumerate}[label=(\alph*)]
+    \item a processor; and
+    \item a memory storing instructions that, when executed by the processor, cause the processor to perform operations comprising:
+          \begin{enumerate}[label=(\roman*)]
+            \item receiving [input];
+            \item processing [the input]; and
+            \item outputting [result].
+          \end{enumerate}
+  \end{enumerate}
+
+  \claim A non-transitory computer-readable medium storing instructions that, when executed by a processor, cause the processor to perform operations comprising:
+  \begin{enumerate}[label=(\alph*)]
+    \item receiving [input];
+    \item processing [the input]; and
+    \item outputting [result].
+  \end{enumerate}
+\end{claims}
+
+% ! ====================
+% ! # MARK: Abstract
+% ! ====================
+
+\patentabstract{[Concise summary of the invention in 150 words or less. Describe the technical problem, solution, and key advantages. This appears on the cover page of the published patent.]}
+
+\end{document}
