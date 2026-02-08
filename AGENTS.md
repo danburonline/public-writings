@@ -37,8 +37,8 @@ Writings/
 │   ├── preamble.tex              # Legacy (backwards compatibility)
 │   ├── apa.bst                   # APA citation style
 │   └── README.md                 # Template documentation
-├── .cursor/skills/               # Cursor agent skills
-├── .opencode/skills/             # OpenCode agent skills (mirrored)
+├── .agents/skills/               # Shared agent skills (Cursor + OpenCode)
+├── .cursor/skills/               # Symlink → .agents/skills/ (Cursor compatibility)
 ├── .editorconfig                 # Editor formatting
 └── AGENTS.md                     # This file
 ```
@@ -313,23 +313,17 @@ latexmk -c
 
 ## Agent Instructions
 
-### For Cursor (Primary IDE)
+### For All Agents (Cursor, OpenCode, Claude Code)
 
-When working in Cursor with this repository:
+When working in this repository:
 
-1. **Load relevant skills** — Skills in `.cursor/skills/` provide specialised guidance
+1. **Load relevant skills** — Skills in `.agents/skills/` provide specialised guidance
 2. **Understand template system** — Check `_templates/README.md` before modifying preamble
 3. **Maintain consistency** — Match existing document style in same category
 4. **Preserve semantic markers** — Keep `% ! # MARK:` comments for navigation
-
-### For OpenCode (Terminal)
-
-When running OpenCode inside Cursor terminal or native terminal:
-
-1. **Load relevant skills** — Skills in `.opencode/skills/` mirror Cursor skills
-2. **Context awareness** — This is a writings workspace, not a code repository
-3. **LaTeX focus** — Primary files are `.tex`, not programming languages
-4. **British English** — All generated text must use British spelling
+5. **Context awareness** — This is a writings workspace, not a code repository
+6. **LaTeX focus** — Primary files are `.tex`, not programming languages
+7. **British English** — All generated text must use British spelling
 
 ### Task Categories
 
@@ -391,7 +385,7 @@ When this work is cited:
 
 ## Available Skills
 
-Skills provide specialised guidance for agents. Located in `.cursor/skills/` and `.opencode/skills/` (mirrored).
+Skills provide specialised guidance for agents. Located in `.agents/skills/`.
 
 ### Skill Overview
 
@@ -607,13 +601,13 @@ Future skill modules to be added:
 
 ### Integration Notes
 
-**Cursor + OpenCode workflow:**
+**Unified agent configuration:**
 
-- Cursor provides IDE features (syntax highlighting, file navigation)
-- OpenCode provides AI capabilities via terminal
-- AGENTS.md serves both through shared knowledge base
+- `.agents/skills/` provides skills for all compatible agents
+- Cursor, OpenCode, and Claude Code all discover skills from this location
+- AGENTS.md serves as the shared knowledge base
 
-**Zed compatibility:**
+**Editor compatibility:**
 
 - Author uses Zed as primary editor
 - `zed <FILE>` opens files from CLI
