@@ -8,10 +8,10 @@ Contributions welcome — these are living documents, continuously updated post-
 
 ```txt
 Writings/
-├── 01_patents/     # Technical inventions
-├── 02_papers/      # Academic papers and preprints
-├── 03_books/       # Extended works with chapter structure
-├── 04_essays/      # Long-form scientific/philosophical writing
+├── 001_patents/    # Technical inventions
+├── 002_papers/     # Academic papers and preprints
+├── 003_books/      # Extended works with chapter structure
+├── 004_essays/     # Long-form scientific/philosophical writing
 └── _templates/     # Shared LaTeX templates
 ```
 

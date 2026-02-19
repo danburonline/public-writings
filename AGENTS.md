@@ -10,21 +10,21 @@ This repository contains all public writings by Daniel Burger: essays, papers, p
 
 ```txt
 Writings/
-├── 01_patents/                   # Patent applications (see Legal section)
+├── 001_patents/                  # Patent applications (see Legal section)
 │   └── YYYY/NNN_patent/          # Year/sequence organisation
 │       ├── patent.tex            # Main LaTeX source
 │       ├── figures/              # Images and diagrams
 │       └── references/           # bibliography.bib
-├── 02_papers/                    # Academic papers
+├── 002_papers/                   # Academic papers
 │   └── YYYY/NNN_paper/           # Year/sequence organisation
 │       ├── paper.tex             # Main LaTeX source
 │       ├── figures/
 │       └── references/
-├── 03_books/                     # Book projects
+├── 003_books/                    # Book projects
 │   └── book_slug/
 │       ├── main.tex
 │       └── chapters/
-├── 04_essays/                    # Long-form essays
+├── 004_essays/                   # Long-form essays
 │   └── YYYY/NNN_essay/           # Year/sequence organisation
 │       ├── essay.tex             # Main LaTeX source
 │       ├── figures/
@@ -272,7 +272,7 @@ BibTeX entries in `references/bibliography.bib`:
 
 ### Creating New Documents
 
-1. Create directory: `XX_type/YYYY/NNN_type/`
+1. Create directory: `NNN_type/YYYY/NNN_type/`
 2. Copy structure from existing document of same type
 3. Update `\input{}` path to appropriate preamble (e.g., `essay-preamble.tex`, `paper-preamble.tex`)
 4. Create `figures/` and `references/` subdirectories
@@ -354,7 +354,7 @@ Before completing any task:
 
 ### Patents
 
-**CRITICAL:** Patent documents in `01_patents/` have special handling:
+**CRITICAL:** Patent documents in `001_patents/` have special handling:
 
 1. **Pre-submission:** Content is confidential; do not discuss publicly
 2. **Post-provisional:** Can be pushed to public repository only after provisional patent application filed
@@ -583,8 +583,8 @@ This section documents planned additions to the workspace and agent capabilities
 
 ### Planned Document Types
 
-- [x] **Patents** (`01_patents/`) — Technical invention disclosures ✓
-- [x] **Books** (`03_books/`) — Extended works with chapter structure ✓
+- [x] **Patents** (`001_patents/`) — Technical invention disclosures ✓
+- [x] **Books** (`003_books/`) — Extended works with chapter structure ✓
 - [ ] **Presentations** — Beamer slides for conferences
 - [ ] **Grant proposals** — Funding applications
 
