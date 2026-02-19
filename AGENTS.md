@@ -277,6 +277,42 @@ BibTeX entries in `references/bibliography.bib`:
 3. Update `\input{}` path to appropriate preamble (e.g., `essay-preamble.tex`, `paper-preamble.tex`)
 4. Create `figures/` and `references/` subdirectories
 
+### Submodule Workflow (Work-in-Progress Documents)
+
+Documents under active development live in separate private repositories and are linked here as Git submodules. Once a document reaches its final version, the submodule is replaced with the actual folder contents and the document is published to the public repository.
+
+**Adding a new WIP document as a submodule:**
+
+```bash
+git submodule add <repo-url> 002_papers/2026/002_paper
+git commit -m "Add paper/002 as submodule"
+```
+
+**Promoting a finished document to a full folder:**
+
+```bash
+# 1. Note the submodule path and remote URL
+git submodule status
+
+# 2. Remove the submodule
+git submodule deinit -f 002_papers/2026/002_paper
+git rm -f 002_papers/2026/002_paper
+rm -rf .git/modules/002_papers/2026/002_paper
+
+# 3. Clone the contents in its place
+git clone <repo-url> 002_papers/2026/002_paper
+rm -rf 002_papers/2026/002_paper/.git
+
+# 4. Commit the expanded folder
+git add 002_papers/2026/002_paper
+git commit -m "Promote paper/002 from submodule to folder for publication"
+```
+
+**Rules:**
+- Submodules are private repos; they are never pushed to the public Writings remote until promoted.
+- Promotion happens only when the document is in its final, publishable state.
+- After promotion, push to the public remote: `git push public main`.
+
 ### Compilation
 
 ```bash

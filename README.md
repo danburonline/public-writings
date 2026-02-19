@@ -4,6 +4,8 @@ This repository hosts all public writings by Daniel Burger: essays, papers, pate
 
 Contributions welcome — these are living documents, continuously updated post-publication.
 
+> **Note:** Documents under active development are private Git submodules and will not appear here until finalised and promoted to full folders for publication.
+
 ## Repository Structure
 
 ```txt
