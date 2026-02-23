@@ -1,0 +1,9 @@
+[submodule "002_papers/2026/ecp-paper"]
+	path = 002_papers/2026/ecp-paper
+	url = https://github.com/danburonline/ecp-paper.git
+[submodule "002_papers/2026/hmu-paper"]
+	path = 002_papers/2026/hmu-paper
+	url = https://github.com/danburonline/hmu-paper.git
+[submodule "002_papers/2026/synconetics-paper"]
+	path = 002_papers/2026/synconetics-paper
+	url = https://github.com/danburonline/synconetics-paper.git
