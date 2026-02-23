@@ -7,3 +7,12 @@
 [submodule "002_papers/2026/synconetics-paper"]
 	path = 002_papers/2026/synconetics-paper
 	url = https://github.com/danburonline/synconetics-paper.git
+[submodule "002_papers/2026/realisability-paper"]
+	path = 002_papers/2026/realisability-paper
+	url = https://github.com/danburonline/realisability-paper.git
+[submodule "002_papers/2026/ocm-paper"]
+	path = 002_papers/2026/ocm-paper
+	url = https://github.com/danburonline/ocm-paper.git
+[submodule "002_papers/2026/centredness-paper"]
+	path = 002_papers/2026/centredness-paper
+	url = https://github.com/danburonline/centredness-paper.git
