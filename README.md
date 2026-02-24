@@ -20,7 +20,7 @@ Writings/
 ## Patents
 
 | Title | Date | Status |
-|-------|------|--------|
+| ----- | ---- | ------ |
 
 ## Papers
 
@@ -31,7 +31,7 @@ Writings/
 ## Books
 
 | Title | Date | Status |
-|-------|------|--------|
+| ----- | ---- | ------ |
 
 ## Essays
 

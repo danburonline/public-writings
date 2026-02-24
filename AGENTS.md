@@ -309,6 +309,7 @@ git commit -m "Promote paper/002 from submodule to folder for publication"
 ```
 
 **Rules:**
+
 - Submodules are private repos; they are never pushed to the public Writings remote until promoted.
 - Promotion happens only when the document is in its final, publishable state.
 - After promotion, push to the public remote: `git push public main`.
