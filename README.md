@@ -1,6 +1,6 @@
 # Public Writings
 
-This repository hosts public writings by Daniel Burger: essays, papers, patents, and books. Everything is written in LaTeX using a unified template system in `_templates/`. See [`_templates/README.md`](_templates/README.md) for template documentation.
+This repository hosts public writings by Daniel Burger: essays, papers, patents, and books. Everything is written in LaTeX. Documents stored directly in this repository use the shared template system in `_templates/`; self-contained paper submodules retain their own standalone manuscript formatting. See [`_templates/README.md`](_templates/README.md) for template documentation.
 
 Contributions welcome — these are living documents, continuously updated post-publication.
 
@@ -29,7 +29,7 @@ Unlike essays and papers, patent drafts must remain confidential before filing. 
 
 ## Papers
 
-Six papers are under active development as private submodules under `002_papers/2026/`. Titles below are working titles; full source is not public until promotion.
+Six papers are under active development as private submodules under `002_papers/2026/`. Titles below are working titles; full source is not public until promotion. Each paper repository uses a self-contained, single-file manuscript structure: `main.tex` contains the standalone preamble, manuscript, and bibliography, while `main.pdf` is the compiled output.
 
 | Title | Status |
 | ----- | ------ |

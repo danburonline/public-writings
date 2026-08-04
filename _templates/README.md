@@ -1,6 +1,6 @@
 # LaTeX Templates
 
-This folder contains personal drafting templates for different document types.
+This folder contains personal drafting templates for documents stored directly in the Writings repository. Private paper submodules are independently cloneable repositories and therefore retain self-contained preambles rather than depending on a parent-repository path.
 
 > **Note:** These are **personal drafting templates**. When submitting to journals or conferences (e.g., Springer LNCS for HCII, IEEE, ACM), use their official templates and convert your content accordingly.
 
