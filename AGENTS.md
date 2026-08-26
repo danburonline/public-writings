@@ -11,21 +11,20 @@ This repository contains all public writings by Daniel Burger: essays, papers, p
 ```txt
 Writings/
 ├── 001_patents/                  # Patent applications (see Legal section)
-│   └── YYYY/NNN_patent/          # Year/sequence organisation
+│   └── YYYY/kebab-slug/          # e.g. example_patent (template still snake_case)
 │       ├── patent.tex            # Main LaTeX source
 │       ├── figures/              # Images and diagrams
 │       └── references/           # bibliography.bib
-├── 002_papers/                   # Academic papers
-│   └── YYYY/NNN_paper/           # Year/sequence organisation
-│       ├── paper.tex             # Main LaTeX source
-│       ├── figures/
-│       └── references/
+├── 002_papers/                   # Academic papers (private git submodules until promoted)
+│   └── YYYY/kebab-slug/          # e.g. ecp-paper, hmu-paper, synconetics-paper
+│       ├── main.tex              # Self-contained manuscript (preamble + body + bibliography)
+│       └── main.pdf              # Compiled output
 ├── 003_books/                    # Book projects
-│   └── book_slug/
+│   └── kebab-slug/               # e.g. example_book (template still snake_case)
 │       ├── main.tex
 │       └── chapters/
 ├── 004_essays/                   # Long-form essays
-│   └── YYYY/NNN_essay/           # Year/sequence organisation
+│   └── YYYY/kebab-slug/          # e.g. death-is-an-engineering-challenge
 │       ├── essay.tex             # Main LaTeX source
 │       ├── figures/
 │       └── references/
@@ -272,10 +271,12 @@ BibTeX entries in `references/bibliography.bib`:
 
 ### Creating New Documents
 
-1. Create directory: `NNN_type/YYYY/NNN_type/`
-2. Copy structure from existing document of same type
-3. Update `\input{}` path to appropriate preamble (e.g., `essay-preamble.tex`, `paper-preamble.tex`)
-4. Create `figures/` and `references/` subdirectories
+1. Create a kebab-case slug directory: `00N_type/YYYY/kebab-slug/` (books omit the year: `003_books/kebab-slug/`)
+2. Papers in progress go in as a git submodule at that path, with `main.tex` as the self-contained manuscript
+3. Essays use `essay.tex`; patents use `patent.tex`; books use `main.tex`
+4. Copy structure from an existing document of the same type
+5. Update `\input{}` path to the appropriate preamble where the document is not self-contained
+6. Create `figures/` and `references/` subdirectories as needed
 
 ### Submodule Workflow (Work-in-Progress Documents)
 
@@ -284,8 +285,8 @@ Documents under active development live in separate private repositories and are
 **Adding a new WIP document as a submodule:**
 
 ```bash
-git submodule add <repo-url> 002_papers/2026/002_paper
-git commit -m "Add paper/002 as submodule"
+git submodule add <repo-url> 002_papers/2026/kebab-slug
+git commit -m "Add kebab-slug paper as submodule"
 ```
 
 **Promoting a finished document to a full folder:**
@@ -295,17 +296,17 @@ git commit -m "Add paper/002 as submodule"
 git submodule status
 
 # 2. Remove the submodule
-git submodule deinit -f 002_papers/2026/002_paper
-git rm -f 002_papers/2026/002_paper
-rm -rf .git/modules/002_papers/2026/002_paper
+git submodule deinit -f 002_papers/2026/kebab-slug
+git rm -f 002_papers/2026/kebab-slug
+rm -rf .git/modules/002_papers/2026/kebab-slug
 
 # 3. Clone the contents in its place
-git clone <repo-url> 002_papers/2026/002_paper
-rm -rf 002_papers/2026/002_paper/.git
+git clone <repo-url> 002_papers/2026/kebab-slug
+rm -rf 002_papers/2026/kebab-slug/.git
 
 # 4. Commit the expanded folder
-git add 002_papers/2026/002_paper
-git commit -m "Promote paper/002 from submodule to folder for publication"
+git add 002_papers/2026/kebab-slug
+git commit -m "Promote kebab-slug from submodule to folder for publication"
 ```
 
 **Rules:**
